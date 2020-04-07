@@ -1,11 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1aEHW5dL4w2IpEKIcCGSCr1ALwZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="" />
+      <created>1586293861126</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586293861126</updated>
+      <workItem from="1586293862630" duration="886000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1366" height="240" key="GridCell.Tab.0.bottom" timestamp="1586294773728">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1586294773728" />
+    <state width="1366" height="240" key="GridCell.Tab.0.center" timestamp="1586294773727">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1586294773727" />
+    <state width="1366" height="240" key="GridCell.Tab.0.left" timestamp="1586294773726">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1586294773726" />
+    <state width="1366" height="240" key="GridCell.Tab.0.right" timestamp="1586294773727">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1586294773727" />
+    <state width="1366" height="240" key="GridCell.Tab.1.bottom" timestamp="1586294773731">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1586294773731" />
+    <state width="1366" height="240" key="GridCell.Tab.1.center" timestamp="1586294773730">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1586294773730" />
+    <state width="1366" height="240" key="GridCell.Tab.1.left" timestamp="1586294773729">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1586294773729" />
+    <state width="1366" height="240" key="GridCell.Tab.1.right" timestamp="1586294773731">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1586294773731" />
+    <state width="1366" height="240" key="GridCell.Tab.2.bottom" timestamp="1586294773733">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1586294773733" />
+    <state width="1366" height="240" key="GridCell.Tab.2.center" timestamp="1586294773732">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1586294773732" />
+    <state width="1366" height="240" key="GridCell.Tab.2.left" timestamp="1586294773732">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1586294773732" />
+    <state width="1366" height="240" key="GridCell.Tab.2.right" timestamp="1586294773732">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1586294773732" />
+    <state width="1366" height="240" key="GridCell.Tab.3.bottom" timestamp="1586294773734">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.3.bottom/0.0.1366.768@0.0.1366.768" timestamp="1586294773734" />
+    <state width="1366" height="240" key="GridCell.Tab.3.center" timestamp="1586294773733">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.3.center/0.0.1366.768@0.0.1366.768" timestamp="1586294773733" />
+    <state width="1366" height="240" key="GridCell.Tab.3.left" timestamp="1586294773733">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.3.left/0.0.1366.768@0.0.1366.768" timestamp="1586294773733" />
+    <state width="1366" height="240" key="GridCell.Tab.3.right" timestamp="1586294773734">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1366" height="240" key="GridCell.Tab.3.right/0.0.1366.768@0.0.1366.768" timestamp="1586294773734" />
+    <state x="346" y="89" width="670" height="58" key="search.everywhere.popup" timestamp="1586294779902">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="670" height="58" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1586294779902" />
   </component>
 </project>
