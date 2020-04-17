@@ -57,12 +57,13 @@
 
     width: 70vw;
 
+    font-size: 2vmin;
+
     border: 1px solid black;
 }
 
 .main-frame-view-title {
     padding: 1vmin 1vmax;
-    flex-grow: 1;
 }
 
 .main-frame-footer {
