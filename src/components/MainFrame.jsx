@@ -1,4 +1,5 @@
 import React from "react"
+import Announcement from "./Announcement";
 
 class MainFrame extends React.Component {
     render() {
@@ -21,98 +22,7 @@ class MainFrame extends React.Component {
                     </div>
                     <div className={"main-frame-view"}>
                         <span className={"main-frame-view-title"}>Доска объявлений</span>
-                        <div className={"announcement-view-vertical"}>
-                            <div className={"announcement-view-header"}>
-                                <span className={"announcement-view-header-all-items-label"}>Все объявления</span>
-                                <span className={"announcement-view-header-filters-label"}>фильтры</span>
-                            </div>
-                            <div className={"announcement-view-list"}>
-                                <div className={"announcement-view-list-item"}>
-                                    <div className={"announcement-view-list-item-title"}>Объявление #1</div>
-                                    <div className={"announcement-view-list-item-description"}>
-                                        Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла
-                                    </div>
-                                    <div className={"announcement-view-list-item-footer"}>
-                                        <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
-                                    </div>
-                                </div>
-                                <div className={"announcement-view-list-item"}>
-                                    <div className={"announcement-view-list-item-title"}>Объявление #1</div>
-                                    <div className={"announcement-view-list-item-description"}>
-                                        Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла
-                                    </div>
-                                    <div className={"announcement-view-list-item-footer"}>
-                                        <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
-                                    </div>
-                                </div>
-                                <div className={"announcement-view-list-item"}>
-                                    <div className={"announcement-view-list-item-title"}>Объявление #1</div>
-                                    <div className={"announcement-view-list-item-denscription"}>
-                                        Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла
-                                    </div>
-                                    <div className={"announcement-view-list-item-footer"}>
-                                        <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
-                                    </div>
-                                </div>
-                                <div className={"announcement-view-list-item"}>
-                                    <div className={"announcement-view-list-item-title"}>Объявление #1</div>
-                                    <div className={"announcement-view-list-item-description"}>
-                                        Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла
-                                    </div>
-                                    <div className={"announcement-view-list-item-footer"}>
-                                        <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
-                                    </div>
-                                </div>
-                                <div className={"announcement-view-list-item"}>
-                                    <div className={"announcement-view-list-item-title"}>Объявление #1</div>
-                                    <div className={"announcement-view-list-item-description"}>
-                                        Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла
-                                    </div>
-                                    <div className={"announcement-view-list-item-footer"}>
-                                        <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
-                                    </div>
-                                </div>
-                                <div className={"announcement-view-list-item"}>
-                                    <div className={"announcement-view-list-item-title"}>Объявление #1</div>
-                                    <div className={"announcement-view-list-item-description"}>
-                                        Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла
-                                    </div>
-                                    <div className={"announcement-view-list-item-footer"}>
-                                        <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
-                                    </div>
-                                </div>
-                                <div className={"announcement-view-list-item"}>
-                                    <div className={"announcement-view-list-item-title"}>Объявление #1</div>
-                                    <div className={"announcement-view-list-item-description"}>
-                                        Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла  Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла Бла-бла-бла
-                                    </div>
-                                    <div className={"announcement-view-list-item-footer"}>
-                                        <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                                        <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Announcement/>
                     </div>
                 </div>
                 <div className={"main-frame-footer"}>
