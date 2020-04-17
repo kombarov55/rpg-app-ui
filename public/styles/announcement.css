@@ -18,15 +18,15 @@
 }
 
 .announcement-view-header > * {
-    padding: 0.5vmax 3vmax;
+    padding: 1vmin;
 }
 
 .announcement-view-header-all-items-label {
-
+    font-size: 3vmin;
 }
 
 .announcement-view-header-filters-label {
-
+    font-size: 3vmin;
 }
 
 .announcement-view-list {
@@ -51,7 +51,9 @@
 }
 
 .announcement-view-list-item-title {
+    padding: 1vmin;
 
+    font-size: 3vmin;
 }
 
 .announcement-view-list-item-description {

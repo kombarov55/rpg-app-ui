@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/styles/announcement.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/announcement.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/styles/main-frame.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/main-frame.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainFrame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainFrame.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587089610335</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="хуй с ним">
+      <created>1587089835433</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587089835433</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +145,8 @@
     <MESSAGE value="есть первая вёрстка главного фрейма" />
     <MESSAGE value="первая версия доски объявлений" />
     <MESSAGE value="ширина для футера элемента листа" />
-    <option name="LAST_COMMIT_MESSAGE" value="ширина для футера элемента листа" />
+    <MESSAGE value="хуй с ним" />
+    <option name="LAST_COMMIT_MESSAGE" value="хуй с ним" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-3" y="-66" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587089610258">
