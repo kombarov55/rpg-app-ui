@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainFrame from "./components/MainFrame";
 
 function App() {
     return (
-        <h1>Hello world!</h1>
+        <MainFrame/>
     );
 }
 
