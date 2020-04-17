@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/styles/announcement.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/main-frame.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/main-frame.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/main-frame.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainFrame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainFrame.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586293861126</updated>
       <workItem from="1586293862630" duration="1809000" />
-      <workItem from="1587082301523" duration="3846000" />
+      <workItem from="1587082301523" duration="4846000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1586294802085</created>
@@ -114,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587084199582</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="первая версия доски объявлений">
+      <created>1587086306945</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587086306945</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,13 +131,14 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="подрублен css" />
     <MESSAGE value="есть первая вёрстка главного фрейма" />
-    <option name="LAST_COMMIT_MESSAGE" value="есть первая вёрстка главного фрейма" />
+    <MESSAGE value="первая версия доски объявлений" />
+    <option name="LAST_COMMIT_MESSAGE" value="первая версия доски объявлений" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587084199461">
+    <state x="-2" y="-44" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587086306847">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587084199461" />
+    <state x="-2" y="-44" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587086306847" />
     <state x="-1" y="44" width="1368" height="701" key="DiffContextDialog" timestamp="1587084814829">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
