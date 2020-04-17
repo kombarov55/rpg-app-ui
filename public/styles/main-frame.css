@@ -1,26 +1,23 @@
-#root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body {
+    color: #FFFFFF;
 }
 
 .main-vertical {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
     border: 1px solid black;
 
 }
 
-.main-frame-head {
+.main-frame-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-grow: 1;
 
     border: 1px solid black;
+    background: #592E83;
 
     padding: 1.5vmin 3vmax;
 }
@@ -28,10 +25,10 @@
 .main-frame-body {
     display: flex;
     flex-direction: row;
-    flex-grow: 10;
+    flex-grow: 1;
 
+    background: #331E4D;
     border: 1px solid black;
-
 }
 
 .main-frame-nav {
@@ -67,8 +64,8 @@
 .main-frame-footer {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 
+    background: #9984D4;
     border: 1px solid black;
 }
 

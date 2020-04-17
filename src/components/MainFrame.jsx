@@ -4,7 +4,7 @@ class MainFrame extends React.Component {
     render() {
         return (
             <div className={"main-vertical"}>
-                <div className={"main-frame-head"}>
+                <div className={"main-frame-header"}>
                     <div className={"head-name"}>Название</div>
                     <div className={"head-logo"}>Логотип</div>
                 </div>
