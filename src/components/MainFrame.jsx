@@ -2,7 +2,19 @@ import React from "react"
 import Announcement from "./Announcement";
 import AnnoucementCreation from "./AnnoucementCreation";
 
+const announcementView = <Announcement/>
+const announcementCreationView = <AnnoucementCreation/>
+
 class MainFrame extends React.Component {
+
+    state = {
+        currentView: announcementView
+    }
+
+    onChangeViewClicked(nextView) {
+        this.setState({currentView: nextView})
+    }
+
     render() {
         return (
             <div className={"main-vertical"}>
@@ -12,8 +24,8 @@ class MainFrame extends React.Component {
                 </div>
                 <div className={"main-frame-body"}>
                     <div className={"main-frame-nav"}>
-                        <div className={"main-frame-nav-item"}>Доска объявлений</div>
-                        <div className={"main-frame-nav-item"}>Мои объявления</div>
+                        <div className={"main-frame-nav-item"} onClick={() => this.onChangeViewClicked(announcementView)}>Доска объявлений</div>
+                        <div className={"main-frame-nav-item"} onClick={() => this.onChangeViewClicked(announcementCreationView)}>Мои объявления</div>
                         <div className={"main-frame-nav-item"}>Избранное</div>
                         <div className={"main-frame-nav-item"}>Сообщения</div>
                         <div className={"main-frame-nav-item"}>Мои игры</div>
@@ -23,7 +35,9 @@ class MainFrame extends React.Component {
                     </div>
                     <div className={"main-frame-view"}>
                         <span className={"main-frame-view-title"}>Доска объявлений</span>
-                        <Announcement/>
+
+                        {this.state.currentView}
+                        {/*<Announcement/>*/}
                         {/*<AnnoucementCreation/>*/}
                     </div>
                 </div>

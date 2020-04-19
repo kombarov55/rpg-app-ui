@@ -33,17 +33,11 @@ class ConnectedAnnouncement extends React.Component {
                     <span className={"announcement-view-header-filters-label"}
                           onClick={() => this.onCreationButtonClicked()}>Создать объявление</span>
                 </div>
-                <div className={"announcement-view-list"}>
-                    {
-                        this.props.announcements.map(announcement => (
-                            <AnnouncementItem title={announcement.title} description={announcement.description}/>
-                        ))
-                    }
-
-                    {/*<AnnouncementItem title={"Объявление №1"} description={"бла-бла-бла"}/>*/}
-                    {/* <AnnouncementItem title={"Объявление №2"}*/}
-                    {/*                  description={" бла-бла-бла бла-бла-бла бла-бла-бла бла-бла-бла бла-бла-бла бла-бла-бла бла-бла-бла бла-бла-бла бла-бла-бла"}/>*/}
-                </div>
+                <div className={"announcement-view-list"}>{
+                    this.props.announcements.map(announcement => (
+                        <AnnouncementItem title={announcement.title} description={announcement.description}/>
+                    ))
+                }</div>
             </div>
         );
     }
