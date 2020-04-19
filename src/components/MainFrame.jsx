@@ -1,5 +1,6 @@
 import React from "react"
 import Announcement from "./Announcement";
+import AnnoucementCreation from "./AnnoucementCreation";
 
 class MainFrame extends React.Component {
     render() {
@@ -22,7 +23,8 @@ class MainFrame extends React.Component {
                     </div>
                     <div className={"main-frame-view"}>
                         <span className={"main-frame-view-title"}>Доска объявлений</span>
-                        <Announcement/>
+                        {/*<Announcement/>*/}
+                        <AnnoucementCreation/>
                     </div>
                 </div>
                 <div className={"main-frame-footer"}>

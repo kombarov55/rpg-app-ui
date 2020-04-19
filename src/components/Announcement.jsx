@@ -5,6 +5,8 @@ import {Button} from "primereact/button";
 import {Card} from "primereact/card";
 import {OverlayPanel} from "primereact/overlaypanel";
 import {Dialog} from "primereact/dialog";
+import {InputText} from "primereact/inputtext";
+import AnnoucementCreation from "./AnnoucementCreation";
 
 class Announcement extends React.Component {
     state = {
@@ -14,14 +16,6 @@ class Announcement extends React.Component {
     render() {
         return (
             <div className={"announcement-view-vertical"}>
-                <Dialog header={"Создание объявления"}
-                        visible={this.state.creationDialogVisible}
-                        modal={true}
-                        onHide={() => this.setState({creationDialogVisible: false})}
-
-                >
-                    Как понять что ты устал
-                </Dialog>
                 <div className={"announcement-view-header"}>
                     <span className={"announcement-view-header-all-items-label"}>Все объявления</span>
                     <span className={"announcement-view-header-filters-label"}>фильтры</span>
