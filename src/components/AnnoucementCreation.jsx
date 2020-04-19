@@ -2,7 +2,6 @@ import React from "react"
 import {SelectButton} from "primereact/selectbutton";
 import {InputTextarea} from "primereact/inputtextarea";
 import {FileUpload} from "primereact/fileupload";
-import {ScrollPanel} from "primereact/scrollpanel";
 import {InputMask} from "primereact/inputmask";
 import {InputSwitch} from "primereact/inputswitch";
 import {Button} from "primereact/button";
@@ -23,10 +22,7 @@ class AnnoucementCreation extends React.Component {
 
     render() {
         return (
-            <div className={"p-grid p-dir-col"} >
-                <div className={"p-col"}>
-                    <h3>Создание объявления</h3>
-                </div>
+            <div className={"p-grid p-dir-col announcement-creation-vertical"} >
                 <div className={"p-col"}>
                     <InputMask mask={"Название..."}/>
                 </div>

@@ -4,7 +4,6 @@ import {Panel} from "primereact/panel";
 import {Button} from "primereact/button";
 import {Card} from "primereact/card";
 import {OverlayPanel} from "primereact/overlaypanel";
-import {Dialog} from "primereact/dialog";
 import {InputText} from "primereact/inputtext";
 import AnnoucementCreation from "./AnnoucementCreation";
 
