@@ -66,7 +66,7 @@ body {
 
 .main-frame-footer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     background: #9984D4;
     border: 1px solid black;
@@ -74,8 +74,4 @@ body {
 
 .footer-copyright {
 
-}
-
-.footer-ads {
-    align-self: flex-end;
 }
