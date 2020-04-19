@@ -27,6 +27,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    align-items: stretch;
 
     background: #331E4D;
     border: 1px solid black;
@@ -53,9 +54,19 @@ body {
     flex-direction: column;
     align-items: stretch;
 
-    width: 70vw;
+    width: 100vw;
 
     border: 1px solid black;
+}
+
+.main-frame-view-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bars-icon {
+    align-self: center;
 }
 
 .main-frame-view-title {

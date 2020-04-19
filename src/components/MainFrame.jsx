@@ -10,18 +10,12 @@ class MainFrame extends React.Component {
                     <div className={"head-logo"}>Логотип</div>
                 </div>
                 <div className={"main-frame-body"}>
-                    <div className={"main-frame-nav"}>
-                        <div className={"main-frame-nav-item"}>Доска объявлений</div>
-                        <div className={"main-frame-nav-item"}>Мои объявления</div>
-                        <div className={"main-frame-nav-item"}>Избранное</div>
-                        <div className={"main-frame-nav-item"}>Сообщения</div>
-                        <div className={"main-frame-nav-item"}>Мои игры</div>
-                        <div className={"main-frame-nav-item"}>Кабинет</div>
-                        <div className={"main-frame-nav-item"}>Квесты</div>
-                        <div className={"main-frame-nav-item"}>Панель администратора</div>
-                    </div>
                     <div className={"main-frame-view"}>
-                        <span className={"main-frame-view-title"}>Доска объявлений</span>
+                        <div className={"main-frame-view-head"}>
+                            <i className="pi pi-bars bars-icon" style={{"font-size": "5vmax"}}></i>
+                            <span className={"main-frame-view-title"}>Доска объявлений</span>
+                            <div></div>
+                        </div>
                         <Announcement/>
                     </div>
                 </div>
