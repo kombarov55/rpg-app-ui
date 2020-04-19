@@ -23,8 +23,8 @@ class MainFrame extends React.Component {
                     </div>
                     <div className={"main-frame-view"}>
                         <span className={"main-frame-view-title"}>Доска объявлений</span>
-                        {/*<Announcement/>*/}
-                        <AnnoucementCreation/>
+                        <Announcement/>
+                        {/*<AnnoucementCreation/>*/}
                     </div>
                 </div>
                 <div className={"main-frame-footer"}>

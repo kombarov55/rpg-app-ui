@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="модалка создания диалога">
-      <change afterPath="$PROJECT_DIR$/src/data-layer/ActionCreators.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data-layer/ActionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data-layer/Reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data-layer/Store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data-layer/enums/GameType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data-layer/enums/Sex.js" afterDir="false" />
+    <list default="true" id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Announcement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainFrame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainFrame.jsx" afterDir="false" />
     </list>
     <list id="24e1413f-dbe0-45c7-a84c-8fa462d4bbe6" name="Revert &quot;чото поменял&quot;" comment="Revert &quot;чото поменял&quot;&#10;&#10;This reverts commit 283d3aaf">
       <change beforePath="$PROJECT_DIR$/src/components/AnnouncementItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnnouncementItem.jsx" afterDir="false" />
@@ -217,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587303487315</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="подрбуил redux">
+      <created>1587318446780</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587318446780</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,85 +252,86 @@
     <MESSAGE value="модалка создания диалога" />
     <MESSAGE value="форма без компоновки" />
     <MESSAGE value="заменил на другой флекс" />
-    <option name="LAST_COMMIT_MESSAGE" value="заменил на другой флекс" />
+    <MESSAGE value="подрбуил redux" />
+    <option name="LAST_COMMIT_MESSAGE" value="подрбуил redux" />
   </component>
   <component name="WindowStateProjectService">
     <state x="140" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587211453727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="140" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1587211453727" />
-    <state x="0" y="0" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587303487179">
+    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587318446576">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="0" y="0" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587303487179" />
+    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587318446576" />
     <state x="-1" y="44" width="1368" height="701" key="DiffContextDialog" timestamp="1587084814829">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="-1" y="44" width="1368" height="701" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1587084814829" />
-    <state width="1366" height="222" key="GridCell.Tab.0.bottom" timestamp="1587318439919">
+    <state width="1366" height="222" key="GridCell.Tab.0.bottom" timestamp="1587318448278">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318439919" />
-    <state width="1366" height="222" key="GridCell.Tab.0.center" timestamp="1587318439917">
+    <state width="1366" height="222" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318448278" />
+    <state width="1366" height="222" key="GridCell.Tab.0.center" timestamp="1587318448276">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1587318439917" />
-    <state width="1366" height="222" key="GridCell.Tab.0.left" timestamp="1587318439916">
+    <state width="1366" height="222" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1587318448276" />
+    <state width="1366" height="222" key="GridCell.Tab.0.left" timestamp="1587318448275">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1587318439916" />
-    <state width="1366" height="222" key="GridCell.Tab.0.right" timestamp="1587318439918">
+    <state width="1366" height="222" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1587318448275" />
+    <state width="1366" height="222" key="GridCell.Tab.0.right" timestamp="1587318448277">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1587318439918" />
-    <state width="1366" height="222" key="GridCell.Tab.1.bottom" timestamp="1587318439921">
+    <state width="1366" height="222" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1587318448277" />
+    <state width="1366" height="222" key="GridCell.Tab.1.bottom" timestamp="1587318448280">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318439921" />
-    <state width="1366" height="222" key="GridCell.Tab.1.center" timestamp="1587318439920">
+    <state width="1366" height="222" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318448280" />
+    <state width="1366" height="222" key="GridCell.Tab.1.center" timestamp="1587318448279">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1587318439920" />
-    <state width="1366" height="222" key="GridCell.Tab.1.left" timestamp="1587318439920">
+    <state width="1366" height="222" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1587318448279" />
+    <state width="1366" height="222" key="GridCell.Tab.1.left" timestamp="1587318448278">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1587318439920" />
-    <state width="1366" height="222" key="GridCell.Tab.1.right" timestamp="1587318439920">
+    <state width="1366" height="222" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1587318448278" />
+    <state width="1366" height="222" key="GridCell.Tab.1.right" timestamp="1587318448279">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1587318439920" />
-    <state width="1366" height="222" key="GridCell.Tab.2.bottom" timestamp="1587318439921">
+    <state width="1366" height="222" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1587318448279" />
+    <state width="1366" height="222" key="GridCell.Tab.2.bottom" timestamp="1587318448282">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318439921" />
-    <state width="1366" height="222" key="GridCell.Tab.2.center" timestamp="1587318439921">
+    <state width="1366" height="222" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318448282" />
+    <state width="1366" height="222" key="GridCell.Tab.2.center" timestamp="1587318448281">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1587318439921" />
-    <state width="1366" height="222" key="GridCell.Tab.2.left" timestamp="1587318439921">
+    <state width="1366" height="222" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1587318448281" />
+    <state width="1366" height="222" key="GridCell.Tab.2.left" timestamp="1587318448281">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1587318439921" />
-    <state width="1366" height="222" key="GridCell.Tab.2.right" timestamp="1587318439921">
+    <state width="1366" height="222" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1587318448281" />
+    <state width="1366" height="222" key="GridCell.Tab.2.right" timestamp="1587318448281">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1587318439921" />
-    <state width="1366" height="222" key="GridCell.Tab.3.bottom" timestamp="1587318439922">
+    <state width="1366" height="222" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1587318448281" />
+    <state width="1366" height="222" key="GridCell.Tab.3.bottom" timestamp="1587318448283">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.3.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318439922" />
-    <state width="1366" height="222" key="GridCell.Tab.3.center" timestamp="1587318439922">
+    <state width="1366" height="222" key="GridCell.Tab.3.bottom/0.0.1366.768@0.0.1366.768" timestamp="1587318448283" />
+    <state width="1366" height="222" key="GridCell.Tab.3.center" timestamp="1587318448282">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.3.center/0.0.1366.768@0.0.1366.768" timestamp="1587318439922" />
-    <state width="1366" height="222" key="GridCell.Tab.3.left" timestamp="1587318439922">
+    <state width="1366" height="222" key="GridCell.Tab.3.center/0.0.1366.768@0.0.1366.768" timestamp="1587318448282" />
+    <state width="1366" height="222" key="GridCell.Tab.3.left" timestamp="1587318448282">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.3.left/0.0.1366.768@0.0.1366.768" timestamp="1587318439922" />
-    <state width="1366" height="222" key="GridCell.Tab.3.right" timestamp="1587318439922">
+    <state width="1366" height="222" key="GridCell.Tab.3.left/0.0.1366.768@0.0.1366.768" timestamp="1587318448282" />
+    <state width="1366" height="222" key="GridCell.Tab.3.right" timestamp="1587318448282">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1366" height="222" key="GridCell.Tab.3.right/0.0.1366.768@0.0.1366.768" timestamp="1587318439922" />
+    <state width="1366" height="222" key="GridCell.Tab.3.right/0.0.1366.768@0.0.1366.768" timestamp="1587318448282" />
     <state x="391" y="13" width="569" height="557" key="MultipleFileMergeDialog" timestamp="1587263877384">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -359,9 +360,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="346" y="170" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1587262940828" />
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587318440002">
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587318952992">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587318440002" />
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587318952992" />
   </component>
 </project>
