@@ -32,7 +32,7 @@ class ConnectedMainFrame extends React.Component {
                 <div className={"main-frame-body"}>
                     <div className={"main-frame-nav"}>
                         <div className={"main-frame-nav-item"} onClick={() => this.props.changeView(announcementView)}>Доска объявлений</div>
-                        <div className={"main-frame-nav-item"} onClick={() => this.props.changeView(announcementCreationView)}>Мои объявления</div>
+                        <div className={"main-frame-nav-item"}>Мои объявления</div>
                         <div className={"main-frame-nav-item"}>Избранное</div>
                         <div className={"main-frame-nav-item"}>Сообщения</div>
                         <div className={"main-frame-nav-item"}>Мои игры</div>

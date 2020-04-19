@@ -1,7 +1,8 @@
 import React from "react";
 import AnnouncementItem from "./AnnouncementItem";
 import {connect} from "react-redux";
-import {addAnnouncement} from "../data-layer/ActionCreators";
+import {changeView, addAnnouncement} from "../data-layer/ActionCreators";
+import {announcementCreationView} from "../View";
 
 function mapStateToProps(state) {
     return {
@@ -11,19 +12,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        changeViewToCreation: () => dispatch(changeView(announcementCreationView)),
         addAnouncement: () => dispatch(addAnnouncement("#1", "", "", 1, 1, "бла бла бла бла", false, true))
     }
 }
 
 class ConnectedAnnouncement extends React.Component {
-    state = {
-        creationDialogVisible: false
-    }
-
-    onCreationButtonClicked() {
-        this.props.addAnouncement()
-    }
-
     render() {
         return (
             <div className={"announcement-view-vertical"}>
@@ -31,7 +25,7 @@ class ConnectedAnnouncement extends React.Component {
                     <span className={"announcement-view-header-all-items-label"}>Все объявления</span>
                     <span className={"announcement-view-header-filters-label"}>фильтры</span>
                     <span className={"announcement-view-header-filters-label"}
-                          onClick={() => this.onCreationButtonClicked()}>Создать объявление</span>
+                          onClick={() => this.props.changeViewToCreation()}>Создать объявление</span>
                 </div>
                 <div className={"announcement-view-list"}>{
                     this.props.announcements.map(announcement => (
