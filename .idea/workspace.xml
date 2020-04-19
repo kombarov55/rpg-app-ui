@@ -31,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -253,10 +253,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="140" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1587211453727" />
-    <state x="0" y="0" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587303487179">
+    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587305469258">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="0" y="0" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587303487179" />
+    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587305469258" />
     <state x="-1" y="44" width="1368" height="701" key="DiffContextDialog" timestamp="1587084814829">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -333,10 +333,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="178" y="-22" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1587237013459" />
-    <state x="272" y="-35" width="802" height="521" key="Vcs.Push.Dialog.v2" timestamp="1587303488261">
+    <state x="271" y="-57" width="802" height="521" key="Vcs.Push.Dialog.v2" timestamp="1587305470609">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="272" y="-35" width="802" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587303488261" />
+    <state x="271" y="-57" width="802" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587305470608" />
     <state x="0" y="0" width="1366" height="768" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587264565797">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -353,9 +353,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="346" y="170" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1587262940828" />
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587304838662">
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587305537775">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587304838662" />
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587305537775" />
   </component>
 </project>

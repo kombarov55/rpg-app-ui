@@ -8,7 +8,8 @@ import MainFrame from "./components/MainFrame";
 
 function App() {
     return (
-        <MainFrame/>
+        <p>Првет мир</p>
+        // <MainFrame/>
     );
 }
 
