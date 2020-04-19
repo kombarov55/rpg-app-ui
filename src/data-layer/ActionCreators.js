@@ -1,6 +1,16 @@
 import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
-import {ADD_ANNOUNCEMENT} from "./ActionTypes";
+import {ADD_ANNOUNCEMENT, CHANGE_VIEW} from "./ActionTypes";
+import {announcementView} from "../View";
+
+export function changeView(nextView = announcementView) {
+    return {
+        type: CHANGE_VIEW,
+        payload: {
+            nextView: nextView
+        }
+    }
+}
 
 export function addAnnouncement(
     title = "",

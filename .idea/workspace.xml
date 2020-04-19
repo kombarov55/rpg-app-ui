@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/View.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Announcement.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainFrame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainFrame.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-layer/ActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-layer/ActionCreators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-layer/ActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-layer/ActionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data-layer/Reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-layer/Reducers.js" afterDir="false" />
     </list>
     <list id="24e1413f-dbe0-45c7-a84c-8fa462d4bbe6" name="Revert &quot;чото поменял&quot;" comment="Revert &quot;чото поменял&quot;&#10;&#10;This reverts commit 283d3aaf">
       <change beforePath="$PROJECT_DIR$/src/components/AnnouncementItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnnouncementItem.jsx" afterDir="false" />
@@ -224,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587319249574</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="реализовал перекидку вью">
+      <created>1587319617886</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587319617886</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,17 +271,18 @@
     <MESSAGE value="заменил на другой флекс" />
     <MESSAGE value="подрбуил redux" />
     <MESSAGE value="добавил dispatch и mapparams" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил dispatch и mapparams" />
+    <MESSAGE value="реализовал перекидку вью" />
+    <option name="LAST_COMMIT_MESSAGE" value="реализовал перекидку вью" />
   </component>
   <component name="WindowStateProjectService">
     <state x="140" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587211453727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="140" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1587211453727" />
-    <state x="-2" y="-44" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587319249425">
+    <state x="-3" y="-66" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587319617771">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="-2" y="-44" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587319249425" />
+    <state x="-3" y="-66" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587319617771" />
     <state x="-1" y="44" width="1368" height="701" key="DiffContextDialog" timestamp="1587084814829">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -348,29 +359,29 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="178" y="-22" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1587237013459" />
-    <state x="271" y="-57" width="802" height="521" key="Vcs.Push.Dialog.v2" timestamp="1587319250084">
+    <state x="270" y="-79" width="802" height="521" key="Vcs.Push.Dialog.v2" timestamp="1587319619291">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="271" y="-57" width="802" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587319250084" />
+    <state x="270" y="-79" width="802" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587319619291" />
     <state x="0" y="0" width="1366" height="768" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587264565797">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="0" y="0" width="1366" height="768" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1587264565797" />
-    <state x="360" y="110" width="645" height="546" key="find.popup" timestamp="1587305399008">
+    <state x="360" y="110" width="645" height="546" key="find.popup" timestamp="1587321606242">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="360" y="110" width="645" height="546" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1587305399008" />
+    <state x="360" y="110" width="645" height="546" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1587321606242" />
     <state x="440" y="-23" width="470" height="585" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587263875899">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="440" y="-23" width="470" height="585" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.768@0.0.1366.768" timestamp="1587263875899" />
-    <state x="346" y="170" key="run.anything.popup" timestamp="1587262940828">
+    <state x="346" y="170" key="run.anything.popup" timestamp="1587321612043">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="170" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1587262940828" />
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587319331297">
+    <state x="346" y="170" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1587321612043" />
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587321607994">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587319331297" />
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587321607994" />
   </component>
 </project>
