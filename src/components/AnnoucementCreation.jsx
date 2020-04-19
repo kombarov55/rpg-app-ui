@@ -1,6 +1,4 @@
 import React from "react"
-import {InputText} from "primereact/inputtext";
-import {MultiSelect} from "primereact/multiselect";
 import {SelectButton} from "primereact/selectbutton";
 import {InputTextarea} from "primereact/inputtextarea";
 import {FileUpload} from "primereact/fileupload";
@@ -25,29 +23,58 @@ class AnnoucementCreation extends React.Component {
 
     render() {
         return (
-            <div className={"announcement-creation-main-vertical"}>
-                <InputMask mask={"Название..."}/>
-                <SelectButton options={this.gameTypeValues}/>
-                <SelectButton options={this.sexValues}/>
-                <InputMask mask={"Минимальный возраст персонажа..."}/>
-                <InputMask mask={"Максимальный возраст персонажа..."}/>
-                <span>Текст объявления:</span>
-                <InputTextarea autoResize={true}/>
-                <span>Картинка к объявлению (не более 3):</span>
-                <FileUpload mode={"basic"}/>
-                <FileUpload mode={"basic"}/>
-                <FileUpload mode={"basic"}/>
-                <span>Анонимно: </span>
-                <InputSwitch/>
-                <span>Комментарии:</span>
-                <InputSwitch/>
-                <Button label={"Сохранить"}/>
-                {/*<div className={"announcement-creation-horizontal"}>*/}
-                {/*    <span className={"announcement-creation-label"}>Название*</span>*/}
-                {/*    <InputText style={this.inputStyle} />*/}
-                {/*</div> */}
+            <div className={"p-grid p-dir-col"} >
+                <div className={"p-col"}>
+                    <h3>Создание объявления</h3>
+                </div>
+                <div className={"p-col"}>
+                    <InputMask mask={"Название..."}/>
+                </div>
+                <div className={"p-col"}>
+                    <span>Тип игры: </span>
+                </div>
+                <div className={"p-col"}>
+                    <SelectButton options={this.gameTypeValues}/>
+                </div>
+                <div className={"p-col"}>
+                    <span>Пол персонажа:</span>
+                </div>
+                <div className={"p-col"}>
+                    <SelectButton options={this.sexValues}/>
+                </div>
+                <div className={"p-col"}>
+                    <InputMask mask={"Минимальный возраст персонажа..."}/>
+                </div>
+                <div className={"p-col"}>
+                    <InputMask mask={"Максимальный возраст персонажа..."}/>
+                </div>
+                <div className={"p-col"}>
+                    <span>Текст объявления:</span>
+                </div>
+                <div className={"p-col"}>
+                    <InputTextarea autoResize={true}/>
+                </div>
+                <div className={"p-col"}>
+                    <span>Картинка к объявлению (не более 3):</span>
+                </div>
+                <div className={"p-col"}>
+                    <FileUpload mode={"basic"}/>
+                    <FileUpload mode={"basic"}/>
+                    <FileUpload mode={"basic"}/>
+                </div>
+                <div className={"p-col"}>
+                    <span>Анонимно: </span>
+                    <InputSwitch/>
+                </div>
+                <div className={"p-col"}>
+                    <span>Комментарии:</span>
+                    <InputSwitch/>
+                </div>
+                <div className={"p-col"}>
+                    <Button label={"Сохранить"}/>
+                </div>
             </div>
-        );
+        )
     }
 }
 
