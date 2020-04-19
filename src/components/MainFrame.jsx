@@ -27,7 +27,7 @@ class MainFrame extends React.Component {
                 </div>
                 <div className={"main-frame-footer"}>
                     <div className={"footer-copyright"}>Копирайты</div>
-                    <div className={"footer-copyright"}>Реклама текстовой строкой</div>
+                    <div className={"footer-ads"}>Реклама текстовой строкой</div>
                 </div>
             </div>
         );
