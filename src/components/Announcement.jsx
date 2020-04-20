@@ -12,8 +12,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        changeViewToCreation: () => dispatch(changeView(announcementCreationView)),
-        addAnouncement: () => dispatch(addAnnouncement("#1", "", "", 1, 1, "бла бла бла бла", false, true))
+        changeViewToCreation: () => dispatch(changeView(announcementCreationView))
     }
 }
 
@@ -25,7 +24,9 @@ class ConnectedAnnouncement extends React.Component {
                     <span className={"announcement-view-header-all-items-label"}>Все объявления</span>
                     <span className={"announcement-view-header-filters-label"}>фильтры</span>
                     <span className={"announcement-view-header-filters-label"}
-                          onClick={() => this.props.changeViewToCreation()}>Создать объявление</span>
+                          onClick={() => this.props.changeViewToCreation()}>
+                        Создать объявление
+                    </span>
                 </div>
                 <div className={"announcement-view-list"}>{
                     this.props.announcements.map(announcement => (

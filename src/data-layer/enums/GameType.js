@@ -1,6 +1,6 @@
 export const GameTypes = {
-    LS: { description: "ЛС" },
-    CONFERENCE: { description: "Конференция" },
-    GROUP: { description: "Группа" }
+    LS: {id: "LS", description: "ЛС"},
+    CONFERENCE: {id: "CONFERENCE", description: "Конференция"},
+    GROUP: {id: "GROUP", description: "Группа"}
 }
 
