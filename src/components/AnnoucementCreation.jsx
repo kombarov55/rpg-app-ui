@@ -8,8 +8,10 @@ import {Button} from "primereact/button";
 import {GameTypes} from "../data-layer/enums/GameType";
 import {Sex} from "../data-layer/enums/Sex";
 import {InputText} from "primereact/inputtext";
-import {addAnnouncement} from "../data-layer/ActionCreators";
+import {addAnnouncement, changeView} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
+import {announcementView} from "../View";
+import {generateUuid} from "../data-layer/Utils";
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -24,7 +26,8 @@ function mapDispatchToProps(dispatch) {
                 state.anonymous,
                 state.commentsEnabled
             ))
-        }
+        },
+        changeView: () => dispatch(changeView(announcementView))
     }
 }
 
@@ -57,7 +60,7 @@ class ConnectedAnnoucementCreation extends React.Component {
             <div className={"p-grid p-dir-col announcement-creation-vertical"}>
                 <div className={"p-col"}>
                     Название*
-                    <InputText value={this.state.title}
+                    <InputText name={"title"} value={this.state.title}
                                onChange={e => {
                                    console.log(e)
                                    this.setState({title: e.target.value})
@@ -85,13 +88,13 @@ class ConnectedAnnoucementCreation extends React.Component {
                 </div>
                 <div className={"p-col"}>
                     Минимальный возраст персонажа:
-                    <InputText value={this.state.minAge}
+                    <InputText name={"minAge"} value={this.state.minAge}
                                onChange={(e) => this.setState({minAge: e.target.value})}
                     />
                 </div>
                 <div className={"p-col"}>
                     Максимальный возраст персонажа:
-                    <InputText value={this.state.maxAge}
+                    <InputText name={"maxAge"} value={this.state.maxAge}
                                onChange={(e) => this.setState({maxAge: e.target.value})}
                     />
                 </div>
@@ -99,7 +102,7 @@ class ConnectedAnnoucementCreation extends React.Component {
                     <span>Текст объявления:</span>
                 </div>
                 <div className={"p-col"}>
-                    <InputTextarea autoResize={true}
+                    <InputTextarea name={"description"} autoResize={true}
                                    cols={50}
                                    rows={10}
                                    value={this.state.description}
@@ -110,9 +113,9 @@ class ConnectedAnnoucementCreation extends React.Component {
                     <span>Картинка к объявлению (не более 3):</span>
                 </div>
                 <div className={"p-col"}>
-                    <FileUpload mode={"basic"}/>
-                    <FileUpload mode={"basic"}/>
-                    <FileUpload mode={"basic"}/>
+                    <FileUpload name={"file1"} url={"http://localhost:8080/upload/" + generateUuid()} />
+                    {/*<FileUpload name={"file2"} url={"./upload2"} mode={"basic"}/>*/}
+                    {/*<FileUpload name={"file3"} url={"./upload3"} mode={"basic"}/>*/}
                 </div>
                 <div className={"p-col"}>
                     <span>Анонимно: </span>
@@ -127,7 +130,10 @@ class ConnectedAnnoucementCreation extends React.Component {
                     />
                 </div>
                 <div className={"p-col"}>
-                    <Button label={"Сохранить"} onClick={() => this.props.addAnouncement(this.state)}/>
+                    <Button label={"Сохранить"} onClick={() => {
+                        this.props.addAnouncement(this.state)
+                        this.props.changeView()
+                    }}/>
                 </div>
             </div>
         )

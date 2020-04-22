@@ -1,8 +1,9 @@
 import React from "react"
 
-import {announcementView, announcementCreationView} from "../View";
 import {changeView} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
+import AppMenu from "./AppMenu";
+import {Sidebar} from "primereact/sidebar";
 
 function mapStateToProps(state) {
     return {
@@ -18,31 +19,25 @@ function mapDispatchToProps(dispatch) {
 
 class ConnectedMainFrame extends React.Component {
 
-    onChangeViewClicked(nextView) {
-        this.setState({currentView: nextView})
+    state = {
+        sidebarVisible: false
     }
 
     render() {
         return (
             <div className={"main-vertical"}>
+                <Sidebar style={{width: "80vw", background: "#592E83"}} visible={this.state.sidebarVisible} onHide={() => this.setState({sidebarVisible: false})}>
+                    <AppMenu/>
+                </Sidebar>
+
                 <div className={"main-frame-header"}>
+                    <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.setState({sidebarVisible: true})}></i>
                     <div className={"head-name"}>Название</div>
                     <div className={"head-logo"}>Логотип</div>
                 </div>
                 <div className={"main-frame-body"}>
-                    <div className={"main-frame-nav"}>
-                        <div className={"main-frame-nav-item"} onClick={() => this.props.changeView(announcementView)}>Доска объявлений</div>
-                        <div className={"main-frame-nav-item"}>Мои объявления</div>
-                        <div className={"main-frame-nav-item"}>Избранное</div>
-                        <div className={"main-frame-nav-item"}>Сообщения</div>
-                        <div className={"main-frame-nav-item"}>Мои игры</div>
-                        <div className={"main-frame-nav-item"}>Кабинет</div>
-                        <div className={"main-frame-nav-item"}>Квесты</div>
-                        <div className={"main-frame-nav-item"}>Панель администратора</div>
-                    </div>
                     <div className={"main-frame-view"}>
                         <span className={"main-frame-view-title"}>Доска объявлений</span>
-
                         {this.props.currentView}
                     </div>
                 </div>
