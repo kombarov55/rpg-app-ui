@@ -59,18 +59,17 @@ class ConnectedAnnoucementCreation extends React.Component {
         return (
             <div className={"p-grid p-dir-col announcement-creation-vertical"}>
                 <div className={"p-col"}>
-                    <div className={"p-grid p-dir-col"}>
-                        <div className={"p-col"}>
+                    <span className={"p-float-label"}>
+                        <InputText name={"title"} value={this.state.title}
+                                   onChange={e => {
+                                       this.setState({title: e.target.value})
+                                   }}
+                                   style={{"width": "100%"}}
+                        />
+                        <label htmlFor={"in"}>
                             Название:
-                        </div>
-                        <div className={"p-col"}>
-                            <InputText name={"title"} value={this.state.title}
-                                       onChange={e => {
-                                           console.log(e)
-                                           this.setState({title: e.target.value})
-                                       }}/>
-                        </div>
-                    </div>
+                        </label>
+                    </span>
                 </div>
                 <div className={"p-col"}>
                     <span>Тип игры: </span>
@@ -92,27 +91,25 @@ class ConnectedAnnoucementCreation extends React.Component {
                     />
                 </div>
                 <div className={"p-col"}>
-                    <div className={"p-grid p-dir-col"}>
-                        <div className={"p-col"}>
+                    <div className={"p-float-label"}>
+                        <InputText name={"minAge"}
+                                   value={this.state.minAge}
+                                   onChange={(e) => this.setState({minAge: e.target.value})}
+                                   style={{"width": "100%"}}
+                        />
+                        <label htmlFor={"in"}>
                             Минимальный возраст персонажа:
-                        </div>
-                        <div className={"p-col"}>
-                            <InputText name={"minAge"}
-                                       value={this.state.minAge}
-                                       onChange={(e) => this.setState({minAge: e.target.value})}/>
-                        </div>
+                        </label>
                     </div>
                 </div>
                 <div className={"p-col"}>
-                    <div className={"p-grid p-dir-col"}>
-                        <div className={"p-col"}>
-                            Максимальный возраст персонажа:
-                        </div>
-                        <div className={"p-col"}>
-                            <InputText name={"maxAge"}
-                                       value={this.state.maxAge}
-                                       onChange={(e) => this.setState({maxAge: e.target.value})}/>
-                        </div>
+                    <div className={"p-float-label"}>
+                        <InputText name={"maxAge"}
+                                   value={this.state.maxAge}
+                                   onChange={(e) => this.setState({maxAge: e.target.value})}
+                                   style={{"width": "100%"}}
+                        />
+                        <label htmlFor={"in"}>Максимальный возраст персонажа:</label>
                     </div>
                 </div>
                 <div className={"p-col"}>
@@ -120,10 +117,9 @@ class ConnectedAnnoucementCreation extends React.Component {
                 </div>
                 <div className={"p-col"}>
                     <InputTextarea name={"description"} autoResize={true}
-                                   cols={30}
-                                   rows={6}
                                    value={this.state.description}
                                    onChange={(e) => this.setState({description: e.target.value})}
+                                   style={{"width": "100%"}}
                     />
                 </div>
                 <div className={"p-col"}>
