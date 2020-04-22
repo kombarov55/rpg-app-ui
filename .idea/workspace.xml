@@ -4,12 +4,6 @@
     <list default="true" id="74ad5997-739b-4788-bf07-a5b6778606f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AnnoucementCreation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnnoucementCreation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainFrame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainFrame.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data-layer/ActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-layer/ActionCreators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data-layer/ActionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-layer/ActionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data-layer/Reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-layer/Reducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data-layer/Store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data-layer/Store.js" afterDir="false" />
     </list>
     <list id="24e1413f-dbe0-45c7-a84c-8fa462d4bbe6" name="Revert &quot;чото поменял&quot;" comment="Revert &quot;чото поменял&quot;&#10;&#10;This reverts commit 283d3aaf">
       <change beforePath="$PROJECT_DIR$/src/components/AnnouncementItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnnouncementItem.jsx" afterDir="false" />
@@ -125,7 +119,7 @@
       <workItem from="1587301767240" duration="2722000" />
       <workItem from="1587304574244" duration="755000" />
       <workItem from="1587350787863" duration="5302000" />
-      <workItem from="1587503591271" duration="16558000" />
+      <workItem from="1587503591271" duration="17085000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1586294802085</created>
@@ -267,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587521792519</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="сделал переключалку сайдбара">
+      <created>1587523305405</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587523305405</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,17 +310,18 @@
     <MESSAGE value="сменил значение кнопки" />
     <MESSAGE value="рабочая форма" />
     <MESSAGE value="фиксил аплоуд и добавил sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="фиксил аплоуд и добавил sidebar" />
+    <MESSAGE value="сделал переключалку сайдбара" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал переключалку сайдбара" />
   </component>
   <component name="WindowStateProjectService">
     <state x="140" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587211453727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="140" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1587211453727" />
-    <state x="0" y="0" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587521792156">
+    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2" timestamp="1587523305285">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="0" y="0" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587521792156" />
+    <state x="-1" y="-22" width="1366" height="768" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587523305285" />
     <state x="-1" y="44" width="1368" height="701" key="DiffContextDialog" timestamp="1587084814829">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -420,9 +422,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="346" y="170" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1587504204613" />
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587523288826">
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1587523784242">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587523288826" />
+    <state x="346" y="89" width="672" height="160" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1587523784242" />
   </component>
 </project>

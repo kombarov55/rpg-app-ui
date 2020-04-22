@@ -59,13 +59,18 @@ class ConnectedAnnoucementCreation extends React.Component {
         return (
             <div className={"p-grid p-dir-col announcement-creation-vertical"}>
                 <div className={"p-col"}>
-                    Название*
-                    <InputText name={"title"} value={this.state.title}
-                               onChange={e => {
-                                   console.log(e)
-                                   this.setState({title: e.target.value})
-                               }
-                               }/>
+                    <div className={"p-grid p-dir-col"}>
+                        <div className={"p-col"}>
+                            Название:
+                        </div>
+                        <div className={"p-col"}>
+                            <InputText name={"title"} value={this.state.title}
+                                       onChange={e => {
+                                           console.log(e)
+                                           this.setState({title: e.target.value})
+                                       }}/>
+                        </div>
+                    </div>
                 </div>
                 <div className={"p-col"}>
                     <span>Тип игры: </span>
@@ -87,24 +92,36 @@ class ConnectedAnnoucementCreation extends React.Component {
                     />
                 </div>
                 <div className={"p-col"}>
-                    Минимальный возраст персонажа:
-                    <InputText name={"minAge"} value={this.state.minAge}
-                               onChange={(e) => this.setState({minAge: e.target.value})}
-                    />
+                    <div className={"p-grid p-dir-col"}>
+                        <div className={"p-col"}>
+                            Минимальный возраст персонажа:
+                        </div>
+                        <div className={"p-col"}>
+                            <InputText name={"minAge"}
+                                       value={this.state.minAge}
+                                       onChange={(e) => this.setState({minAge: e.target.value})}/>
+                        </div>
+                    </div>
                 </div>
                 <div className={"p-col"}>
-                    Максимальный возраст персонажа:
-                    <InputText name={"maxAge"} value={this.state.maxAge}
-                               onChange={(e) => this.setState({maxAge: e.target.value})}
-                    />
+                    <div className={"p-grid p-dir-col"}>
+                        <div className={"p-col"}>
+                            Максимальный возраст персонажа:
+                        </div>
+                        <div className={"p-col"}>
+                            <InputText name={"maxAge"}
+                                       value={this.state.maxAge}
+                                       onChange={(e) => this.setState({maxAge: e.target.value})}/>
+                        </div>
+                    </div>
                 </div>
                 <div className={"p-col"}>
                     <span>Текст объявления:</span>
                 </div>
                 <div className={"p-col"}>
                     <InputTextarea name={"description"} autoResize={true}
-                                   cols={50}
-                                   rows={10}
+                                   cols={30}
+                                   rows={6}
                                    value={this.state.description}
                                    onChange={(e) => this.setState({description: e.target.value})}
                     />
@@ -120,16 +137,26 @@ class ConnectedAnnoucementCreation extends React.Component {
                                 chooseLabel={"Выберите файл.."}/>
                 </div>
                 <div className={"p-col"}>
-                    <span>Анонимно: </span>
-                    <InputSwitch checked={this.state.anonymous}
-                                 onChange={(e) => this.setState({anonymous: e.value})}
-                    />
+                    <div className={"p-grid p-dir-row"}>
+                        <div className={"p-col"}>
+                            Анонимно:
+                        </div>
+                        <div className={"p-col"}>
+                            <InputSwitch checked={this.state.anonymous}
+                                         onChange={(e) => this.setState({anonymous: e.value})}/>
+                        </div>
+                    </div>
                 </div>
                 <div className={"p-col"}>
-                    <span>Комментарии:</span>
-                    <InputSwitch checked={this.state.commentsEnabled}
-                                 onChange={(e) => this.setState({commentsEnabled: e.value})}
-                    />
+                    <div className={"p-grid p-dir-row"}>
+                        <div className={"p-col"}>
+                            Комментарии:
+                        </div>
+                        <div className={"p-col"}>
+                            <InputSwitch checked={this.state.commentsEnabled}
+                                         onChange={(e) => this.setState({commentsEnabled: e.value})}/>
+                        </div>
+                    </div>
                 </div>
                 <div className={"p-col"}>
                     <Button label={"Сохранить"} onClick={() => {
