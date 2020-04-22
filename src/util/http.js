@@ -10,8 +10,7 @@ export async function post(url, body) {
         headers: new Headers({
             'Content-Type': 'application/json;charset=utf-8'
         }),
-        body: body,
-        mode: "no-cors"
+        body: body
     })
 }
 
@@ -20,7 +19,6 @@ export async function httpDelete(url) {
         method: "DELETE",
         headers: new Headers({
             'Content-Type': 'application/json;charset=utf-8'
-        }),
-        mode: "no-cors"
+        })
     })
 }
