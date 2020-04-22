@@ -1,6 +1,12 @@
 import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
-import {ADD_ANNOUNCEMENT, CHANGE_VIEW, DELETE_ANNOUNCEMENT, TOGGLE_SIDEBAR} from "./ActionTypes";
+import {
+    ADD_ANNOUNCEMENT,
+    CHANGE_VIEW,
+    DELETE_ANNOUNCEMENT,
+    EDIT_ANNOUNCEMENT_FORM,
+    TOGGLE_SIDEBAR
+} from "./ActionTypes";
 import {announcementView} from "../View";
 
 export function changeView(nextView = announcementView) {
@@ -42,6 +48,13 @@ export function addAnnouncement(
             anonymous: anonymous,
             commentsEnabled: commentsEnabled
         }
+    }
+}
+
+export function updateAnnoncementForm(obj) {
+    return {
+        type: EDIT_ANNOUNCEMENT_FORM,
+        payload: obj
     }
 }
 

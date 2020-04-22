@@ -3,9 +3,10 @@ import {rootReducer} from "./Reducers";
 import {announcementView} from "../View";
 
 export const initialState = {
+    sidebarVisible: false,
     currentView: announcementView,
     announcements: [],
-    sidebarVisible: false
+    announcementForm: {}
 }
 
 export const store = createStore(rootReducer)

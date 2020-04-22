@@ -6,7 +6,7 @@ import {InputSwitch} from "primereact/inputswitch";
 import {connect} from "react-redux";
 import {useForm} from "react-hook-form";
 
-import {addAnnouncement, changeView} from "../data-layer/ActionCreators";
+import {addAnnouncement, changeView, updateAnnoncementForm} from "../data-layer/ActionCreators";
 
 import {generateUuid} from "../util/uuid";
 
@@ -18,8 +18,15 @@ import {createAnnouncement} from "../util/HttpRequests";
 
 const uploadUid = generateUuid()
 
+function mapStateToProps(state) {
+    return {
+        announcementForm: state.announcementForm
+    }
+}
+
 function mapDispatchToProps(dispatch) {
     return {
+        updateAnnouncementForm: (fieldNameToValue) => dispatch(updateAnnoncementForm(fieldNameToValue)),
         addAnouncement: (dto) => {
             dispatch(addAnnouncement(
                 dto.id,
@@ -64,7 +71,16 @@ function ConnectedAnnoucementCreation(props) {
     const {errors, register, handleSubmit} = useForm()
 
     function onSubmit() {
-        createAnnouncement(state.title, state.gameType.id, state.sex.id, state.minAge, state.maxAge, state.description, state.anonymous, state.commentsEnabled)
+        createAnnouncement(
+            props.announcementForm.title,
+            props.announcementForm.gameType.id,
+            props.announcementForm.sex.id,
+            props.announcementForm.minAge,
+            props.announcementForm.maxAge,
+            props.announcementForm.description,
+            props.announcementForm.anonymous,
+            props.announcementForm.commentsEnabled
+        )
             .then(json => props.addAnouncement(json))
             .then(() => props.changeView())
     }
@@ -76,8 +92,8 @@ function ConnectedAnnoucementCreation(props) {
                     <input placeholder={"Название:"}
                            name={"title"}
                            ref={register({required: true})}
-                           value={state.title}
-                           onChange={e => state.title = e.target.value}
+                           value={props.announcementForm.title}
+                           onChange={e => props.updateAnnouncementForm({title: e.target.value})}
                     />
                     <span className={"errors"}>
                     {errors.title && "Обязательное поле"}
@@ -89,25 +105,28 @@ function ConnectedAnnoucementCreation(props) {
                 </div>
                 <div className={"p-col"}>
                     <SelectButton
+                        name={"gameType"}
                         options={gameTypeValues}
-                        value={state.gameType}
-                        onChange={(e) => state.gameType = e.target.value}
+                        value={props.announcementForm.gameType}
+                        onChange={(e) => props.updateAnnouncementForm({gameType: e.target.value})}
                     />
                 </div>
                 <div className={"p-col"}>
                     <span>Пол персонажа:</span>
                 </div>
                 <div className={"p-col"}>
-                    <SelectButton options={sexValues}
-                                  value={state.sex}
-                                  onChange={(e) => state.sex = e.value}
+                    <SelectButton
+                        name={"sex"}
+                        options={sexValues}
+                        value={props.announcementForm.sex}
+                        onChange={(e) => props.updateAnnouncementForm({sex: e.value})}
                     />
                 </div>
                 <div className={"p-col"}>
                     <input placeholder={"Минимальный возраст персонажа"}
                            name={"minAge"}
-                           value={state.minAge}
-                           onChange={(e) => state.minAge = e.target.value}
+                           value={props.announcementForm.minAge}
+                           onChange={(e) => props.updateAnnouncementForm({minAge: e.target.value})}
                            ref={register({pattern: /^[0-9]*$/i})}
                     />
                     <span className={"errors"}>
@@ -118,8 +137,8 @@ function ConnectedAnnoucementCreation(props) {
                     <input
                         placeholder={"Максимальный возраст персонажа"}
                         name={"maxAge"}
-                        value={state.maxAge}
-                        onChange={(e) => state.maxAge = e.target.value}
+                        value={props.announcementForm.maxAge}
+                        onChange={(e) => props.updateAnnouncementForm({maxAge: e.target.value})}
                         ref={register({pattern: /^[0-9]*$/i})}
                     />
                     <span className={"errors"}>
@@ -131,8 +150,8 @@ function ConnectedAnnoucementCreation(props) {
                 </div>
                 <div className={"p-col"}>
                     <textarea name={"description"}
-                              value={state.description}
-                              onChange={(e) => state.description = e.target.value}
+                              value={props.announcementForm.description}
+                              onChange={(e) => props.updateAnnouncementForm({description: e.target.value})}
                               ref={register({required: true})}
                     />
                     <span className={"errors"}>
@@ -157,8 +176,8 @@ function ConnectedAnnoucementCreation(props) {
                             Анонимно:
                         </div>
                         <div className={"p-col"}>
-                            <InputSwitch checked={state.anonymous}
-                                         onChange={(e) => state.anonymous = e.value}/>
+                            <InputSwitch checked={props.announcementForm.anonymous}
+                                         onChange={(e) => props.updateAnnouncementForm({anonymous: e.value})}/>
                         </div>
                     </div>
                 </div>
@@ -168,20 +187,19 @@ function ConnectedAnnoucementCreation(props) {
                             Комментарии:
                         </div>
                         <div className={"p-col"}>
-                            <InputSwitch checked={state.commentsEnabled}
-                                         onChange={(e) => state.commentsEnabled = e.value}/>
+                            <InputSwitch checked={props.announcementForm.commentsEnabled}
+                                         onChange={(e) => props.updateAnnouncementForm({commentsEnabled: e.value})}/>
                         </div>
                     </div>
                 </div>
                 <div className={"p-col"}>
                     <input className={"submit-btn"} type={"submit"} value={"Сохранить"}/>
                 </div>
-
             </form>
         </div>
     )
 }
 
-const AnnoucementCreation = connect(null, mapDispatchToProps)(ConnectedAnnoucementCreation)
+const AnnoucementCreation = connect(mapStateToProps, mapDispatchToProps)(ConnectedAnnoucementCreation)
 
 export default AnnoucementCreation
