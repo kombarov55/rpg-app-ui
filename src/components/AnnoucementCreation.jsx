@@ -5,6 +5,8 @@ import {FileUpload} from "primereact/fileupload";
 import {InputSwitch} from "primereact/inputswitch";
 import {Button} from "primereact/button";
 
+import {useForm} from "react-hook-form";
+
 import {GameTypes} from "../data-layer/enums/GameType";
 import {Sex} from "../data-layer/enums/Sex";
 import {InputText} from "primereact/inputtext";
@@ -31,38 +33,48 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-class ConnectedAnnoucementCreation extends React.Component {
+const gameTypeValues = [
+    {label: "ЛС", value: GameTypes.LS},
+    {label: "Конференция", value: GameTypes.CONFERENCE},
+    {label: "Группа", value: GameTypes.GROUP}
+]
 
-    gameTypeValues = [
-        {label: "ЛС", value: GameTypes.LS},
-        {label: "Конференция", value: GameTypes.CONFERENCE},
-        {label: "Группа", value: GameTypes.GROUP}
-    ]
+const sexValues = [
+    {label: "М", value: Sex.MALE},
+    {label: "Ж", value: Sex.FEMALE}
+]
 
-    sexValues = [
-        {label: "М", value: Sex.MALE},
-        {label: "Ж", value: Sex.FEMALE}
-    ]
+const state = {
+    title: null,
+    gameType: null,
+    sex: null,
+    minAge: null,
+    maxAge: null,
+    description: null,
+    anonymous: false,
+    commentsEnabled: true
+}
 
-    state = {
-        title: null,
-        gameType: null,
-        sex: null,
-        minAge: null,
-        maxAge: null,
-        description: null,
-        anonymous: false,
-        commentsEnabled: true
+function ConnectedAnnoucementCreation(props) {
+
+    const {register, handleSubmit} = useForm()
+
+    function onSubmit() {
+        alert("OK")
+        props.addAnouncement(state)
+        props.changeView()
     }
 
-    render() {
-        return (
-            <div className={"p-grid p-dir-col announcement-creation-vertical"}>
+    return (
+        <div className={"p-grid p-dir-col announcement-creation-vertical"}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={"p-col"}>
                     <span className={"p-float-label"}>
-                        <InputText name={"title"} value={this.state.title}
+                        <InputText name={"title"}
+                                   value={state.title}
+                                   ref={register}
                                    onChange={e => {
-                                       this.setState({title: e.target.value})
+                                       state.title = e.target.value
                                    }}
                                    style={{"width": "100%"}}
                         />
@@ -76,25 +88,25 @@ class ConnectedAnnoucementCreation extends React.Component {
                 </div>
                 <div className={"p-col"}>
                     <SelectButton
-                        options={this.gameTypeValues}
-                        value={this.state.gameType}
-                        onChange={(e) => this.setState({gameType: e.value})}
+                        options={gameTypeValues}
+                        value={state.gameType}
+                        onChange={(e) => state.gameType = e.target.value}
                     />
                 </div>
                 <div className={"p-col"}>
                     <span>Пол персонажа:</span>
                 </div>
                 <div className={"p-col"}>
-                    <SelectButton options={this.sexValues}
-                                  value={this.state.sex}
-                                  onChange={(e) => this.setState({sex: e.value})}
+                    <SelectButton options={sexValues}
+                                  value={state.sex}
+                                  onChange={(e) => state.sex = e.value}
                     />
                 </div>
                 <div className={"p-col"}>
                     <div className={"p-float-label"}>
                         <InputText name={"minAge"}
-                                   value={this.state.minAge}
-                                   onChange={(e) => this.setState({minAge: e.target.value})}
+                                   value={state.minAge}
+                                   onChange={(e) => state.minAge = e.target.value}
                                    style={{"width": "100%"}}
                         />
                         <label htmlFor={"in"}>
@@ -105,8 +117,8 @@ class ConnectedAnnoucementCreation extends React.Component {
                 <div className={"p-col"}>
                     <div className={"p-float-label"}>
                         <InputText name={"maxAge"}
-                                   value={this.state.maxAge}
-                                   onChange={(e) => this.setState({maxAge: e.target.value})}
+                                   value={state.maxAge}
+                                   onChange={(e) => state.maxAge = e.target.value}
                                    style={{"width": "100%"}}
                         />
                         <label htmlFor={"in"}>Максимальный возраст персонажа:</label>
@@ -117,8 +129,8 @@ class ConnectedAnnoucementCreation extends React.Component {
                 </div>
                 <div className={"p-col"}>
                     <InputTextarea name={"description"} autoResize={true}
-                                   value={this.state.description}
-                                   onChange={(e) => this.setState({description: e.target.value})}
+                                   value={state.description}
+                                   onChange={(e) => state.description = e.target.value}
                                    style={{"width": "100%"}}
                     />
                 </div>
@@ -138,8 +150,8 @@ class ConnectedAnnoucementCreation extends React.Component {
                             Анонимно:
                         </div>
                         <div className={"p-col"}>
-                            <InputSwitch checked={this.state.anonymous}
-                                         onChange={(e) => this.setState({anonymous: e.value})}/>
+                            <InputSwitch checked={state.anonymous}
+                                         onChange={(e) => state.anonymous = e.value}/>
                         </div>
                     </div>
                 </div>
@@ -149,20 +161,18 @@ class ConnectedAnnoucementCreation extends React.Component {
                             Комментарии:
                         </div>
                         <div className={"p-col"}>
-                            <InputSwitch checked={this.state.commentsEnabled}
-                                         onChange={(e) => this.setState({commentsEnabled: e.value})}/>
+                            <InputSwitch checked={state.commentsEnabled}
+                                         onChange={(e) => state.commentsEnabled = e.value}/>
                         </div>
                     </div>
                 </div>
                 <div className={"p-col"}>
-                    <Button label={"Сохранить"} onClick={() => {
-                        this.props.addAnouncement(this.state)
-                        this.props.changeView()
-                    }}/>
+                    {/*<Button label={"Сохранить"} onClick={() => }/>*/}
                 </div>
-            </div>
-        )
-    }
+                <input type={"submit"}/>
+            </form>
+        </div>
+    )
 }
 
 const AnnoucementCreation = connect(null, mapDispatchToProps)(ConnectedAnnoucementCreation)
