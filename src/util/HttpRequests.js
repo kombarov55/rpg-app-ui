@@ -9,7 +9,8 @@ export async function createAnnouncement(
     maxAge,
     description,
     anonymous,
-    commentsEnabled
+    commentsEnabled,
+    uploadUid
 ) {
     const body = {
         title: title,
@@ -19,7 +20,8 @@ export async function createAnnouncement(
         maxAge: maxAge,
         description: description,
         anonymous: anonymous,
-        commentsEnabled: commentsEnabled
+        commentsEnabled: commentsEnabled,
+        uploadUid: uploadUid
     }
     const json = JSON.stringify(body);
     const responsePromise = post(announcementUrl, json)

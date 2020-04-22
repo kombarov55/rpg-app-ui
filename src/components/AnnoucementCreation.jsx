@@ -37,7 +37,8 @@ function mapDispatchToProps(dispatch) {
                 dto.maxAge,
                 dto.description,
                 dto.anonymous,
-                dto.commentsEnabled
+                dto.commentsEnabled,
+                uploadUid
             ))
         },
         changeView: () => dispatch(changeView(announcementView))
@@ -79,7 +80,8 @@ function ConnectedAnnoucementCreation(props) {
             props.announcementForm.maxAge,
             props.announcementForm.description,
             props.announcementForm.anonymous,
-            props.announcementForm.commentsEnabled
+            props.announcementForm.commentsEnabled,
+            uploadUid
         )
             .then(json => props.addAnouncement(json))
             .then(() => props.changeView())

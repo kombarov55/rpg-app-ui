@@ -33,7 +33,8 @@ export function addAnnouncement(
     maxAge = 99,
     description = "",
     anonymous = false,
-    commentsEnabled = true
+    commentsEnabled = true,
+    uploadUid = ""
 ) {
     return {
         type: ADD_ANNOUNCEMENT,
@@ -46,7 +47,8 @@ export function addAnnouncement(
             maxAge: maxAge,
             description: description,
             anonymous: anonymous,
-            commentsEnabled: commentsEnabled
+            commentsEnabled: commentsEnabled,
+            uploadUid: uploadUid
         }
     }
 }
