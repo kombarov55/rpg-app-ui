@@ -1,6 +1,6 @@
 import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
-import {ADD_ANNOUNCEMENT, CHANGE_VIEW, TOGGLE_SIDEBAR} from "./ActionTypes";
+import {ADD_ANNOUNCEMENT, CHANGE_VIEW, DELETE_ANNOUNCEMENT, TOGGLE_SIDEBAR} from "./ActionTypes";
 import {announcementView} from "../View";
 
 export function changeView(nextView = announcementView) {
@@ -41,6 +41,15 @@ export function addAnnouncement(
             description: description,
             anonymous: anonymous,
             commentsEnabled: commentsEnabled
+        }
+    }
+}
+
+export function deleteAnnouncement(id) {
+    return {
+        type: DELETE_ANNOUNCEMENT,
+        payload: {
+            id: id
         }
     }
 }

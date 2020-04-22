@@ -1,4 +1,4 @@
-import {ADD_ANNOUNCEMENT, CHANGE_VIEW, TOGGLE_SIDEBAR} from "./ActionTypes";
+import {ADD_ANNOUNCEMENT, CHANGE_VIEW, DELETE_ANNOUNCEMENT, TOGGLE_SIDEBAR} from "./ActionTypes";
 import {initialState} from "./Store";
 
 export function rootReducer(state = initialState, action) {
@@ -17,6 +17,14 @@ export function rootReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 announcements: state.announcements.concat(action.payload)
             })
+
+        case DELETE_ANNOUNCEMENT:
+            const id = action.payload.id
+
+            return Object.assign({}, state, {
+                announcements: state.announcements.filter(it => it.id !== id)
+            })
+
         default: return state;
     }
 }

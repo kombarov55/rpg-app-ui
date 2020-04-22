@@ -1,8 +1,20 @@
 import React from "react"
 import {GameTypes} from "../data-layer/enums/GameType";
 import {Sex} from "../data-layer/enums/Sex";
+import {deleteAnnouncement} from "../data-layer/ActionCreators";
+import {connect} from "react-redux";
+import {deleteAnnouncementFromServer} from "../util/HttpRequests";
 
-class AnnouncementItem extends React.Component {
+function mapDispatchToProps(dispatch) {
+    return {
+        deleteAnnouncement: (id) => {
+            deleteAnnouncementFromServer(id)
+                .then(() => dispatch(deleteAnnouncement(id)))
+        }
+    }
+}
+
+class ConnectedAnnouncementItem extends React.Component {
 
     renderChips() {
         const values = []
@@ -61,7 +73,7 @@ class AnnouncementItem extends React.Component {
                         {/*Комментарии (0)*/}
                         <i className={"pi pi-comments"}/>
                     </div>
-                    <div className={"announcement-view-list-item-footer-item"}>
+                    <div className={"announcement-view-list-item-footer-item"} onClick={() => this.props.deleteAnnouncement(this.props.id)}>
                         <i className={"pi pi-times"}/>
                     </div>
                 </div>
@@ -69,5 +81,7 @@ class AnnouncementItem extends React.Component {
         )
     }
 }
+
+const AnnouncementItem = connect(null, mapDispatchToProps)(ConnectedAnnouncementItem);
 
 export default AnnouncementItem;

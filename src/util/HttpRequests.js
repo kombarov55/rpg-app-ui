@@ -1,4 +1,4 @@
-import {post} from "./http";
+import {post, httpDelete} from "./http";
 import {announcementUrl} from "./properties";
 
 export async function createAnnouncement(
@@ -25,4 +25,8 @@ export async function createAnnouncement(
     const responsePromise = post(announcementUrl, json)
 
     return responsePromise.then(value => value.json())
+}
+
+export async function deleteAnnouncementFromServer(id) {
+    return httpDelete(announcementUrl + "/" + id)
 }
