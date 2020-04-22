@@ -1,6 +1,6 @@
 import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
-import {ADD_ANNOUNCEMENT, CHANGE_VIEW} from "./ActionTypes";
+import {ADD_ANNOUNCEMENT, CHANGE_VIEW, TOGGLE_SIDEBAR} from "./ActionTypes";
 import {announcementView} from "../View";
 
 export function changeView(nextView = announcementView) {
@@ -9,6 +9,12 @@ export function changeView(nextView = announcementView) {
         payload: {
             nextView: nextView
         }
+    }
+}
+
+export function toggleSidebar() {
+    return {
+        type: TOGGLE_SIDEBAR
     }
 }
 

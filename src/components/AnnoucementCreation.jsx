@@ -113,9 +113,11 @@ class ConnectedAnnoucementCreation extends React.Component {
                     <span>Картинка к объявлению (не более 3):</span>
                 </div>
                 <div className={"p-col"}>
-                    <FileUpload name={"file1"} url={"http://localhost:8080/upload/" + generateUuid()} />
-                    {/*<FileUpload name={"file2"} url={"./upload2"} mode={"basic"}/>*/}
-                    {/*<FileUpload name={"file3"} url={"./upload3"} mode={"basic"}/>*/}
+                    <FileUpload name={"file1"}
+                                url={"http://localhost:8080/upload/" + generateUuid()}
+                                mode={"basic"}
+                                auto={"true"}
+                                chooseLabel={"Выберите файл.."}/>
                 </div>
                 <div className={"p-col"}>
                     <span>Анонимно: </span>

@@ -1,37 +1,35 @@
 import React from "react"
 
-import {changeView} from "../data-layer/ActionCreators";
+import {changeView, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import AppMenu from "./AppMenu";
 import {Sidebar} from "primereact/sidebar";
 
 function mapStateToProps(state) {
     return {
-        currentView: state.currentView
+        currentView: state.currentView,
+        sidebarVisible: state.sidebarVisible
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        changeView: (nextView) => dispatch(changeView(nextView))
+        changeView: (nextView) => dispatch(changeView(nextView)),
+        toggleSidebar: () => dispatch(toggleSidebar())
     }
 }
 
 class ConnectedMainFrame extends React.Component {
 
-    state = {
-        sidebarVisible: false
-    }
-
     render() {
         return (
             <div className={"main-vertical"}>
-                <Sidebar style={{width: "80vw", background: "#592E83"}} visible={this.state.sidebarVisible} onHide={() => this.setState({sidebarVisible: false})}>
+                <Sidebar style={{width: "80vw", background: "#592E83"}} visible={this.props.sidebarVisible} onHide={() => this.props.toggleSidebar()}>
                     <AppMenu/>
                 </Sidebar>
 
                 <div className={"main-frame-header"}>
-                    <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.setState({sidebarVisible: true})}></i>
+                    <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.props.toggleSidebar()}/>
                     <div className={"head-name"}>Название</div>
                     <div className={"head-logo"}>Логотип</div>
                 </div>
