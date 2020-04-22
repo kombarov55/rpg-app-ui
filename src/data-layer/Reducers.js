@@ -1,6 +1,6 @@
 import {
     ADD_ANNOUNCEMENT,
-    CHANGE_VIEW,
+    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
     DELETE_ANNOUNCEMENT,
     EDIT_ANNOUNCEMENT_FORM,
     TOGGLE_SIDEBAR
@@ -31,6 +31,11 @@ export function rootReducer(state = initialState, action) {
             const editedForm = Object.assign({}, prevForm, updatedFields)
             return Object.assign({}, state, {
                 announcementForm: editedForm
+            })
+
+        case CLEAR_ANNOUNCEMENT_FORM:
+            return Object.assign({}, state, {
+                announcementForm: {}
             })
 
         case DELETE_ANNOUNCEMENT:

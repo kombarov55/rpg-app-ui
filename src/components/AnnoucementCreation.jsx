@@ -6,7 +6,7 @@ import {InputSwitch} from "primereact/inputswitch";
 import {connect} from "react-redux";
 import {useForm} from "react-hook-form";
 
-import {addAnnouncement, changeView, updateAnnoncementForm} from "../data-layer/ActionCreators";
+import {addAnnouncement, changeView, clearAnnouncementForm, updateAnnoncementForm} from "../data-layer/ActionCreators";
 
 import {generateUuid} from "../util/uuid";
 
@@ -27,6 +27,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         updateAnnouncementForm: (fieldNameToValue) => dispatch(updateAnnoncementForm(fieldNameToValue)),
+        clearAnnouncementForm: () => dispatch(clearAnnouncementForm()),
         addAnouncement: (dto) => {
             dispatch(addAnnouncement(
                 dto.id,
@@ -85,6 +86,7 @@ function ConnectedAnnoucementCreation(props) {
         )
             .then(json => props.addAnouncement(json))
             .then(() => props.changeView())
+            .then(() => props.clearAnnouncementForm())
     }
 
     return (
