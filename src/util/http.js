@@ -3,9 +3,12 @@ export function get(url) {
 }
 
 export async function post(url, body) {
+    console.log(body)
     return fetch(url, {
         method: "POST",
-        body: body,
-        mode: "no-cors"
+        headers: new Headers({
+            'Content-Type': 'application/json;charset=utf-8'
+        }),
+        body: body
     })
 }

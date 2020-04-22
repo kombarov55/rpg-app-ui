@@ -14,6 +14,7 @@ import {announcementView} from "../View";
 import {GameTypes} from "../data-layer/enums/GameType";
 import {Sex} from "../data-layer/enums/Sex";
 import {uploadUrl} from "../util/properties";
+import {createAnnouncement} from "../util/HttpRequests";
 
 const uploadUid = generateUuid()
 
@@ -47,12 +48,12 @@ const sexValues = [
 ]
 
 const state = {
-    title: null,
-    gameType: null,
-    sex: null,
-    minAge: null,
-    maxAge: null,
-    description: null,
+    title: "1",
+    gameType: "1",
+    sex: "1",
+    minAge: "1",
+    maxAge: "1",
+    description: "1",
     anonymous: false,
     commentsEnabled: true
 }
@@ -64,6 +65,7 @@ function ConnectedAnnoucementCreation(props) {
     function onSubmit() {
         props.addAnouncement(state)
         props.changeView()
+        createAnnouncement(state.title, state.gameType.id, state.sex.id, state.minAge, state.maxAge, state.description, state.anonymous, state.commentsEnabled)
     }
 
     return (
