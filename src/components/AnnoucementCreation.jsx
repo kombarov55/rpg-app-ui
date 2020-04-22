@@ -48,12 +48,12 @@ const sexValues = [
 ]
 
 const state = {
-    title: "1",
-    gameType: "1",
-    sex: "1",
-    minAge: "1",
-    maxAge: "1",
-    description: "1",
+    title: null,
+    gameType: null,
+    sex: null,
+    minAge: null,
+    maxAge: null,
+    description: null,
     anonymous: false,
     commentsEnabled: true
 }
