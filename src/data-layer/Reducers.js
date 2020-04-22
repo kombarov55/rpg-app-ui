@@ -35,7 +35,10 @@ export function rootReducer(state = initialState, action) {
 
         case CLEAR_ANNOUNCEMENT_FORM:
             return Object.assign({}, state, {
-                announcementForm: {}
+                announcementForm: {
+                    anonymous: false,
+                    commentsEnabled: true
+                }
             })
 
         case DELETE_ANNOUNCEMENT:

@@ -6,7 +6,10 @@ export const initialState = {
     sidebarVisible: false,
     currentView: announcementView,
     announcements: [],
-    announcementForm: {}
+    announcementForm: {
+        anonymous: false,
+        commentsEnabled: true
+    }
 }
 
 export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
