@@ -1,11 +1,6 @@
 import React from "react"
-import {Card} from "primereact/card"
 
 class AnnouncementItem extends React.Component {
-    style = {
-        margin: "0.5vh 1vw"
-    };
-
     render() {
         return (
             <div className={"announcement-view-list-item"}>

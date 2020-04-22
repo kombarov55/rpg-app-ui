@@ -1,19 +1,21 @@
 import React from "react"
 import {SelectButton} from "primereact/selectbutton";
-import {InputTextarea} from "primereact/inputtextarea";
 import {FileUpload} from "primereact/fileupload";
 import {InputSwitch} from "primereact/inputswitch";
-import {Button} from "primereact/button";
 
+import {connect} from "react-redux";
 import {useForm} from "react-hook-form";
 
+import {addAnnouncement, changeView} from "../data-layer/ActionCreators";
+
+import {generateUuid} from "../util/uuid";
+
+import {announcementView} from "../View";
 import {GameTypes} from "../data-layer/enums/GameType";
 import {Sex} from "../data-layer/enums/Sex";
-import {InputText} from "primereact/inputtext";
-import {addAnnouncement, changeView} from "../data-layer/ActionCreators";
-import {connect} from "react-redux";
-import {announcementView} from "../View";
-import {generateUuid} from "../data-layer/Utils";
+import {uploadUrl} from "../util/properties";
+
+const uploadUid = generateUuid()
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -57,10 +59,9 @@ const state = {
 
 function ConnectedAnnoucementCreation(props) {
 
-    const {register, handleSubmit} = useForm()
+    const {errors, register, handleSubmit} = useForm()
 
     function onSubmit() {
-        alert("OK")
         props.addAnouncement(state)
         props.changeView()
     }
@@ -69,19 +70,16 @@ function ConnectedAnnoucementCreation(props) {
         <div className={"p-grid p-dir-col announcement-creation-vertical"}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={"p-col"}>
-                    <span className={"p-float-label"}>
-                        <InputText name={"title"}
-                                   value={state.title}
-                                   ref={register}
-                                   onChange={e => {
-                                       state.title = e.target.value
-                                   }}
-                                   style={{"width": "100%"}}
-                        />
-                        <label htmlFor={"in"}>
-                            Название:
-                        </label>
+                    <input placeholder={"Название:"}
+                           name={"title"}
+                           ref={register({required: true})}
+                           value={state.title}
+                           onChange={e => state.title = e.target.value}
+                    />
+                    <span className={"errors"}>
+                    {errors.title && "Обязательное поле"}
                     </span>
+
                 </div>
                 <div className={"p-col"}>
                     <span>Тип игры: </span>
@@ -103,46 +101,52 @@ function ConnectedAnnoucementCreation(props) {
                     />
                 </div>
                 <div className={"p-col"}>
-                    <div className={"p-float-label"}>
-                        <InputText name={"minAge"}
-                                   value={state.minAge}
-                                   onChange={(e) => state.minAge = e.target.value}
-                                   style={{"width": "100%"}}
-                        />
-                        <label htmlFor={"in"}>
-                            Минимальный возраст персонажа:
-                        </label>
-                    </div>
+                    <input placeholder={"Минимальный возраст персонажа"}
+                           name={"minAge"}
+                           value={state.minAge}
+                           onChange={(e) => state.minAge = e.target.value}
+                           ref={register({pattern: /^[0-9]*$/i})}
+                    />
+                    <span className={"errors"}>
+                        {errors.minAge && "Поле должно быть цифрой"}
+                    </span>
                 </div>
                 <div className={"p-col"}>
-                    <div className={"p-float-label"}>
-                        <InputText name={"maxAge"}
-                                   value={state.maxAge}
-                                   onChange={(e) => state.maxAge = e.target.value}
-                                   style={{"width": "100%"}}
-                        />
-                        <label htmlFor={"in"}>Максимальный возраст персонажа:</label>
-                    </div>
+                    <input
+                        placeholder={"Максимальный возраст персонажа"}
+                        name={"maxAge"}
+                        value={state.maxAge}
+                        onChange={(e) => state.maxAge = e.target.value}
+                        ref={register({pattern: /^[0-9]*$/i})}
+                    />
+                    <span className={"errors"}>
+                    {errors.maxAge && "Поле должно быть цифрой"}
+                    </span>
                 </div>
                 <div className={"p-col"}>
                     <span>Текст объявления:</span>
                 </div>
                 <div className={"p-col"}>
-                    <InputTextarea name={"description"} autoResize={true}
-                                   value={state.description}
-                                   onChange={(e) => state.description = e.target.value}
-                                   style={{"width": "100%"}}
+                    <textarea name={"description"}
+                              value={state.description}
+                              onChange={(e) => state.description = e.target.value}
+                              ref={register({required: true})}
                     />
+                    <span className={"errors"}>
+                        {errors.description && "Обязательное поле"}
+                    </span>
                 </div>
                 <div className={"p-col"}>
                     <span>Картинка к объявлению (не более 3):</span>
                 </div>
                 <div className={"p-col"}>
                     <FileUpload name={"file1"}
-                                url={"http://localhost:8080/upload/" + generateUuid()}
+                                url={uploadUrl + "/" + uploadUid}
                                 mode={"basic"}
-                                auto={"true"}
-                                chooseLabel={"Выберите файл.."}/>
+                                auto={true}
+                                maxFileSize={262144}
+                                chooseLabel={"Выберите файл.."}
+                    />
                 </div>
                 <div className={"p-col"}>
                     <div className={"p-grid p-dir-row"}>
@@ -167,9 +171,9 @@ function ConnectedAnnoucementCreation(props) {
                     </div>
                 </div>
                 <div className={"p-col"}>
-                    {/*<Button label={"Сохранить"} onClick={() => }/>*/}
+                    <input className={"submit-btn"} type={"submit"} value={"Сохранить"}/>
                 </div>
-                <input type={"submit"}/>
+
             </form>
         </div>
     )
