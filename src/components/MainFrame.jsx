@@ -30,13 +30,13 @@ class ConnectedMainFrame extends React.Component {
 
                 <div className={"main-frame-header"}>
                     <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.props.toggleSidebar()}/>
-                    <div className={"head-name"}>Название</div>
+                    <div className={"head-name"}>{this.props.currentView.label}</div>
                     <div className={"head-logo"}>Логотип</div>
                 </div>
                 <div className={"main-frame-body"}>
                     <div className={"main-frame-view"}>
-                        <span className={"main-frame-view-title"}>Доска объявлений</span>
-                        {this.props.currentView}
+                        {/*<span className={"main-frame-view-title"}>{}</span>*/}
+                        {this.props.currentView.component}
                     </div>
                 </div>
                 <div className={"main-frame-footer"}>

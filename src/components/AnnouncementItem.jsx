@@ -13,10 +13,22 @@ class AnnouncementItem extends React.Component {
                     <span className="announcement-view-chip">Макс. возраст: 30</span>
                 </div>
                 <div className={"announcement-view-list-item-footer"}>
-                    <div className={"announcement-view-list-item-footer-item"}>В избранное</div>
-                    <div className={"announcement-view-list-item-footer-item"}>Откликнуться</div>
-                    <div className={"announcement-view-list-item-footer-item"}>Связаться с автором</div>
-                    <div className={"announcement-view-list-item-footer-item"}>Комментарии (0)</div>
+                    <div className={"announcement-view-list-item-footer-item"}>
+                        {/*В избранное*/}
+                        <i className={"pi pi-star"}/>
+                    </div>
+                    <div className={"announcement-view-list-item-footer-item"}>
+                        {/*Откликнуться*/}
+                        <i className={"pi pi-user-plus"}/>
+                    </div>
+                    <div className={"announcement-view-list-item-footer-item"}>
+                        {/*Связаться с автором*/}
+                        <i className={"pi pi-envelope"}/>
+                    </div>
+                    <div className={"announcement-view-list-item-footer-item"}>
+                        {/*Комментарии (0)*/}
+                        <i className={"pi pi-comments"}/>
+                    </div>
                 </div>
             </div>
         )

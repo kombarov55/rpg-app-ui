@@ -21,11 +21,13 @@ class ConnectedAnnouncement extends React.Component {
         return (
             <div className={"announcement-view-vertical"}>
                 <div className={"announcement-view-header"}>
-                    <span className={"announcement-view-header-all-items-label"}>Все объявления</span>
-                    <span className={"announcement-view-header-filters-label"}>фильтры</span>
+                    {/*<span className={"announcement-view-header-all-items-label"}>Все объявления</span>*/}
+                    <span className={"announcement-view-header-filters-label"}>
+                        <i className={"pi pi-filter"}/>
+                    </span>
                     <span className={"announcement-view-header-filters-label"}
                           onClick={() => this.props.changeViewToCreation()}>
-                        Создать объявление
+                        <i className={"pi pi-plus-circle"}/>
                     </span>
                 </div>
                 <div className={"announcement-view-list"}>{

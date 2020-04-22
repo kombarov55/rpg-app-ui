@@ -26,7 +26,7 @@
 }
 
 .announcement-view-header-filters-label {
-    font-size: 3vmin;
+    font-size: 3vmax;
 }
 
 .announcement-view-list {
@@ -49,19 +49,23 @@
     flex-direction: column;
     align-items: flex-start;
 
-    margin: 1vh 1vw;
+    margin: 1vh 0;
 
     border: 1px solid black;
+    border-radius: 5px;
+
+    background: #382357
 }
 
 .announcement-view-list-item-title {
-    padding: 1vmin;
+    padding: 1.5vmax;
 
-    font-size: 3vmin;
+    font-size: 3vmax;
 }
 
 .announcement-view-list-item-description {
-    padding: 1vmin;
+    font-size: 2vmax;
+    padding: 1.5vmax;
 }
 
 .announcement-view-list-item-footer {
@@ -69,28 +73,41 @@
     flex-direction: row;
     justify-content: space-around;
 
-    border-top: 1px solid black;
+    /*border-top: 1px solid black;*/
 
     width: 100%;
 }
 
 .announcement-view-list-item-footer-item {
-    padding: 0.5vmax;
+    padding: 0.1vmax 0.5vmax;
+    margin: 0.5vmax;
+
+    /*border: 1px solid black;*/
+    /*border-radius: 5px;*/
+
+    /*background: #FFFFFF;*/
+    /*color: black;*/
+
+    font-size: 2vmax;
 }
 
 .announcement-view-chips-list {
     display: flex;
     flex-direction: row;
+
+    padding: 1vmax;
 }
 
 .announcement-view-chip {
-    padding: 7px;
+    padding: 2px 7px;
+    margin: 0.3vmax;
 
     border: 1px solid black;
-    border-radius: 30px;
+    border-radius: 15px;
 
     color: black;
-    background: #61dafb;
+    background: #592e83;
 
     font-weight: bold;
+    font-size: 1vmax;
 }
