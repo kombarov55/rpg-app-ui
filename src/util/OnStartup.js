@@ -7,6 +7,7 @@ function loadAnnouncements() {
         .then(response => response.json())
         .then(rs => rs.forEach(item =>
             store.dispatch(addAnnouncement(
+                item.id,
                 item.title,
                 item.gameType,
                 item.sex,

@@ -20,16 +20,17 @@ const uploadUid = generateUuid()
 
 function mapDispatchToProps(dispatch) {
     return {
-        addAnouncement: (state) => {
+        addAnouncement: (dto) => {
             dispatch(addAnnouncement(
-                state.title,
-                state.gameType,
-                state.sex,
-                state.minAge,
-                state.maxAge,
-                state.description,
-                state.anonymous,
-                state.commentsEnabled
+                dto.id,
+                dto.title,
+                dto.gameType,
+                dto.sex,
+                dto.minAge,
+                dto.maxAge,
+                dto.description,
+                dto.anonymous,
+                dto.commentsEnabled
             ))
         },
         changeView: () => dispatch(changeView(announcementView))
@@ -37,9 +38,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 const gameTypeValues = [
-    {label: "ЛС", value: GameTypes.LS},
-    {label: "Конференция", value: GameTypes.CONFERENCE},
-    {label: "Группа", value: GameTypes.GROUP}
+    {label: "ЛС", value: GameTypes.LS.id},
+    {label: "Конференция", value: GameTypes.CONFERENCE.id},
+    {label: "Группа", value: GameTypes.GROUP.id}
 ]
 
 const sexValues = [
@@ -63,9 +64,9 @@ function ConnectedAnnoucementCreation(props) {
     const {errors, register, handleSubmit} = useForm()
 
     function onSubmit() {
-        props.addAnouncement(state)
-        props.changeView()
         createAnnouncement(state.title, state.gameType.id, state.sex.id, state.minAge, state.maxAge, state.description, state.anonymous, state.commentsEnabled)
+            .then(json => props.addAnouncement(json))
+            .then(() => props.changeView())
     }
 
     return (

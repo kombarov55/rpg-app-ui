@@ -19,6 +19,7 @@ export function toggleSidebar() {
 }
 
 export function addAnnouncement(
+    id = "",
     title = "",
     gameType = GameTypes.LS,
     sex = Sex.FEMALE,
@@ -31,6 +32,7 @@ export function addAnnouncement(
     return {
         type: ADD_ANNOUNCEMENT,
         payload: {
+            id: id,
             title: title,
             gameType: gameType,
             sex: sex,

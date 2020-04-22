@@ -22,8 +22,7 @@ export async function createAnnouncement(
         commentsEnabled: commentsEnabled
     }
     const json = JSON.stringify(body);
-    console.log(json)
     const responsePromise = post(announcementUrl, json)
 
-    return responsePromise.then(value => value.body)
+    return responsePromise.then(value => value.json())
 }

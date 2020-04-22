@@ -1,16 +1,48 @@
 import React from "react"
+import {GameTypes} from "../data-layer/enums/GameType";
+import {Sex} from "../data-layer/enums/Sex";
 
 class AnnouncementItem extends React.Component {
+
+    renderChips() {
+        const values = []
+
+        if (this.props.sex !== undefined) {
+            const enumObj = Sex[this.props.sex];
+            if (enumObj !== undefined) {
+                values.push(enumObj.description)
+            }
+        }
+
+        if (this.props.gameType !== undefined) {
+            const enumObj = GameTypes[this.props.gameType];
+            if (enumObj !== undefined) {
+                values.push(enumObj.description)
+            }
+        }
+
+        if (this.props.minAge !== null) {
+            values.push("Мин возраст: " + this.props.minAge)
+        }
+
+        if (this.props.maxAge !== null) {
+            values.push("Макс возраст: " + this.props.maxAge)
+        }
+
+        return values.map(str => <span className="announcement-view-chip">{str}</span>)
+    }
+
     render() {
         return (
             <div className={"announcement-view-list-item"}>
                 <div className={"announcement-view-list-item-title"}>{this.props.title}</div>
                 <div className={"announcement-view-list-item-description"}>{this.props.description}</div>
                 <div className={"announcement-view-chips-list"}>
-                    <span className="announcement-view-chip">ЛС</span>
-                    <span className="announcement-view-chip">М</span>
-                    <span className="announcement-view-chip">Мин возраст: 10</span>
-                    <span className="announcement-view-chip">Макс. возраст: 30</span>
+                    {this.renderChips()}
+                    {/*<span className="announcement-view-chip">{this.props.gameType}</span>*/}
+                    {/*<span className="announcement-view-chip">{this.props.sex}</span>*/}
+                    {/*<span className="announcement-view-chip">Мин возраст: {this.props.minAge}</span>*/}
+                    {/*<span className="announcement-view-chip">Макс. возраст: {this.props.maxAge}</span>*/}
                 </div>
                 <div className={"announcement-view-list-item-footer"}>
                     <div className={"announcement-view-list-item-footer-item"}>
@@ -28,6 +60,9 @@ class AnnouncementItem extends React.Component {
                     <div className={"announcement-view-list-item-footer-item"}>
                         {/*Комментарии (0)*/}
                         <i className={"pi pi-comments"}/>
+                    </div>
+                    <div className={"announcement-view-list-item-footer-item"}>
+                        <i className={"pi pi-times"}/>
                     </div>
                 </div>
             </div>
