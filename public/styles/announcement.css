@@ -14,7 +14,7 @@
 
     width: 100%;
 
-    border: 1px solid black;
+    background: #212121;
 }
 
 .announcement-view-header > * {
@@ -109,5 +109,5 @@
     background: #592e83;
 
     font-weight: bold;
-    font-size: 1vmax;
+    font-size: 1.5vmax;
 }

@@ -24,9 +24,12 @@ body {
 }
 
 .head-name {
-    font-size: 3vmax;
+    font-size: 2.5vmax;
 
     padding: 1vmax 1vmax;
+}
+
+.head-logo {
 }
 
 .main-frame-body {
@@ -78,7 +81,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    background: #9984D4;
+    background: #592E83;
     border: 1px solid black;
 }
 
