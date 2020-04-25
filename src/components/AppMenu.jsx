@@ -34,7 +34,7 @@ class ConnectedMenu extends React.Component {
                 </div>
                 <div className={"main-frame-nav-item"}
                      onClick={() => this.onItemClicked(announcementCreationView)}>
-                    <i className={"pi pi-user"} style={{"font-size": "6vmin"}}/>
+                    <i className={"pi pi-user"} style={{"fontSize": "6vmin"}}/>
                     Мои объявления
                 </div>
                 <div className={"main-frame-nav-item"}>

@@ -1,6 +1,7 @@
 import {announcementUrl} from "./properties";
 import {store} from "../data-layer/Store";
 import {addAnnouncement} from "../data-layer/ActionCreators";
+import bridge from "@vkontakte/vk-bridge"
 
 function loadAnnouncements() {
     fetch(announcementUrl)
@@ -21,4 +22,9 @@ function loadAnnouncements() {
 
 export function onStartup() {
     loadAnnouncements()
+    bridge.send("VKWebAppInit", {});
+    window.bridge = bridge
+
+    // const res = bridge.send("VKWebAppGetUserInfo", {});
+    // console.log(res)p
 }

@@ -33,6 +33,8 @@ class ConnectedAnnouncement extends React.Component {
                 <div className={"announcement-view-list"}>{
                     this.props.announcements.map(announcement => (
                         <AnnouncementItem
+                            key={announcement.id}
+
                             id={announcement.id}
                             title={announcement.title}
                             description={announcement.description}

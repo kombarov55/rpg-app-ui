@@ -41,7 +41,7 @@ class ConnectedAnnouncementItem extends React.Component {
             values.push("Макс возраст: " + this.props.maxAge)
         }
 
-        return values.map(str => <span className="announcement-view-chip">{str}</span>)
+        return values.map(str => <span key={str} className="announcement-view-chip">{str}</span>)
     }
 
     render() {
