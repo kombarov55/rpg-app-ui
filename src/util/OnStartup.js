@@ -24,7 +24,9 @@ export function onStartup() {
     loadAnnouncements()
     bridge.send("VKWebAppInit", {});
     window.bridge = bridge
-    alert(window.location.search)
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    alert(urlSearchParams.get("user_id"))
+    alert(urlSearchParams.get("vk_user_id"))
 
     // const res = bridge.send("VKWebAppGetUserInfo", {});
     // console.log(res)p
