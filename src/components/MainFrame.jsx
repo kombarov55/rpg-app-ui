@@ -19,6 +19,10 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
+const urlSearchParams = new URLSearchParams(window.location.search);
+const userId = urlSearchParams.get("user_id")
+const vkUserId = urlSearchParams.get("vk_user_id")
+
 class ConnectedMainFrame extends React.Component {
 
     render() {
@@ -30,7 +34,12 @@ class ConnectedMainFrame extends React.Component {
 
                 <div className={"main-frame-header"}>
                     <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.props.toggleSidebar()}/>
-                    <div className={"head-name"}>{this.props.currentView.label}</div>
+                    <div className={"head-name"}>
+                        {/*{this.props.currentView.label}*/}
+                        {
+                            "userId: " + userId + ", vkUserId: " + vkUserId
+                        }
+                    </div>
                     <div className={"head-logo"}>Лого</div>
                 </div>
                 <div className={"main-frame-body"}>
