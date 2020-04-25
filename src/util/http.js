@@ -1,24 +1,29 @@
+let authToken = ""
+
+export function setAuthToken(token) {
+    authToken = token;
+}
+
 export function get(url) {
-    return fetch(url, {
-        mode: "no-cors"
-    })
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET", url, false)
+    xhr.setRequestHeader("Authorization", "Bearer " + authToken)
+    xhr.send()
+    return JSON.parse(xhr.response)
 }
 
 export async function post(url, body) {
-    return fetch(url, {
-        method: "POST",
-        headers: new Headers({
-            'Content-Type': 'application/json;charset=utf-8'
-        }),
-        body: body
-    })
+    const xhr = new XMLHttpRequest()
+    xhr.open("POST", url, false)
+    xhr.setRequestHeader("Authorization", "Bearer " + authToken)
+    xhr.send(body)
+    return xhr.response
 }
 
 export async function httpDelete(url) {
-    return fetch(url, {
-        method: "DELETE",
-        headers: new Headers({
-            'Content-Type': 'application/json;charset=utf-8'
-        })
-    })
+    const xhr = new XMLHttpRequest()
+    xhr.open("DELETE", url, false)
+    xhr.setRequestHeader("Authorization", "Bearer " + authToken)
+    xhr.send()
+    return xhr.response
 }

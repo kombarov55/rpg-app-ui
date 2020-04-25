@@ -24,9 +24,8 @@ export async function createAnnouncement(
         uploadUid: uploadUid
     }
     const json = JSON.stringify(body);
-    const responsePromise = post(announcementUrl, json)
 
-    return responsePromise.then(value => value.json())
+    return post(announcementUrl, json)
 }
 
 export async function deleteAnnouncementFromServer(id) {
