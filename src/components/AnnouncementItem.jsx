@@ -47,6 +47,15 @@ class ConnectedAnnouncementItem extends React.Component {
     render() {
         return (
             <div className={"announcement-view-list-item"}>
+                <div className={"announcement-view-list-item-author-header"}>
+                    <img
+                        className={"announcement-view-list-item-author-header-img"}
+                        src={"https://sun9-51.userapi.com/c857428/v857428323/1a8610/kgXq1avsY9g.jpg"}/>
+                    <div className={"announcement-view-list-item-author-header-vertical"}>
+                        <div className={"announcement-view-list-item-author-header-fullname"}>Николай Комбаров</div>
+                        <div className={"announcement-view-list-item-author-header-time"}>26.04.2020 00:05</div>
+                    </div>
+                </div>
                 <div className={"announcement-view-list-item-title"}>{this.props.title}</div>
                 <div className={"announcement-view-list-item-description"}>{this.props.description}</div>
                 <div className={"announcement-view-chips-list"}>
@@ -73,7 +82,8 @@ class ConnectedAnnouncementItem extends React.Component {
                         {/*Комментарии (0)*/}
                         <i className={"pi pi-comments"}/>
                     </div>
-                    <div className={"announcement-view-list-item-footer-item"} onClick={() => this.props.deleteAnnouncement(this.props.id)}>
+                    <div className={"announcement-view-list-item-footer-item"}
+                         onClick={() => this.props.deleteAnnouncement(this.props.id)}>
                         <i className={"pi pi-times"}/>
                     </div>
                 </div>

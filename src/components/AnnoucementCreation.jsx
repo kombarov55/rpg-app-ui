@@ -78,115 +78,115 @@ function ConnectedAnnoucementCreation(props) {
 
     return (
         <div className={"p-grid p-dir-col announcement-creation-vertical"}>
-            n <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={"p-col"}>
-                <input placeholder={"Название:"}
-                       name={"title"}
-                       ref={register({required: true})}
-                       value={props.announcementForm.title}
-                       onChange={e => props.updateAnnouncementForm({title: e.target.value})}
-                />
-                <span className={"errors"}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className={"p-col"}>
+                    <input placeholder={"Название:"}
+                           name={"title"}
+                           ref={register({required: true})}
+                           value={props.announcementForm.title}
+                           onChange={e => props.updateAnnouncementForm({title: e.target.value})}
+                    />
+                    <span className={"errors"}>
                     {errors.title && "Обязательное поле"}
                     </span>
 
-            </div>
-            <div className={"p-col"}>
-                <span>Тип игры: </span>
-            </div>
-            <div className={"p-col"}>
-                <SelectButton
-                    name={"gameType"}
-                    options={gameTypeValues}
-                    value={props.announcementForm.gameType}
-                    onChange={(e) => props.updateAnnouncementForm({gameType: e.target.value})}
-                />
-            </div>
-            <div className={"p-col"}>
-                <span>Пол персонажа:</span>
-            </div>
-            <div className={"p-col"}>
-                <SelectButton
-                    name={"sex"}
-                    options={sexValues}
-                    value={props.announcementForm.sex}
-                    onChange={(e) => props.updateAnnouncementForm({sex: e.target.value})}
-                />
-            </div>
-            <div className={"p-col"}>
-                <input placeholder={"Минимальный возраст персонажа"}
-                       name={"minAge"}
-                       value={props.announcementForm.minAge}
-                       onChange={(e) => props.updateAnnouncementForm({minAge: e.target.value})}
-                       ref={register({pattern: /^[0-9]*$/i})}
-                />
-                <span className={"errors"}>
+                </div>
+                <div className={"p-col"}>
+                    <span>Тип игры: </span>
+                </div>
+                <div className={"p-col"}>
+                    <SelectButton
+                        name={"gameType"}
+                        options={gameTypeValues}
+                        value={props.announcementForm.gameType}
+                        onChange={(e) => props.updateAnnouncementForm({gameType: e.target.value})}
+                    />
+                </div>
+                <div className={"p-col"}>
+                    <span>Пол персонажа:</span>
+                </div>
+                <div className={"p-col"}>
+                    <SelectButton
+                        name={"sex"}
+                        options={sexValues}
+                        value={props.announcementForm.sex}
+                        onChange={(e) => props.updateAnnouncementForm({sex: e.target.value})}
+                    />
+                </div>
+                <div className={"p-col"}>
+                    <input placeholder={"Минимальный возраст персонажа"}
+                           name={"minAge"}
+                           value={props.announcementForm.minAge}
+                           onChange={(e) => props.updateAnnouncementForm({minAge: e.target.value})}
+                           ref={register({pattern: /^[0-9]*$/i})}
+                    />
+                    <span className={"errors"}>
                         {errors.minAge && "Поле должно быть цифрой"}
                     </span>
-            </div>
-            <div className={"p-col"}>
-                <input
-                    placeholder={"Максимальный возраст персонажа"}
-                    name={"maxAge"}
-                    value={props.announcementForm.maxAge}
-                    onChange={(e) => props.updateAnnouncementForm({maxAge: e.target.value})}
-                    ref={register({pattern: /^[0-9]*$/i})}
-                />
-                <span className={"errors"}>
+                </div>
+                <div className={"p-col"}>
+                    <input
+                        placeholder={"Максимальный возраст персонажа"}
+                        name={"maxAge"}
+                        value={props.announcementForm.maxAge}
+                        onChange={(e) => props.updateAnnouncementForm({maxAge: e.target.value})}
+                        ref={register({pattern: /^[0-9]*$/i})}
+                    />
+                    <span className={"errors"}>
                     {errors.maxAge && "Поле должно быть цифрой"}
                     </span>
-            </div>
-            <div className={"p-col"}>
-                <span>Текст объявления:</span>
-            </div>
-            <div className={"p-col"}>
+                </div>
+                <div className={"p-col"}>
+                    <span>Текст объявления:</span>
+                </div>
+                <div className={"p-col"}>
                     <textarea name={"description"}
                               value={props.announcementForm.description}
                               onChange={(e) => props.updateAnnouncementForm({description: e.target.value})}
                               ref={register({required: true})}
                     />
-                <span className={"errors"}>
+                    <span className={"errors"}>
                         {errors.description && "Обязательное поле"}
                     </span>
-            </div>
-            <div className={"p-col"}>
-                <span>Картинка к объявлению (не более 3):</span>
-            </div>
-            <div className={"p-col"}>
-                {/*<FileUpload name={"file1"}*/}
-                {/*            url={uploadUrl + "/" + uploadUid}*/}
-                {/*            mode={"basic"}*/}
-                {/*            auto={true}*/}
-                {/*            maxFileSize={262144}*/}
-                {/*            chooseLabel={"Выберите файл.."}*/}
-                {/*/>*/}
-            </div>
-            <div className={"p-col"}>
-                <div className={"p-grid p-dir-row"}>
-                    <div className={"p-col"}>
-                        Анонимно:
-                    </div>
-                    <div className={"p-col"}>
-                        <InputSwitch checked={props.announcementForm.anonymous}
-                                     onChange={(e) => props.updateAnnouncementForm({anonymous: e.value})}/>
+                </div>
+                <div className={"p-col"}>
+                    <span>Картинка к объявлению (не более 3):</span>
+                </div>
+                <div className={"p-col"}>
+                    {/*<FileUpload name={"file1"}*/}
+                    {/*            url={uploadUrl + "/" + uploadUid}*/}
+                    {/*            mode={"basic"}*/}
+                    {/*            auto={true}*/}
+                    {/*            maxFileSize={262144}*/}
+                    {/*            chooseLabel={"Выберите файл.."}*/}
+                    {/*/>*/}
+                </div>
+                <div className={"p-col"}>
+                    <div className={"p-grid p-dir-row"}>
+                        <div className={"p-col"}>
+                            Анонимно:
+                        </div>
+                        <div className={"p-col"}>
+                            <InputSwitch checked={props.announcementForm.anonymous}
+                                         onChange={(e) => props.updateAnnouncementForm({anonymous: e.value})}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className={"p-col"}>
-                <div className={"p-grid p-dir-row"}>
-                    <div className={"p-col"}>
-                        Комментарии:
-                    </div>
-                    <div className={"p-col"}>
-                        <InputSwitch checked={props.announcementForm.commentsEnabled}
-                                     onChange={(e) => props.updateAnnouncementForm({commentsEnabled: e.value})}/>
+                <div className={"p-col"}>
+                    <div className={"p-grid p-dir-row"}>
+                        <div className={"p-col"}>
+                            Комментарии:
+                        </div>
+                        <div className={"p-col"}>
+                            <InputSwitch checked={props.announcementForm.commentsEnabled}
+                                         onChange={(e) => props.updateAnnouncementForm({commentsEnabled: e.value})}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className={"p-col"}>
-                <input className={"submit-btn"} type={"submit"} value={"Сохранить"}/>
-            </div>
-        </form>
+                <div className={"p-col"}>
+                    <input className={"submit-btn"} type={"submit"} value={"Сохранить"}/>
+                </div>
+            </form>
         </div>
     )
 }
