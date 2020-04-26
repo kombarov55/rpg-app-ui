@@ -1,8 +1,9 @@
-import {announcementUrl} from "./properties";
+import {announcementUrl} from "./Parameters";
 import {store} from "../data-layer/Store";
 import {addAnnouncement} from "../data-layer/ActionCreators";
-import {loginUrl} from "./properties";
-import {get, setAuthToken} from "./http";
+import {loginUrl} from "./Parameters";
+import {get} from "./Http";
+import Globals from "./Globals";
 
 function loadAnnouncements() {
     const response = get(announcementUrl)
@@ -25,6 +26,7 @@ function loadAnnouncements() {
 function saveAuthToken() {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const userId = urlSearchParams.get("user_id")
+    Globals.userId = userId
 
     return fetch(loginUrl, {
         method: "POST",
@@ -36,7 +38,7 @@ function saveAuthToken() {
         })
     })
         .then(rs => rs.json())
-        .then(json => setAuthToken(json["token"]))
+        .then(json => Globals.authToken = json["token"])
 }
 
 export function onStartup() {

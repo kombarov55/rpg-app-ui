@@ -1,5 +1,5 @@
-import {post, httpDelete} from "./http";
-import {announcementUrl} from "./properties";
+import {post, httpDelete} from "./Http";
+import {announcementUrl} from "./Parameters";
 
 export async function createAnnouncement(
     title,
