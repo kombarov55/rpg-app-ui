@@ -5,6 +5,7 @@ import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 import CommentSection from "./Comment/CommentSection";
 import {get} from "../../util/Http";
 import {commentUrl} from "../../util/Parameters";
+import FormatDate from "../../util/FormatDate";
 
 function mapDispatchToProps(dispatch, props) {
     return {
@@ -66,7 +67,7 @@ class ConnectedAnnouncementItem extends React.Component {
                             {this.props.anonymous ? "Аноним" : this.props.authorFullName}
                         </div>
                         <div className={"announcement-view-list-item-author-header-time"}>
-                            {new Date(this.props.creationDate).toUTCString()}
+                            {FormatDate(new Date(this.props.creationDate))}
                         </div>
                     </div>
                 </div>

@@ -59,6 +59,12 @@
     justify-content: space-between;
 }
 
+.comment-content-header-vertical {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .comment-content {
     width: 100%;
 
@@ -66,7 +72,7 @@
 }
 
 .comment-author-name {
-    margin: 0.5vmax 0;
+    margin: 0.5vmax 0 0 0;
 
     font-size: 2vh;
     color: #61dafb;
@@ -74,12 +80,12 @@
 
 .comment-text {
     font-size: 2vh;
+    padding: 1vmax 0 1vmax 0;
 }
 
 .comment-creation-date {
-    margin: 1vmax 0;
-
-    float: right;
+    font-size: 1.5vmax;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .restore-comment {
