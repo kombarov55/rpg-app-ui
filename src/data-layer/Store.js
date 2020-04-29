@@ -11,7 +11,6 @@ export const initialState = {
         commentsEnabled: true
     },
     commentForm: {
-        authorId: 1,
         text: ""
     }
 }

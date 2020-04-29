@@ -6,7 +6,7 @@ class CommentSection extends React.Component {
         return (
             <div className={"comment-section"}>
                 Comments...
-                <CommentsCreationForm/>
+                <CommentsCreationForm announcementId={this.props.announcementId} />
             </div>
         )
     }

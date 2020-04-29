@@ -20,18 +20,12 @@ class ConnectedAnnouncementItem extends React.Component {
     renderChips() {
         const values = []
 
-        if (this.props.sex !== undefined) {
-            const enumObj = Sex[this.props.sex];
-            if (enumObj !== undefined) {
-                values.push(enumObj.description)
-            }
+        if (this.props.sex !== null) {
+            values.push(this.props.sex)
         }
 
-        if (this.props.gameType !== undefined) {
-            const enumObj = GameTypes[this.props.gameType];
-            if (enumObj !== undefined) {
-                values.push(enumObj.description)
-            }
+        if (this.props.gameType !== null) {
+            values.push(this.props.gameType)
         }
 
         if (this.props.minAge !== null) {
@@ -101,7 +95,7 @@ class ConnectedAnnouncementItem extends React.Component {
                         <i className={"pi pi-times"}/>
                     </div>
                 </div>
-                { this.state.commentSectionVisible && <CommentSection/> }
+                { this.state.commentSectionVisible && <CommentSection announcementId={this.props.id}/> }
 
             </div>
         )

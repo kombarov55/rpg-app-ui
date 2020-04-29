@@ -4,8 +4,8 @@ import {
     ADD_ANNOUNCEMENT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
     DELETE_ANNOUNCEMENT,
-    EDIT_ANNOUNCEMENT_FORM,
-    TOGGLE_SIDEBAR, UPDATE_COMMENT_FORM
+    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD,
+    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
 import {announcementView} from "../View";
 
@@ -57,6 +57,26 @@ export function addAnnouncement(
             commentsEnabled: commentsEnabled,
             uploadUid: uploadUid,
             commentsCount: commentsCount
+        }
+    }
+}
+
+export function updateAnnouncement(announcementId, fieldNameToValue) {
+    return {
+        type: UPDATE_ANNOUNCEMENT,
+        payload: {
+            announcementId: announcementId,
+            fieldNameToValue: fieldNameToValue
+        }
+    }
+}
+
+export function incAnnouncementField(announcementId, fieldName) {
+    return {
+        type: INC_ANNOUNCEMENT_FIELD,
+        payload: {
+            announcementId: announcementId,
+            fieldName: fieldName
         }
     }
 }
