@@ -1,6 +1,6 @@
 import Globals from "./Globals";
 
-export function get(url) {
+export async function get(url) {
     const xhr = new XMLHttpRequest()
     xhr.open("GET", url, false)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)

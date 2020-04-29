@@ -4,7 +4,7 @@ import {incAnnouncementField, updateCommentForm} from "../../../data-layer/Actio
 import {connect} from "react-redux";
 import ConvertUnicode from "../../../util/ConvertUnicode";
 import {post} from "../../../util/Http";
-import {commentUrl, rootUrl} from "../../../util/Parameters";
+import {createCommentUrl, rootUrl} from "../../../util/Parameters";
 import Globals from "../../../util/Globals";
 
 function mapStateToProps(state) {
@@ -24,7 +24,7 @@ function ConnectedCommentsCreationForm(props) {
     const {handleSubmit, register, errors} = useForm()
 
     function onSubmit() {
-        const rs = post(commentUrl, JSON.stringify({
+        const rs = post(createCommentUrl, JSON.stringify({
             authorId: Globals.userId,
             announcementId: props.announcementId,
             text: props.commentForm.text

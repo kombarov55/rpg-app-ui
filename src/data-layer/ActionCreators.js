@@ -1,7 +1,7 @@
 import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
 import {
-    ADD_ANNOUNCEMENT,
+    ADD_ANNOUNCEMENT, ADD_COMMENT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
     DELETE_ANNOUNCEMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD,
@@ -107,5 +107,12 @@ export function updateCommentForm(obj) {
     return {
         type: UPDATE_COMMENT_FORM,
         payload: obj
+    }
+}
+
+export function addComment(comment) {
+    return {
+        type: ADD_COMMENT,
+        payload: comment
     }
 }

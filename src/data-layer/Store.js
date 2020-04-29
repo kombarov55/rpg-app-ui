@@ -6,6 +6,7 @@ export const initialState = {
     sidebarVisible: false,
     currentView: announcementView,
     announcements: [],
+    comments: [],
     announcementForm: {
         anonymous: false,
         commentsEnabled: true

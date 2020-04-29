@@ -1,17 +1,18 @@
 import React from "react"
-import {GameTypes} from "../../data-layer/enums/GameType";
-import {Sex} from "../../data-layer/enums/Sex";
-import {deleteAnnouncement} from "../../data-layer/ActionCreators";
+import {addComment, deleteAnnouncement} from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 import CommentSection from "./Comment/CommentSection";
+import {get} from "../../util/Http";
+import {commentUrl} from "../../util/Parameters";
 
 function mapDispatchToProps(dispatch) {
     return {
         deleteAnnouncement: (id) => {
             deleteAnnouncementFromServer(id)
                 .then(() => dispatch(deleteAnnouncement(id)))
-        }
+        },
+        addComment: (comment) => dispatch(addComment(comment))
     }
 }
 
@@ -40,7 +41,11 @@ class ConnectedAnnouncementItem extends React.Component {
     }
 
     onCommentsClicked() {
-        this.setState({commentSectionVisible: !this.state.commentSectionVisible})
+        get(commentUrl(this.props.id))
+            .then(rs => rs.forEach(it => this.props.addComment(it)))
+            .then(() => this.setState({commentSectionVisible: !this.state.commentSectionVisible}))
+
+
     }
 
     state = {
@@ -58,7 +63,9 @@ class ConnectedAnnouncementItem extends React.Component {
                         <div className={"announcement-view-list-item-author-header-fullname"}>
                             {this.props.anonymous ? "Аноним" : this.props.authorFullName}
                         </div>
-                        <div className={"announcement-view-list-item-author-header-time"}>{new Date(this.props.creationDate).toUTCString()}</div>
+                        <div className={"announcement-view-list-item-author-header-time"}>
+                            {new Date(this.props.creationDate).toUTCString()}
+                        </div>
                     </div>
                 </div>
                 <div className={"announcement-view-list-item-title"}>{this.props.title}</div>
@@ -79,11 +86,11 @@ class ConnectedAnnouncementItem extends React.Component {
                         {/*Откликнуться*/}
                         <i className={"pi pi-user-plus"}/>
                     </div>
-                    { this.props.anonymous &&
-                        <div className={"announcement-view-list-item-footer-item"}>
-                            {/*Связаться с автором*/}
-                            <i className={"pi pi-envelope"}/>
-                        </div>
+                    {this.props.anonymous &&
+                    <div className={"announcement-view-list-item-footer-item"}>
+                        {/*Связаться с автором*/}
+                        <i className={"pi pi-envelope"}/>
+                    </div>
                     }
                     <div className={"announcement-view-list-item-footer-item"} onClick={() => this.onCommentsClicked()}>
                         {/*Комментарии (0)*/}
@@ -95,7 +102,7 @@ class ConnectedAnnouncementItem extends React.Component {
                         <i className={"pi pi-times"}/>
                     </div>
                 </div>
-                { this.state.commentSectionVisible && <CommentSection announcementId={this.props.id}/> }
+                {this.state.commentSectionVisible && <CommentSection announcementId={this.props.id}/>}
 
             </div>
         )

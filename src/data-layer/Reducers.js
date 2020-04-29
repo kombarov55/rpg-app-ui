@@ -1,5 +1,5 @@
 import {
-    ADD_ANNOUNCEMENT,
+    ADD_ANNOUNCEMENT, ADD_COMMENT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
     DELETE_ANNOUNCEMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD,
@@ -59,8 +59,6 @@ export function rootReducer(state = initialState, action) {
             })
 
 
-
-
         case EDIT_ANNOUNCEMENT_FORM:
             const updatedFields = action.payload;
 
@@ -94,7 +92,13 @@ export function rootReducer(state = initialState, action) {
                 commentForm: updatedComment
             })
 
-        default: return state;
+        case ADD_COMMENT:
+            return Object.assign({}, state, {
+                comments: state.comments.concat(action.payload)
+            })
+
+        default:
+            return state;
     }
 }
 
