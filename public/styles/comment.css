@@ -3,6 +3,8 @@
 
     padding: 1vmax;
 
+    border-top: 1px solid black;
+
 }
 
 .comment-creation-form {
@@ -10,6 +12,8 @@
     flex-direction: row;
 
     justify-content: space-between;
+
+    margin: 3vmax 0 1vmax 1vmax;
 }
 
 .comment-creation-form-textarea {
@@ -31,4 +35,43 @@
 .comment-creation-form-text-error {
     color: red;
     font-size: 2vh;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+
+    padding: 0.5vmax;
+}
+
+.comment-author-image {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 1vmax 0 0;
+
+    border-radius: 666px;
+}
+
+.comment-content {
+    width: 100%;
+
+    border-bottom: 1px solid black;
+}
+
+.comment-author-name {
+    margin: 0.5vmax 0;
+
+    font-size: 2vh;
+    color: #61dafb;
+}
+
+.comment-text {
+    font-size: 2vh;
+}
+
+.comment-creation-date {
+    margin: 1vmax 0;
+
+    float: right;
 }
