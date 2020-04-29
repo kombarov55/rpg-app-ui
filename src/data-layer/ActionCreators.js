@@ -3,7 +3,7 @@ import {Sex} from "./enums/Sex";
 import {
     ADD_ANNOUNCEMENT, ADD_COMMENT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
-    DELETE_ANNOUNCEMENT,
+    DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
@@ -114,5 +114,14 @@ export function addComment(comment) {
     return {
         type: ADD_COMMENT,
         payload: comment
+    }
+}
+
+export function deleteComment(commentId) {
+    return {
+        type: DELETE_COMMENT,
+        payload: {
+            commentId: commentId
+        }
     }
 }

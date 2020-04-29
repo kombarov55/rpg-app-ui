@@ -1,6 +1,6 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import {incAnnouncementField, updateCommentForm} from "../../../data-layer/ActionCreators";
+import {addComment, incAnnouncementField, updateCommentForm} from "../../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import ConvertUnicode from "../../../util/ConvertUnicode";
 import {post} from "../../../util/Http";
@@ -15,8 +15,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        updateCommentForm: (fieldNameToValue) => dispatch(updateCommentForm(fieldNameToValue)),
-        incCommentsCount: (announcementId) => dispatch(incAnnouncementField(announcementId, "commentsCount"))
+        updateCommentForm: fieldNameToValue => dispatch(updateCommentForm(fieldNameToValue)),
+        incCommentsCount: announcementId => dispatch(incAnnouncementField(announcementId, "commentsCount")),
+        addComment: comment => dispatch(addComment(comment))
     }
 }
 
@@ -24,13 +25,14 @@ function ConnectedCommentsCreationForm(props) {
     const {handleSubmit, register, errors} = useForm()
 
     function onSubmit() {
-        const rs = post(createCommentUrl, JSON.stringify({
+        post(createCommentUrl, JSON.stringify({
             authorId: Globals.userId,
             announcementId: props.announcementId,
             text: props.commentForm.text
         }))
-        props.updateCommentForm({text: ""})
-        props.incCommentsCount(props.announcementId)
+            .then(rs => props.addComment(rs))
+            .then(() => props.updateCommentForm({text: ""}))
+            .then(() => props.incCommentsCount(props.announcementId))
     }
 
     return (

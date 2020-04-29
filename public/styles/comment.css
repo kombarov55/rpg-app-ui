@@ -53,6 +53,12 @@
     border-radius: 666px;
 }
 
+.comment-content-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .comment-content {
     width: 100%;
 
