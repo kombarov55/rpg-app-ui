@@ -1,0 +1,34 @@
+.comment-section {
+    width: 100%;
+
+    padding: 1vmax;
+
+}
+
+.comment-creation-form {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+}
+
+.comment-creation-form-textarea {
+}
+
+.comment-creation-form-submit {
+    width: 3vmax;
+    height: 3vmax;
+    padding-bottom: 12vmax;
+    padding-right: 4vmax;
+
+    background: transparent;
+    border: transparent;
+
+    color: white;
+    font-size: 3vh;
+}
+
+.comment-creation-form-text-error {
+    color: red;
+    font-size: 2vh;
+}

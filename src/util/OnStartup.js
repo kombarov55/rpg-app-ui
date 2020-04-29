@@ -7,7 +7,6 @@ import Globals from "./Globals";
 
 function loadAnnouncements() {
     const response = get(announcementUrl)
-    console.log(response)
 
     response.forEach(item =>
         store.dispatch(addAnnouncement(

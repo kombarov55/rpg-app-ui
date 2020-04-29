@@ -85,7 +85,7 @@ class ConnectedAnnouncementItem extends React.Component {
                         {/*Откликнуться*/}
                         <i className={"pi pi-user-plus"}/>
                     </div>
-                    { this.props.anonymous ? <></> :
+                    { this.props.anonymous &&
                         <div className={"announcement-view-list-item-footer-item"}>
                             {/*Связаться с автором*/}
                             <i className={"pi pi-envelope"}/>
@@ -101,10 +101,7 @@ class ConnectedAnnouncementItem extends React.Component {
                         <i className={"pi pi-times"}/>
                     </div>
                 </div>
-                { this.state.commentSectionVisible ?
-                    <CommentSection/> :
-                    <></>
-                }
+                { this.state.commentSectionVisible && <CommentSection/> }
 
             </div>
         )

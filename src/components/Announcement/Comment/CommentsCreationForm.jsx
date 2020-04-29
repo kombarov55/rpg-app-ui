@@ -2,6 +2,7 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {updateCommentForm} from "../../../data-layer/ActionCreators";
 import {connect} from "react-redux";
+import ConvertUnicode from "../../../util/ConvertUnicode";
 
 function mapStateToProps(state) {
     return {
@@ -24,14 +25,27 @@ function ConnectedCommentsCreationForm(props) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <textarea
-                name={"commentText"}
-                value={props.commentForm.text}
-                ref={register({required: true})}
-                onChange={(e) => props.updateCommentForm({text: e.target.value})}
-            />
-            {errors.commentText && "Введите текст комментария"}
-            <input type={"submit"}/>
+            <div className={"comment-creation-form"}>
+                <textarea
+                    rows={2}
+                    className={"comment-creation-form-textarea"}
+                    placeholder={"Текст комментария.."}
+                    name={"commentText"}
+                    value={props.commentForm.text}
+                    ref={register({required: true})}
+                    onChange={(e) => props.updateCommentForm({text: e.target.value})}
+                />
+                <input
+                    className={"comment-creation-form-submit"}
+                    type={"submit"}
+                    value={ConvertUnicode("\u27A4")}
+                />
+            </div>
+            {errors.commentText &&
+                <div className={"comment-creation-form-text-error"}>
+                    Введите текст комментария
+                </div>
+            }
         </form>
     )
 }
