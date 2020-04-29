@@ -1,8 +1,8 @@
 import {
     ADD_ANNOUNCEMENT, ADD_COMMENT,
-    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
+    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
-    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD,
+    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_COMMENT,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
 import {initialState} from "./Store";
@@ -24,6 +24,23 @@ function handleDeleteComment(state, action) {
     updatedComments[indexOfDeleted] = deletedComment
 
     console.log({before: state.comments, after: updatedComments})
+
+    return Object.assign({}, state, {
+        comments: updatedComments
+    })
+}
+
+function restoreComment(state, action) {
+    const {commentId} = action.payload
+    const indexOfRestored = state.comments.findIndex(it => it.id === commentId);
+
+    const commentToRestore = state.comments[indexOfRestored]
+    const restoredComment = Object.assign({}, commentToRestore, {
+        deleted: false
+    })
+
+    const updatedComments = state.comments.slice()
+    updatedComments[indexOfRestored] = restoredComment
 
     return Object.assign({}, state, {
         comments: updatedComments
@@ -115,6 +132,11 @@ export function rootReducer(state = initialState, action) {
                 commentForm: updatedComment
             })
 
+        case CLEAR_COMMENTS:
+            return Object.assign({}, state, {
+                comments: state.comments.filter(it => it.announcementId !== action.payload.announcementId)
+            })
+
         case ADD_COMMENT:
             return Object.assign({}, state, {
                 comments: state.comments.concat(action.payload)
@@ -122,6 +144,9 @@ export function rootReducer(state = initialState, action) {
 
         case DELETE_COMMENT:
             return handleDeleteComment(state, action)
+
+        case RESTORE_COMMENT:
+            return restoreComment(state, action)
 
         default:
             return state;

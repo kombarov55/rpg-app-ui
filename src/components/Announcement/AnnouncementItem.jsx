@@ -1,17 +1,18 @@
 import React from "react"
-import {addComment, deleteAnnouncement} from "../../data-layer/ActionCreators";
+import {addComment, clearComments, deleteAnnouncement, deleteComments} from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 import CommentSection from "./Comment/CommentSection";
 import {get} from "../../util/Http";
 import {commentUrl} from "../../util/Parameters";
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, props) {
     return {
         deleteAnnouncement: (id) => {
             deleteAnnouncementFromServer(id)
                 .then(() => dispatch(deleteAnnouncement(id)))
         },
+        clearComments: () => dispatch(clearComments(props.id)),
         addComment: (comment) => dispatch(addComment(comment))
     }
 }
@@ -41,6 +42,7 @@ class ConnectedAnnouncementItem extends React.Component {
     }
 
     onCommentsClicked() {
+        this.props.clearComments()
         get(commentUrl(this.props.id))
             .then(rs => rs.forEach(it => this.props.addComment(it)))
             .then(() => this.setState({commentSectionVisible: !this.state.commentSectionVisible}))

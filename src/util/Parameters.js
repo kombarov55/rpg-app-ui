@@ -4,6 +4,7 @@ export const announcementUrl = rootUrl + "/announcement"
 export const createCommentUrl = announcementUrl + "/comment"
 export const commentUrl = (announcementId) => announcementUrl + "/" + announcementId + "/comment"
 export const deleteCommentUrl = (announcementId, commentId) => announcementUrl + "/" + announcementId + "/comment/" + commentId
+export const restoreCommentUrl = (announcementId, commentId) => announcementUrl + "/" + announcementId + "/comment/" + commentId + "/restore"
 export const uploadUrl = rootUrl + "/upload"
 export const loginUrl = rootUrl + "/login"
 

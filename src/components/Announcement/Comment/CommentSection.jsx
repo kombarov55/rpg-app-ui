@@ -22,6 +22,7 @@ class CommentSection extends React.Component {
                         <RestoreComment
                             key={comment.id}
                             id={comment.id}
+                            announcementId={comment.announcementId}
                         /> :
                         <Comment
                             key={comment.id}

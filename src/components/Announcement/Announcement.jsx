@@ -4,9 +4,10 @@ import {connect} from "react-redux";
 import {changeView, addAnnouncement} from "../../data-layer/ActionCreators";
 import {announcementCreationView} from "../../View";
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
     return {
-        announcements: state.announcements
+        announcements: state.announcements,
+        commentsCount: state.comments.filter(it => it.announcementId === props.id).length
     }
 }
 
@@ -45,7 +46,7 @@ class ConnectedAnnouncement extends React.Component {
                             sex={announcement.sex}
                             gameType={announcement.gameType}
                             anonymous={announcement.anonymous}
-                            commentsCount={announcement.commentsCount}
+                            commentsCount={this.props.commentsCount}
                         />
                     ))
                 }</div>

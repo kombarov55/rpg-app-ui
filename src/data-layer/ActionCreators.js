@@ -2,9 +2,9 @@ import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
 import {
     ADD_ANNOUNCEMENT, ADD_COMMENT,
-    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
+    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
-    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD,
+    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_COMMENT,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
 import {announcementView} from "../View";
@@ -110,6 +110,15 @@ export function updateCommentForm(obj) {
     }
 }
 
+export function clearComments(announcementId) {
+    return {
+        type: CLEAR_COMMENTS,
+        payload: {
+            announcementId: announcementId
+        }
+    }
+}
+
 export function addComment(comment) {
     return {
         type: ADD_COMMENT,
@@ -117,9 +126,18 @@ export function addComment(comment) {
     }
 }
 
-export function deleteComment(commentId) {
+export function deleteComments(commentId) {
     return {
         type: DELETE_COMMENT,
+        payload: {
+            commentId: commentId
+        }
+    }
+}
+
+export function restoreComponent(commentId) {
+    return {
+        type: RESTORE_COMMENT,
         payload: {
             commentId: commentId
         }
