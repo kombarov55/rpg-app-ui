@@ -1,20 +1,21 @@
 import React from "react";
 import {httpDelete} from "../../../util/Http";
 import {deleteCommentUrl} from "../../../util/Parameters";
-import {deleteComments} from "../../../data-layer/ActionCreators";
+import {decAnnouncementField, deleteComments} from "../../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        deleteCommentFromStore: () => dispatch(deleteComments(props.id))
+        deleteCommentFromStore: () => dispatch(deleteComments(props.id)),
+        decCommentsCount: () => dispatch(decAnnouncementField(props.announcementId, "commentsCount"))
     }
 }
 
 function Comment(props) {
-
     function onDeleteClicked() {
         httpDelete(deleteCommentUrl(props.announcementId, props.id))
             .then(() => props.deleteCommentFromStore())
+            .then(() => props.decCommentsCount())
     }
 
     return (

@@ -1,6 +1,6 @@
 import {
     ADD_ANNOUNCEMENT, ADD_COMMENT,
-    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS,
+    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_COMMENT,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
@@ -30,7 +30,7 @@ function handleDeleteComment(state, action) {
     })
 }
 
-function restoreComment(state, action) {
+function handleRestoreComment(state, action) {
     const {commentId} = action.payload
     const indexOfRestored = state.comments.findIndex(it => it.id === commentId);
 
@@ -44,6 +44,27 @@ function restoreComment(state, action) {
 
     return Object.assign({}, state, {
         comments: updatedComments
+    })
+}
+
+function handleDecAnnouncementField(state, action) {
+    const announcementId = action.payload.announcementId
+    const fieldName = action.payload.fieldName
+
+    const prevAnnouncement = state.announcements.find(it => {
+        return it.id === announcementId
+    })
+
+    const incrementedValue = prevAnnouncement[fieldName] -= 1
+
+    const updatedAnnouncement = Object.assign({}, prevAnnouncement, {fieldName, incrementedValue})
+
+    const updatedAnnouncements = state.announcements.slice()
+    const indexOfUpdated = state.announcements.findIndex(it => it.id === announcementId);
+    updatedAnnouncements[indexOfUpdated] = updatedAnnouncement
+
+    return Object.assign({}, state, {
+        announcements: updatedAnnouncements
     })
 }
 
@@ -98,6 +119,9 @@ export function rootReducer(state = initialState, action) {
                 announcements: updatedAnnouncementsToInc
             })
 
+        case DEC_ANNOUNCEMENT_FIELD:
+            return handleDecAnnouncementField(state, action)
+
 
         case EDIT_ANNOUNCEMENT_FORM:
             const updatedFields = action.payload;
@@ -146,7 +170,7 @@ export function rootReducer(state = initialState, action) {
             return handleDeleteComment(state, action)
 
         case RESTORE_COMMENT:
-            return restoreComment(state, action)
+            return handleRestoreComment(state, action)
 
         default:
             return state;

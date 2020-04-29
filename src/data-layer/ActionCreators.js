@@ -2,7 +2,7 @@ import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
 import {
     ADD_ANNOUNCEMENT, ADD_COMMENT,
-    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS,
+    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_COMMENT,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
@@ -74,6 +74,16 @@ export function updateAnnouncement(announcementId, fieldNameToValue) {
 export function incAnnouncementField(announcementId, fieldName) {
     return {
         type: INC_ANNOUNCEMENT_FIELD,
+        payload: {
+            announcementId: announcementId,
+            fieldName: fieldName
+        }
+    }
+}
+
+export function decAnnouncementField(announcementId, fieldName) {
+    return {
+        type: DEC_ANNOUNCEMENT_FIELD,
         payload: {
             announcementId: announcementId,
             fieldName: fieldName
