@@ -3,7 +3,7 @@ import {
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
     DELETE_ANNOUNCEMENT,
     EDIT_ANNOUNCEMENT_FORM,
-    TOGGLE_SIDEBAR
+    TOGGLE_SIDEBAR, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
 import {initialState} from "./Store";
 
@@ -46,6 +46,15 @@ export function rootReducer(state = initialState, action) {
 
             return Object.assign({}, state, {
                 announcements: state.announcements.filter(it => it.id !== id)
+            })
+
+        case UPDATE_COMMENT_FORM:
+            const updatedCommentFields = action.payload;
+
+            const prevComment = state.commentForm
+            const updatedComment = Object.assign({}, prevComment, updatedCommentFields)
+            return Object.assign({}, state, {
+                commentForm: updatedComment
             })
 
         default: return state;

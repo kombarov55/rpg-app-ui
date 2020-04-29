@@ -5,7 +5,7 @@ import {
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM,
     DELETE_ANNOUNCEMENT,
     EDIT_ANNOUNCEMENT_FORM,
-    TOGGLE_SIDEBAR
+    TOGGLE_SIDEBAR, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
 import {announcementView} from "../View";
 
@@ -80,5 +80,12 @@ export function deleteAnnouncement(id) {
         payload: {
             id: id
         }
+    }
+}
+
+export function updateCommentForm(obj) {
+    return {
+        type: UPDATE_COMMENT_FORM,
+        payload: obj
     }
 }

@@ -9,7 +9,6 @@ import {announcementView} from "../../View";
 import {GameTypes} from "../../data-layer/enums/GameType";
 import {Sex} from "../../data-layer/enums/Sex";
 import {createAnnouncement} from "../../util/HttpRequests";
-import Globals from "../../util/Globals";
 
 const uploadUid = generateUuid()
 

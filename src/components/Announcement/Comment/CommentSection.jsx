@@ -1,9 +1,13 @@
 import React from "react";
+import CommentsCreationForm from "./CommentsCreationForm";
 
 class CommentSection extends React.Component {
     render() {
         return (
-            <div>Comments...</div>
+            <div>
+                Comments...
+                <CommentsCreationForm/>
+            </div>
         )
     }
 }

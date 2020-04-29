@@ -9,6 +9,10 @@ export const initialState = {
     announcementForm: {
         anonymous: false,
         commentsEnabled: true
+    },
+    commentForm: {
+        authorId: 1,
+        text: ""
     }
 }
 
