@@ -1,5 +1,6 @@
 import {post, httpDelete} from "./Http";
 import {announcementUrl} from "./Parameters";
+import Globals from "./Globals";
 
 export async function createAnnouncement(
     title,
@@ -13,6 +14,8 @@ export async function createAnnouncement(
     uploadUid
 ) {
     const body = {
+        authorId: Globals.userId,
+        creationDate: new Date().getTime(),
         title: title,
         gameType: gameType,
         sex: sex,

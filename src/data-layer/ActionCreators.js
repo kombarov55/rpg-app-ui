@@ -26,6 +26,9 @@ export function toggleSidebar() {
 
 export function addAnnouncement(
     id = "",
+    authorFullName,
+    imgSrc,
+    creationDate = new Date().getTime(),
     title = "",
     gameType = GameTypes.LS,
     sex = Sex.FEMALE,
@@ -36,10 +39,15 @@ export function addAnnouncement(
     commentsEnabled = true,
     uploadUid = ""
 ) {
+    console.log({imgSrc: imgSrc, authorFullName: authorFullName})
+
     return {
         type: ADD_ANNOUNCEMENT,
         payload: {
             id: id,
+            authorFullName: authorFullName,
+            imgSrc: imgSrc,
+            creationDate: creationDate,
             title: title,
             gameType: gameType,
             sex: sex,

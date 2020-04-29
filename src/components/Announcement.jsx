@@ -34,7 +34,9 @@ class ConnectedAnnouncement extends React.Component {
                     this.props.announcements.map(announcement => (
                         <AnnouncementItem
                             key={announcement.id}
-
+                            authorFullName={announcement.authorFullName}
+                            imgSrc={announcement.imgSrc}
+                            creationDate={announcement.creationDate}
                             id={announcement.id}
                             title={announcement.title}
                             description={announcement.description}

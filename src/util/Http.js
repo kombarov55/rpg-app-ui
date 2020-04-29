@@ -12,8 +12,11 @@ export async function post(url, body) {
     const xhr = new XMLHttpRequest()
     xhr.open("POST", url, false)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
+    xhr.setRequestHeader("Content-Type", "application/json")
     xhr.send(body)
-    return xhr.response
+
+    const response = xhr.response;
+    return JSON.parse(response)
 }
 
 export async function httpDelete(url) {

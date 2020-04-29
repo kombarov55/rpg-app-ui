@@ -1,18 +1,15 @@
 import React from "react"
 import {SelectButton} from "primereact/selectbutton";
 import {InputSwitch} from "primereact/inputswitch";
-
 import {connect} from "react-redux";
 import {useForm} from "react-hook-form";
-
 import {addAnnouncement, changeView, clearAnnouncementForm, updateAnnoncementForm} from "../data-layer/ActionCreators";
-
 import {generateUuid} from "../util/uuid";
-
 import {announcementView} from "../View";
 import {GameTypes} from "../data-layer/enums/GameType";
 import {Sex} from "../data-layer/enums/Sex";
 import {createAnnouncement} from "../util/HttpRequests";
+import Globals from "../util/Globals";
 
 const uploadUid = generateUuid()
 
@@ -27,8 +24,13 @@ function mapDispatchToProps(dispatch) {
         updateAnnouncementForm: (fieldNameToValue) => dispatch(updateAnnoncementForm(fieldNameToValue)),
         clearAnnouncementForm: () => dispatch(clearAnnouncementForm()),
         addAnouncement: (dto) => {
+            console.log(dto)
+            console.log({authorFullName: dto.authorFullName, imgSrc: dto.imgSrc})
             dispatch(addAnnouncement(
                 dto.id,
+                dto.authorFullName,
+                dto.imgSrc,
+                dto.creationDate,
                 dto.title,
                 dto.gameType,
                 dto.sex,
