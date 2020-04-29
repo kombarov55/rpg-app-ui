@@ -50,9 +50,11 @@ class ConnectedAnnouncementItem extends React.Component {
                 <div className={"announcement-view-list-item-author-header"}>
                     <img
                         className={"announcement-view-list-item-author-header-img"}
-                        src={this.props.imgSrc}/>
+                        src={this.props.anonymous ? "./img/anon-img.jpg" : this.props.imgSrc}/>
                     <div className={"announcement-view-list-item-author-header-vertical"}>
-                        <div className={"announcement-view-list-item-author-header-fullname"}>{this.props.authorFullName}</div>
+                        <div className={"announcement-view-list-item-author-header-fullname"}>
+                            {this.props.anonymous ? "Аноним" : this.props.authorFullName}
+                        </div>
                         <div className={"announcement-view-list-item-author-header-time"}>{new Date(this.props.creationDate).toUTCString()}</div>
                     </div>
                 </div>

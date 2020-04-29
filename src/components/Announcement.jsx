@@ -44,6 +44,7 @@ class ConnectedAnnouncement extends React.Component {
                             maxAge={announcement.maxAge}
                             sex={announcement.sex}
                             gameType={announcement.gameType}
+                            anonymous={announcement.anonymous}
                         />
                     ))
                 }</div>
