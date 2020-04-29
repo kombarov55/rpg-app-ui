@@ -3,13 +3,13 @@ import {SelectButton} from "primereact/selectbutton";
 import {InputSwitch} from "primereact/inputswitch";
 import {connect} from "react-redux";
 import {useForm} from "react-hook-form";
-import {addAnnouncement, changeView, clearAnnouncementForm, updateAnnoncementForm} from "../data-layer/ActionCreators";
-import {generateUuid} from "../util/uuid";
-import {announcementView} from "../View";
-import {GameTypes} from "../data-layer/enums/GameType";
-import {Sex} from "../data-layer/enums/Sex";
-import {createAnnouncement} from "../util/HttpRequests";
-import Globals from "../util/Globals";
+import {addAnnouncement, changeView, clearAnnouncementForm, updateAnnoncementForm} from "../../data-layer/ActionCreators";
+import {generateUuid} from "../../util/uuid";
+import {announcementView} from "../../View";
+import {GameTypes} from "../../data-layer/enums/GameType";
+import {Sex} from "../../data-layer/enums/Sex";
+import {createAnnouncement} from "../../util/HttpRequests";
+import Globals from "../../util/Globals";
 
 const uploadUid = generateUuid()
 

@@ -1,9 +1,9 @@
 import React from "react"
-import {GameTypes} from "../data-layer/enums/GameType";
-import {Sex} from "../data-layer/enums/Sex";
-import {deleteAnnouncement} from "../data-layer/ActionCreators";
+import {GameTypes} from "../../data-layer/enums/GameType";
+import {Sex} from "../../data-layer/enums/Sex";
+import {deleteAnnouncement} from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
-import {deleteAnnouncementFromServer} from "../util/HttpRequests";
+import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 
 function mapDispatchToProps(dispatch) {
     return {

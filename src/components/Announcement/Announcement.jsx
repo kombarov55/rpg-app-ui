@@ -1,8 +1,8 @@
 import React from "react";
 import AnnouncementItem from "./AnnouncementItem";
 import {connect} from "react-redux";
-import {changeView, addAnnouncement} from "../data-layer/ActionCreators";
-import {announcementCreationView} from "../View";
+import {changeView, addAnnouncement} from "../../data-layer/ActionCreators";
+import {announcementCreationView} from "../../View";
 
 function mapStateToProps(state) {
     return {
