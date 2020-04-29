@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function ConnectedCommentsCreationForm(props) {
-    const {handleSubmit} = useForm()
+    const {handleSubmit, register, errors} = useForm()
 
     function onSubmit() {
         console.log(props.commentForm)
@@ -25,10 +25,12 @@ function ConnectedCommentsCreationForm(props) {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <textarea
-                name={"comment-text"}
+                name={"commentText"}
                 value={props.commentForm.text}
+                ref={register({required: true})}
                 onChange={(e) => props.updateCommentForm({text: e.target.value})}
             />
+            {errors.commentText && "Введите текст комментария"}
             <input type={"submit"}/>
         </form>
     )
