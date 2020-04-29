@@ -4,6 +4,7 @@ import {Sex} from "../../data-layer/enums/Sex";
 import {deleteAnnouncement} from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
+import CommentSection from "./Comment/CommentSection";
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -44,6 +45,14 @@ class ConnectedAnnouncementItem extends React.Component {
         return values.map(str => <span key={str} className="announcement-view-chip">{str}</span>)
     }
 
+    onCommentsClicked() {
+        this.setState({commentSectionVisible: !this.state.commentSectionVisible})
+    }
+
+    state = {
+        commentSectionVisible: false
+    }
+
     render() {
         return (
             <div className={"announcement-view-list-item"}>
@@ -82,7 +91,7 @@ class ConnectedAnnouncementItem extends React.Component {
                             <i className={"pi pi-envelope"}/>
                         </div>
                     }
-                    <div className={"announcement-view-list-item-footer-item"}>
+                    <div className={"announcement-view-list-item-footer-item"} onClick={() => this.onCommentsClicked()}>
                         {/*Комментарии (0)*/}
                         <i className={"pi pi-comments"}/>
                         {this.props.commentsCount}
@@ -92,6 +101,11 @@ class ConnectedAnnouncementItem extends React.Component {
                         <i className={"pi pi-times"}/>
                     </div>
                 </div>
+                { this.state.commentSectionVisible ?
+                    <CommentSection/> :
+                    <></>
+                }
+
             </div>
         )
     }
