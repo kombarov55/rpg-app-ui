@@ -2,6 +2,7 @@ import React from "react";
 import CommentsCreationForm from "./CommentsCreationForm";
 import Comment from "./Comment";
 import {connect} from "react-redux";
+import RestoreComment from "./RestoreComment";
 
 function mapStateToProps(state, props) {
     return {
@@ -13,6 +14,8 @@ class CommentSection extends React.Component {
     render() {
         return (
             <div className={"comment-section"}>
+
+                <RestoreComment/>
 
                 { this.props.comments !== undefined &&
 
