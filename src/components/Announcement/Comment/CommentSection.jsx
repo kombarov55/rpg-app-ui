@@ -15,22 +15,25 @@ class CommentSection extends React.Component {
         return (
             <div className={"comment-section"}>
 
-                <RestoreComment/>
+                {this.props.comments !== undefined &&
 
-                { this.props.comments !== undefined &&
-
-                    this.props.comments.map(comment => (
-                    <Comment
-                        key={comment.id}
-                        id={comment.id}
-                        announcementId={comment.announcementId}
-                        authorFullName={comment.authorFullName}
-                        authorImgSrc={comment.authorImgSrc}
-                        creationDate={comment.creationDate}
-                        text={comment.text}
-                    />
-                ))}
-                <CommentsCreationForm announcementId={this.props.announcementId} />
+                this.props.comments.map(comment =>
+                    comment.deleted ?
+                        <RestoreComment
+                            key={comment.id}
+                            id={comment.id}
+                        /> :
+                        <Comment
+                            key={comment.id}
+                            id={comment.id}
+                            announcementId={comment.announcementId}
+                            authorFullName={comment.authorFullName}
+                            authorImgSrc={comment.authorImgSrc}
+                            creationDate={comment.creationDate}
+                            text={comment.text}
+                        />
+                )}
+                <CommentsCreationForm announcementId={this.props.announcementId}/>
             </div>
         )
     }

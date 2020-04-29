@@ -7,6 +7,29 @@ import {
 } from "./ActionTypes";
 import {initialState} from "./Store";
 
+function handleDeleteComment(state, action) {
+    const {commentId} = action.payload
+
+    console.log({payload: action.payload})
+
+    const indexOfDeleted = state.comments.findIndex(it => it.id === commentId);
+    console.log({indexOfDeleted: indexOfDeleted})
+
+    const commentToDelete = state.comments[indexOfDeleted]
+    const deletedComment = Object.assign({}, commentToDelete, {
+        deleted: true
+    })
+
+    const updatedComments = state.comments.slice()
+    updatedComments[indexOfDeleted] = deletedComment
+
+    console.log({before: state.comments, after: updatedComments})
+
+    return Object.assign({}, state, {
+        comments: updatedComments
+    })
+}
+
 export function rootReducer(state = initialState, action) {
     switch (action.type) {
         case CHANGE_VIEW:
@@ -98,11 +121,7 @@ export function rootReducer(state = initialState, action) {
             })
 
         case DELETE_COMMENT:
-            const {commentId} = action.payload
-
-            return Object.assign({}, state, {
-                comments: state.comments.filter(it => it.id !== commentId)
-            })
+            return handleDeleteComment(state, action)
 
         default:
             return state;
