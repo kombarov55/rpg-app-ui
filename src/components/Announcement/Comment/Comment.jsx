@@ -3,6 +3,7 @@ import {httpDelete} from "../../../util/Http";
 import {deleteCommentUrl} from "../../../util/Parameters";
 import {decAnnouncementField, deleteComments} from "../../../data-layer/ActionCreators";
 import {connect} from "react-redux";
+import FormatDate from "../../../util/FormatDate";
 
 function mapDispatchToProps(dispatch, props) {
     return {
@@ -25,14 +26,15 @@ function Comment(props) {
                 src={props.authorImgSrc}/>
             <div className={"comment-content"}>
                 <div className={"comment-content-header"}>
-                    <div className={"comment-author-name"}>{props.authorFullName}</div>
-                    <i
-                        className={"pi pi-times"}
-                        onClick={() => onDeleteClicked()}
+                    <div className={"comment-content-header-vertical"}>
+                        <div className={"comment-author-name"}>{props.authorFullName}</div>
+                        <div className={"comment-creation-date"}>{FormatDate(new Date(props.creationDate))}</div>
+                    </div>
+                    <i className={"pi pi-times"}
+                       onClick={() => onDeleteClicked()}
                     />
                 </div>
                 <div className={"comment-text"}>{props.text}</div>
-                <div className={"comment-creation-date"}>{new Date(props.creationDate).toUTCString()}</div>
             </div>
         </div>
     )
