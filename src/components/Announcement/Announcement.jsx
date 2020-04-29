@@ -3,6 +3,7 @@ import AnnouncementItem from "./AnnouncementItem";
 import {connect} from "react-redux";
 import {changeView, addAnnouncement} from "../../data-layer/ActionCreators";
 import {announcementCreationView} from "../../View";
+import RestoreAnnouncement from "./RestoreAnnouncement";
 
 function mapStateToProps(state) {
     return {
@@ -30,7 +31,10 @@ class ConnectedAnnouncement extends React.Component {
                         <i className={"pi pi-plus-circle"}/>
                     </span>
                 </div>
-                <div className={"announcement-view-list"}>{
+                <div className={"announcement-view-list"}>
+                    <RestoreAnnouncement/>
+
+                    {
                     this.props.announcements.map(announcement => (
                         <AnnouncementItem
                             key={announcement.id}
