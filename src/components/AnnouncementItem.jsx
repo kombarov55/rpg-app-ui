@@ -76,13 +76,16 @@ class ConnectedAnnouncementItem extends React.Component {
                         {/*Откликнуться*/}
                         <i className={"pi pi-user-plus"}/>
                     </div>
-                    <div className={"announcement-view-list-item-footer-item"}>
-                        {/*Связаться с автором*/}
-                        <i className={"pi pi-envelope"}/>
-                    </div>
+                    { this.props.anonymous ? <></> :
+                        <div className={"announcement-view-list-item-footer-item"}>
+                            {/*Связаться с автором*/}
+                            <i className={"pi pi-envelope"}/>
+                        </div>
+                    }
                     <div className={"announcement-view-list-item-footer-item"}>
                         {/*Комментарии (0)*/}
                         <i className={"pi pi-comments"}/>
+                        {this.props.commentsCount}
                     </div>
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.props.deleteAnnouncement(this.props.id)}>

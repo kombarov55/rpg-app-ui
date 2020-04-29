@@ -37,10 +37,9 @@ export function addAnnouncement(
     description = "",
     anonymous = false,
     commentsEnabled = true,
-    uploadUid = ""
+    uploadUid = "",
+    commentsCount = 0
 ) {
-    console.log({imgSrc: imgSrc, authorFullName: authorFullName})
-
     return {
         type: ADD_ANNOUNCEMENT,
         payload: {
@@ -56,7 +55,8 @@ export function addAnnouncement(
             description: description,
             anonymous: anonymous,
             commentsEnabled: commentsEnabled,
-            uploadUid: uploadUid
+            uploadUid: uploadUid,
+            commentsCount: commentsCount
         }
     }
 }

@@ -24,8 +24,6 @@ function mapDispatchToProps(dispatch) {
         updateAnnouncementForm: (fieldNameToValue) => dispatch(updateAnnoncementForm(fieldNameToValue)),
         clearAnnouncementForm: () => dispatch(clearAnnouncementForm()),
         addAnouncement: (dto) => {
-            console.log(dto)
-            console.log({authorFullName: dto.authorFullName, imgSrc: dto.imgSrc})
             dispatch(addAnnouncement(
                 dto.id,
                 dto.authorFullName,
