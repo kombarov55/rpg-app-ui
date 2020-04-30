@@ -11,7 +11,7 @@ import {
     updateAnnoncementForm
 } from "../../data-layer/ActionCreators";
 import {generateUuid} from "../../util/uuid";
-import {announcementView} from "../../View";
+import {announcementView} from "../../Views";
 import {GameTypes} from "../../data-layer/enums/GameType";
 import {Sex} from "../../data-layer/enums/Sex";
 import {createAnnouncement} from "../../util/HttpRequests";

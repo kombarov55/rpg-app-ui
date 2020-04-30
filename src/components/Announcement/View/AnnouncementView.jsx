@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {announcementCreationView} from "../../../View";
+import {announcementCreationView} from "../../../Views";
 import ConnectedAnnouncementView from "../ConnectedAnnouncementView";
 import {changeView} from "../../../data-layer/ActionCreators";
 

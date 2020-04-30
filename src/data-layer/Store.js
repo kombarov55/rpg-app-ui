@@ -1,6 +1,6 @@
 import {createStore} from "redux";
 import {rootReducer} from "./Reducers";
-import {announcementView} from "../View";
+import {announcementView} from "../Views";
 
 export const initialState = {
     userAccount: {

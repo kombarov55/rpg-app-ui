@@ -7,7 +7,7 @@ import {
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
-import {announcementView} from "../View";
+import {announcementView} from "../Views";
 
 export function changeView(nextView = announcementView) {
     return {
