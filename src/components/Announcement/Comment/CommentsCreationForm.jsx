@@ -39,7 +39,7 @@ function ConnectedCommentsCreationForm(props) {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={"comment-creation-form"}>
                 <textarea
-                    rows={2}
+                    rows={1}
                     className={"comment-creation-form-textarea"}
                     placeholder={"Текст комментария.."}
                     name={"commentText"}

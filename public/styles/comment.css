@@ -10,13 +10,15 @@
 .comment-creation-form {
     display: flex;
     flex-direction: row;
-
     justify-content: space-between;
 
-    margin: 3vmax 0 1vmax 1vmax;
+    margin: 0.5vmax 0 0 0;
 }
 
 .comment-creation-form-textarea {
+    height: 5vh;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 .comment-creation-form-submit {
