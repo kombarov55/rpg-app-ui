@@ -29,13 +29,14 @@ function Comment(props) {
                 <div className={"comment-content-header"}>
                     <div className={"comment-content-header-vertical"}>
                         <div className={"comment-author-name"}>{props.authorFullName}</div>
-                        <div className={"comment-creation-date"}>{FormatDate(new Date(props.creationDate))}</div>
                     </div>
                     <i className={"pi pi-times"}
+                       style={{"fontSize": "2.5vh"}}
                        onClick={() => onDeleteClicked()}
                     />
                 </div>
                 <div className={"comment-text"}>{props.text}</div>
+                <div className={"comment-creation-date"}>{FormatDate(new Date(props.creationDate))}</div>
             </div>
         </div>
     )

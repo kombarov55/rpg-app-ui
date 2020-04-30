@@ -14,6 +14,9 @@ class CommentSection extends React.Component {
     render() {
         return (
             <div className={"comment-section"}>
+                <div className={"comments-label"}>
+                    Комментарии:
+                </div>
 
                 {this.props.comments !== undefined &&
 

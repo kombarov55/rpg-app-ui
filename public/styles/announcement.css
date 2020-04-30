@@ -60,6 +60,7 @@
 .announcement-view-list-item-author-header {
     display: flex;
     flex-direction: row;
+    justify-content: start;
 
     margin: 1.5vmin 1vmin;
 
@@ -109,7 +110,7 @@
 .announcement-view-list-item-footer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 
     /*border-top: 1px solid black;*/
 
@@ -118,7 +119,7 @@
 
 .announcement-view-list-item-footer-item {
     padding: 0.1vmax 0.5vmax;
-    margin: 0.5vmax;
+    /*margin: 0.5vmax;*/
 
     /*border: 1px solid black;*/
     /*border-radius: 5px;*/
@@ -167,4 +168,8 @@
     font-size: 1.5vmax;
     color: #61dafb;
     text-decoration: underline;
+}
+
+.delete-announcement-button {
+    float: right;
 }
