@@ -27,3 +27,14 @@ export async function httpDelete(url) {
     xhr.send()
     return xhr.response
 }
+
+export async function patch(url, body) {
+    const xhr = new XMLHttpRequest()
+    xhr.open("PATCH", url, false)
+    xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(body)
+
+    const response = xhr.response;
+    return JSON.parse(response)
+}

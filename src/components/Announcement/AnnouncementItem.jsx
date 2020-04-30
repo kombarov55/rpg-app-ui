@@ -1,11 +1,22 @@
 import React from "react"
-import {addComment, clearComments, deleteAnnouncement, deleteComments} from "../../data-layer/ActionCreators";
+import {
+    addComment, addFavoriteAnnouncement,
+    clearComments,
+    deleteAnnouncement
+} from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 import CommentSection from "./Comment/CommentSection";
-import {get} from "../../util/Http";
-import {commentUrl} from "../../util/Parameters";
+import {get, patch} from "../../util/Http";
+import {commentUrl, userAccountUrl} from "../../util/Parameters";
 import FormatDate from "../../util/FormatDate";
+import Globals from "../../util/Globals";
+
+function mapStateToProps(state, props) {
+    return {
+        userAccount: state.userAccount
+    }
+}
 
 function mapDispatchToProps(dispatch, props) {
     return {
@@ -14,7 +25,8 @@ function mapDispatchToProps(dispatch, props) {
                 .then(() => dispatch(deleteAnnouncement(id)))
         },
         clearComments: () => dispatch(clearComments(props.id)),
-        addComment: (comment) => dispatch(addComment(comment))
+        addComment: (comment) => dispatch(addComment(comment)),
+        addFavorite: () => dispatch(addFavoriteAnnouncement(props.id))
     }
 }
 
@@ -47,8 +59,11 @@ class ConnectedAnnouncementItem extends React.Component {
         get(commentUrl(this.props.id))
             .then(rs => rs.forEach(it => this.props.addComment(it)))
             .then(() => this.setState({commentSectionVisible: !this.state.commentSectionVisible}))
+    }
 
-
+    onFavoriteClicked() {
+        this.props.addFavorite()
+        patch(userAccountUrl(Globals.userId), JSON.stringify({announcementId: this.props.id}))
     }
 
     state = {
@@ -75,13 +90,10 @@ class ConnectedAnnouncementItem extends React.Component {
                 <div className={"announcement-view-list-item-description"}>{this.props.description}</div>
                 <div className={"announcement-view-chips-list"}>
                     {this.renderChips()}
-                    {/*<span className="announcement-view-chip">{this.props.gameType}</span>*/}
-                    {/*<span className="announcement-view-chip">{this.props.sex}</span>*/}
-                    {/*<span className="announcement-view-chip">Мин возраст: {this.props.minAge}</span>*/}
-                    {/*<span className="announcement-view-chip">Макс. возраст: {this.props.maxAge}</span>*/}
                 </div>
                 <div className={"announcement-view-list-item-footer"}>
-                    <div className={"announcement-view-list-item-footer-item"}>
+                    <div className={"announcement-view-list-item-footer-item"}
+                         onClick={() => this.onFavoriteClicked()}>
                         {/*В избранное*/}
                         <i className={"pi pi-star"}/>
                     </div>
@@ -115,6 +127,6 @@ class ConnectedAnnouncementItem extends React.Component {
     }
 }
 
-const AnnouncementItem = connect(null, mapDispatchToProps)(ConnectedAnnouncementItem);
+const AnnouncementItem = connect(mapStateToProps, mapDispatchToProps)(ConnectedAnnouncementItem);
 
 export default AnnouncementItem;
