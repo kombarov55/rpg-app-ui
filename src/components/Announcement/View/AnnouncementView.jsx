@@ -1,8 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {changeView} from "../../data-layer/ActionCreators";
-import {announcementCreationView} from "../../View";
-import ConnectedAnnouncementView from "./ConnectedAnnouncementView";
+import {announcementCreationView} from "../../../View";
+import ConnectedAnnouncementView from "../ConnectedAnnouncementView";
+import {changeView} from "../../../data-layer/ActionCreators";
 
 function mapStateToProps(state) {
     return {

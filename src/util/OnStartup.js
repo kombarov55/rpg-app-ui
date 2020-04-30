@@ -1,30 +1,15 @@
-import {announcementUrl} from "./Parameters";
+import {announcementUrl, userAccountUrl} from "./Parameters";
 import {store} from "../data-layer/Store";
-import {addAnnouncement} from "../data-layer/ActionCreators";
+import {addAnnouncement, addAnnouncementDeprecated, addUserAccount} from "../data-layer/ActionCreators";
 import {loginUrl} from "./Parameters";
 import {get} from "./Http";
 import Globals from "./Globals";
 
 async function loadAnnouncements() {
-    const response = await get(announcementUrl)
-
-    response.forEach(item =>
-        store.dispatch(addAnnouncement(
-            item.id,
-            item.authorFullName,
-            item.imgSrc,
-            item.creationDate,
-            item.title,
-            item.gameType,
-            item.sex,
-            item.minAge,
-            item.maxAge,
-            item.description,
-            item.anonymous,
-            item.commentsEnabled,
-            "",
-            item.commentsCount
-        )))
+    get(announcementUrl)
+        .then(xs =>
+            xs.forEach(x =>
+                store.dispatch(addAnnouncement(x))))
 }
 
 function saveAuthToken() {
@@ -46,7 +31,9 @@ function saveAuthToken() {
 }
 
 export function onStartup() {
-    saveAuthToken().then(ignore => {
+    saveAuthToken().then(() => {
+        get(userAccountUrl(Globals.userId))
+            .then(rs => store.dispatch(addUserAccount(rs)))
         loadAnnouncements()
     })
 

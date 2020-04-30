@@ -1,7 +1,7 @@
 import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
 import {
-    ADD_ANNOUNCEMENT, ADD_COMMENT,
+    ADD_ANNOUNCEMENT, ADD_COMMENT, ADD_USER_ACCOUNT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
@@ -24,7 +24,16 @@ export function toggleSidebar() {
     }
 }
 
-export function addAnnouncement(
+export function addAnnouncement(announcement) {
+    return {
+        type: ADD_ANNOUNCEMENT,
+        payload: {
+            announcement: announcement
+        }
+    }
+}
+
+export function addAnnouncementDeprecated(
     id = "",
     authorFullName,
     imgSrc,
@@ -159,6 +168,15 @@ export function restoreComponent(commentId) {
         type: RESTORE_COMMENT,
         payload: {
             commentId: commentId
+        }
+    }
+}
+
+export function addUserAccount(userAccount) {
+    return {
+        type: ADD_USER_ACCOUNT,
+        payload: {
+            userAccount: userAccount
         }
     }
 }

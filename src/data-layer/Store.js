@@ -3,6 +3,9 @@ import {rootReducer} from "./Reducers";
 import {announcementView} from "../View";
 
 export const initialState = {
+    userAccount: {
+
+    },
     sidebarVisible: false,
     currentView: announcementView,
     announcements: [],

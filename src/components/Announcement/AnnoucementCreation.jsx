@@ -3,7 +3,13 @@ import {SelectButton} from "primereact/selectbutton";
 import {InputSwitch} from "primereact/inputswitch";
 import {connect} from "react-redux";
 import {useForm} from "react-hook-form";
-import {addAnnouncement, changeView, clearAnnouncementForm, updateAnnoncementForm} from "../../data-layer/ActionCreators";
+import {
+    addAnnouncement,
+    addAnnouncementDeprecated,
+    changeView,
+    clearAnnouncementForm,
+    updateAnnoncementForm
+} from "../../data-layer/ActionCreators";
 import {generateUuid} from "../../util/uuid";
 import {announcementView} from "../../View";
 import {GameTypes} from "../../data-layer/enums/GameType";
@@ -20,25 +26,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        updateAnnouncementForm: (fieldNameToValue) => dispatch(updateAnnoncementForm(fieldNameToValue)),
+        updateAnnouncementForm: fieldNameToValue => dispatch(updateAnnoncementForm(fieldNameToValue)),
         clearAnnouncementForm: () => dispatch(clearAnnouncementForm()),
-        addAnouncement: (dto) => {
-            dispatch(addAnnouncement(
-                dto.id,
-                dto.authorFullName,
-                dto.imgSrc,
-                dto.creationDate,
-                dto.title,
-                dto.gameType,
-                dto.sex,
-                dto.minAge,
-                dto.maxAge,
-                dto.description,
-                dto.anonymous,
-                dto.commentsEnabled,
-                uploadUid
-            ))
-        },
+        addAnouncement: dto => dispatch(addAnnouncement(dto)),
         changeView: () => dispatch(changeView(announcementView))
     }
 }

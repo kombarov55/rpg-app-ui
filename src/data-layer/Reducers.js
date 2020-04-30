@@ -1,5 +1,5 @@
 import {
-    ADD_ANNOUNCEMENT, ADD_COMMENT,
+    ADD_ANNOUNCEMENT, ADD_COMMENT, ADD_USER_ACCOUNT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
@@ -7,98 +7,13 @@ import {
 } from "./ActionTypes";
 import {initialState} from "./Store";
 
-function handleDeleteComment(state, action) {
-    const {commentId} = action.payload
-
-    const indexOfDeleted = state.comments.findIndex(it => it.id === commentId);
-
-    const commentToDelete = state.comments[indexOfDeleted]
-    const deletedComment = Object.assign({}, commentToDelete, {
-        deleted: true
-    })
-
-    const updatedComments = state.comments.slice()
-    updatedComments[indexOfDeleted] = deletedComment
-
-    return Object.assign({}, state, {
-        comments: updatedComments
-    })
-}
-
-function handleRestoreComment(state, action) {
-    const commentId = action.payload.commentId
-    const indexOfRestored = state.comments.findIndex(it => it.id === commentId)
-
-    const commentToRestore = state.comments[indexOfRestored]
-    const restoredComment = Object.assign({}, commentToRestore, {
-        deleted: false
-    })
-
-    const updatedComments = state.comments.slice()
-    updatedComments[indexOfRestored] = restoredComment
-
-    return Object.assign({}, state, {
-        comments: updatedComments
-    })
-}
-
-function handleDeleteAnnouncement(state, action) {
-    const announcementId = action.payload.id
-    const indexOfDeleted = state.announcements.findIndex(it => it.id === announcementId)
-
-    const announcementToDelete = state.announcements[indexOfDeleted]
-    const deletedAnnouncement = Object.assign({}, announcementToDelete, {
-        deleted: true
-    })
-
-    const deletedAnnouncements = state.announcements.slice()
-    deletedAnnouncements[indexOfDeleted] = deletedAnnouncement
-
-    return Object.assign({}, state, {
-        announcements: deletedAnnouncements
-    })
-}
-
-function handleRestoreAnnouncement(state, action) {
-    const announcementId = action.payload.announcementId
-    const indexOfDeleted = state.announcements.findIndex(it => it.id === announcementId)
-
-    const announcementToDelete = state.announcements[indexOfDeleted]
-    const deletedAnnouncement = Object.assign({}, announcementToDelete, {
-        deleted: false
-    })
-
-    const deletedAnnouncements = state.announcements.slice()
-    deletedAnnouncements[indexOfDeleted] = deletedAnnouncement
-
-    return Object.assign({}, state, {
-        announcements: deletedAnnouncements
-    })
-}
-
-function handleDecAnnouncementField(state, action) {
-    const announcementId = action.payload.announcementId
-    const fieldName = action.payload.fieldName
-
-    const prevAnnouncement = state.announcements.find(it => {
-        return it.id === announcementId
-    })
-
-    const incrementedValue = prevAnnouncement[fieldName] -= 1
-
-    const updatedAnnouncement = Object.assign({}, prevAnnouncement, {fieldName, incrementedValue})
-
-    const updatedAnnouncements = state.announcements.slice()
-    const indexOfUpdated = state.announcements.findIndex(it => it.id === announcementId);
-    updatedAnnouncements[indexOfUpdated] = updatedAnnouncement
-
-    return Object.assign({}, state, {
-        announcements: updatedAnnouncements
-    })
-}
-
 export function rootReducer(state = initialState, action) {
     switch (action.type) {
+        case ADD_USER_ACCOUNT:
+            return Object.assign({}, state, {
+                userAccount: action.payload.userAccount
+            })
+
         case CHANGE_VIEW:
             return Object.assign({}, state, {
                 currentView: action.payload.nextView
@@ -111,7 +26,7 @@ export function rootReducer(state = initialState, action) {
 
         case ADD_ANNOUNCEMENT:
             return Object.assign({}, state, {
-                announcements: state.announcements.concat(action.payload)
+                announcements: state.announcements.concat(action.payload.announcement)
             })
 
         case UPDATE_ANNOUNCEMENT:
@@ -211,5 +126,92 @@ export function rootReducer(state = initialState, action) {
     }
 }
 
+function handleDeleteComment(state, action) {
+    const {commentId} = action.payload
 
+    const indexOfDeleted = state.comments.findIndex(it => it.id === commentId);
 
+    const commentToDelete = state.comments[indexOfDeleted]
+    const deletedComment = Object.assign({}, commentToDelete, {
+        deleted: true
+    })
+
+    const updatedComments = state.comments.slice()
+    updatedComments[indexOfDeleted] = deletedComment
+
+    return Object.assign({}, state, {
+        comments: updatedComments
+    })
+}
+
+function handleRestoreComment(state, action) {
+    const commentId = action.payload.commentId
+    const indexOfRestored = state.comments.findIndex(it => it.id === commentId)
+
+    const commentToRestore = state.comments[indexOfRestored]
+    const restoredComment = Object.assign({}, commentToRestore, {
+        deleted: false
+    })
+
+    const updatedComments = state.comments.slice()
+    updatedComments[indexOfRestored] = restoredComment
+
+    return Object.assign({}, state, {
+        comments: updatedComments
+    })
+}
+
+function handleDeleteAnnouncement(state, action) {
+    const announcementId = action.payload.id
+    const indexOfDeleted = state.announcements.findIndex(it => it.id === announcementId)
+
+    const announcementToDelete = state.announcements[indexOfDeleted]
+    const deletedAnnouncement = Object.assign({}, announcementToDelete, {
+        deleted: true
+    })
+
+    const deletedAnnouncements = state.announcements.slice()
+    deletedAnnouncements[indexOfDeleted] = deletedAnnouncement
+
+    return Object.assign({}, state, {
+        announcements: deletedAnnouncements
+    })
+}
+
+function handleRestoreAnnouncement(state, action) {
+    const announcementId = action.payload.announcementId
+    const indexOfDeleted = state.announcements.findIndex(it => it.id === announcementId)
+
+    const announcementToDelete = state.announcements[indexOfDeleted]
+    const deletedAnnouncement = Object.assign({}, announcementToDelete, {
+        deleted: false
+    })
+
+    const deletedAnnouncements = state.announcements.slice()
+    deletedAnnouncements[indexOfDeleted] = deletedAnnouncement
+
+    return Object.assign({}, state, {
+        announcements: deletedAnnouncements
+    })
+}
+
+function handleDecAnnouncementField(state, action) {
+    const announcementId = action.payload.announcementId
+    const fieldName = action.payload.fieldName
+
+    const prevAnnouncement = state.announcements.find(it => {
+        return it.id === announcementId
+    })
+
+    const incrementedValue = prevAnnouncement[fieldName] -= 1
+
+    const updatedAnnouncement = Object.assign({}, prevAnnouncement, {fieldName, incrementedValue})
+
+    const updatedAnnouncements = state.announcements.slice()
+    const indexOfUpdated = state.announcements.findIndex(it => it.id === announcementId);
+    updatedAnnouncements[indexOfUpdated] = updatedAnnouncement
+
+    return Object.assign({}, state, {
+        announcements: updatedAnnouncements
+    })
+}

@@ -1,7 +1,7 @@
 import React from "react"
-import AnnouncementView from "./components/Announcement/AnnouncementView";
 import AnnoucementCreation from "./components/Announcement/AnnoucementCreation";
-import MyAnnouncementView from "./components/Announcement/MyAnnouncementView";
+import AnnouncementView from "./components/Announcement/View/AnnouncementView";
+import MyAnnouncementView from "./components/Announcement/View/MyAnnouncementView";
 
 export const announcementView = {component: <AnnouncementView/>, label: "Доска объявлений"}
 export const myAnnouncementView = {component: <MyAnnouncementView/>, label: "Мои объявления"}
