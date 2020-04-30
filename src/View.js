@@ -6,5 +6,5 @@ import FavoriteAnnouncementView from "./components/Announcement/View/FavoriteAnn
 
 export const announcementView = {component: <AnnouncementView/>, label: "Доска объявлений"}
 export const myAnnouncementView = {component: <MyAnnouncementView/>, label: "Мои объявления"}
-export const favoriteAnnouncementView = {component: <FavoriteAnnouncementView/>, label: "Избранные объявления"}
+export const favoriteAnnouncementView = {component: <FavoriteAnnouncementView/>, label: "Избранное"}
 export const announcementCreationView = {component: <AnnoucementCreation/>, label: "Создание объявления"}
