@@ -26,15 +26,15 @@ function handleDeleteComment(state, action) {
 }
 
 function handleRestoreComment(state, action) {
-    const {commentId} = action.payload
-    const indexOfRestored = state.comments.findIndex(it => it.id === commentId);
+    const commentId = action.payload.commentId
+    const indexOfRestored = state.comments.findIndex(it => it.id === commentId)
 
     const commentToRestore = state.comments[indexOfRestored]
     const restoredComment = Object.assign({}, commentToRestore, {
         deleted: false
     })
 
-    const updatedComments = state.announcements.slice()
+    const updatedComments = state.comments.slice()
     updatedComments[indexOfRestored] = restoredComment
 
     return Object.assign({}, state, {
