@@ -4,7 +4,7 @@ import {
     ADD_ANNOUNCEMENT, ADD_COMMENT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
-    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_COMMENT,
+    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
 import {announcementView} from "../View";
@@ -57,6 +57,15 @@ export function addAnnouncement(
             commentsEnabled: commentsEnabled,
             uploadUid: uploadUid,
             commentsCount: commentsCount
+        }
+    }
+}
+
+export function restoreAnnouncement(annoucementId) {
+    return {
+        type: RESTORE_ANNOUNCEMENT,
+        payload: {
+            announcementId: annoucementId
         }
     }
 }

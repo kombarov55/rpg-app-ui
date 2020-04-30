@@ -32,27 +32,29 @@ class ConnectedAnnouncement extends React.Component {
                     </span>
                 </div>
                 <div className={"announcement-view-list"}>
-                    <RestoreAnnouncement/>
-
                     {
-                    this.props.announcements.map(announcement => (
-                        <AnnouncementItem
-                            key={announcement.id}
-                            authorFullName={announcement.authorFullName}
-                            imgSrc={announcement.imgSrc}
-                            creationDate={announcement.creationDate}
-                            id={announcement.id}
-                            title={announcement.title}
-                            description={announcement.description}
-                            minAge={announcement.minAge}
-                            maxAge={announcement.maxAge}
-                            sex={announcement.sex}
-                            gameType={announcement.gameType}
-                            anonymous={announcement.anonymous}
-                            commentsCount={announcement.commentsCount}
-                        />
-                    ))
-                }</div>
+                        this.props.announcements.map(announcement =>
+                            announcement.deleted ?
+                                <RestoreAnnouncement
+                                    id={announcement.id}
+                                /> :
+                                <AnnouncementItem
+                                    key={announcement.id}
+                                    authorFullName={announcement.authorFullName}
+                                    imgSrc={announcement.imgSrc}
+                                    creationDate={announcement.creationDate}
+                                    id={announcement.id}
+                                    title={announcement.title}
+                                    description={announcement.description}
+                                    minAge={announcement.minAge}
+                                    maxAge={announcement.maxAge}
+                                    sex={announcement.sex}
+                                    gameType={announcement.gameType}
+                                    anonymous={announcement.anonymous}
+                                    commentsCount={announcement.commentsCount}
+                                />
+                        )
+                    }</div>
             </div>
         );
     }

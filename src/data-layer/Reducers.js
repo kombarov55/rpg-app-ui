@@ -2,7 +2,7 @@ import {
     ADD_ANNOUNCEMENT, ADD_COMMENT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
-    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_COMMENT,
+    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
     TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
 } from "./ActionTypes";
 import {initialState} from "./Store";
@@ -10,10 +10,7 @@ import {initialState} from "./Store";
 function handleDeleteComment(state, action) {
     const {commentId} = action.payload
 
-    console.log({payload: action.payload})
-
     const indexOfDeleted = state.comments.findIndex(it => it.id === commentId);
-    console.log({indexOfDeleted: indexOfDeleted})
 
     const commentToDelete = state.comments[indexOfDeleted]
     const deletedComment = Object.assign({}, commentToDelete, {
@@ -22,8 +19,6 @@ function handleDeleteComment(state, action) {
 
     const updatedComments = state.comments.slice()
     updatedComments[indexOfDeleted] = deletedComment
-
-    console.log({before: state.comments, after: updatedComments})
 
     return Object.assign({}, state, {
         comments: updatedComments
@@ -39,11 +34,45 @@ function handleRestoreComment(state, action) {
         deleted: false
     })
 
-    const updatedComments = state.comments.slice()
+    const updatedComments = state.announcements.slice()
     updatedComments[indexOfRestored] = restoredComment
 
     return Object.assign({}, state, {
         comments: updatedComments
+    })
+}
+
+function handleDeleteAnnouncement(state, action) {
+    const announcementId = action.payload.id
+    const indexOfDeleted = state.announcements.findIndex(it => it.id === announcementId)
+
+    const announcementToDelete = state.announcements[indexOfDeleted]
+    const deletedAnnouncement = Object.assign({}, announcementToDelete, {
+        deleted: true
+    })
+
+    const deletedAnnouncements = state.announcements.slice()
+    deletedAnnouncements[indexOfDeleted] = deletedAnnouncement
+
+    return Object.assign({}, state, {
+        announcements: deletedAnnouncements
+    })
+}
+
+function handleRestoreAnnouncement(state, action) {
+    const announcementId = action.payload.announcementId
+    const indexOfDeleted = state.announcements.findIndex(it => it.id === announcementId)
+
+    const announcementToDelete = state.announcements[indexOfDeleted]
+    const deletedAnnouncement = Object.assign({}, announcementToDelete, {
+        deleted: false
+    })
+
+    const deletedAnnouncements = state.announcements.slice()
+    deletedAnnouncements[indexOfDeleted] = deletedAnnouncement
+
+    return Object.assign({}, state, {
+        announcements: deletedAnnouncements
     })
 }
 
@@ -141,11 +170,16 @@ export function rootReducer(state = initialState, action) {
             })
 
         case DELETE_ANNOUNCEMENT:
-            const id = action.payload.id
+            return handleDeleteAnnouncement(state, action)
 
-            return Object.assign({}, state, {
-                announcements: state.announcements.filter(it => it.id !== id)
-            })
+        case RESTORE_ANNOUNCEMENT:
+            return handleRestoreAnnouncement(state, action)
+
+            // const id = action.payload.id
+            //
+            // return Object.assign({}, state, {
+            //     announcements: state.announcements.filter(it => it.id !== id)
+            // })
 
         case UPDATE_COMMENT_FORM:
             const updatedCommentFields = action.payload;
