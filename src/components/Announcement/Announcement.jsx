@@ -36,6 +36,7 @@ class ConnectedAnnouncement extends React.Component {
                         this.props.announcements.map(announcement =>
                             announcement.deleted ?
                                 <RestoreAnnouncement
+                                    key={announcement.id}
                                     id={announcement.id}
                                 /> :
                                 <AnnouncementItem
