@@ -1,5 +1,5 @@
 import React from "react";
-import {announcementCreationView, announcementView} from "../View";
+import {announcementCreationView, announcementView, myAnnouncementView} from "../View";
 import {changeView, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
 
@@ -33,7 +33,7 @@ class ConnectedMenu extends React.Component {
                     Доска объявлений
                 </div>
                 <div className={"main-frame-nav-item"}
-                     onClick={() => this.onItemClicked(announcementCreationView)}>
+                     onClick={() => this.onItemClicked(myAnnouncementView)}>
                     <i className={"pi pi-user"} style={{"fontSize": "6vmin"}}/>
                     Мои объявления
                 </div>

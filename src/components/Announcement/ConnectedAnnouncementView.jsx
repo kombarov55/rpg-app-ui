@@ -1,23 +1,8 @@
 import React from "react";
-import AnnouncementItem from "./AnnouncementItem";
-import {connect} from "react-redux";
-import {changeView, addAnnouncement} from "../../data-layer/ActionCreators";
-import {announcementCreationView} from "../../View";
 import RestoreAnnouncement from "./RestoreAnnouncement";
+import AnnouncementItem from "./AnnouncementItem";
 
-function mapStateToProps(state) {
-    return {
-        announcements: state.announcements
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        changeViewToCreation: () => dispatch(changeView(announcementCreationView))
-    }
-}
-
-class ConnectedAnnouncement extends React.Component {
+class ConnectedAnnouncementView extends React.Component {
     render() {
         return (
             <div className={"announcement-view-vertical"}>
@@ -62,6 +47,4 @@ class ConnectedAnnouncement extends React.Component {
     }
 }
 
-const Announcement = connect(mapStateToProps, mapDispatchToProps)(ConnectedAnnouncement)
-
-export default Announcement;
+export default ConnectedAnnouncementView
