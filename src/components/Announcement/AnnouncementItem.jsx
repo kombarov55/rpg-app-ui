@@ -95,11 +95,14 @@ class ConnectedAnnouncementItem extends React.Component {
                         <i className={"pi pi-envelope"}/>
                     </div>
                     }
-                    <div className={"announcement-view-list-item-footer-item"} onClick={() => this.onCommentsClicked()}>
-                        {/*Комментарии (0)*/}
-                        <i className={"pi pi-comments"}/>
-                        {this.props.commentsCount}
-                    </div>
+                    { this.props.commentsEnabled &&
+                        <div className={"announcement-view-list-item-footer-item"}
+                             onClick={() => this.onCommentsClicked()}>
+                            {/*Комментарии (0)*/}
+                            <i className={"pi pi-comments"}/>
+                            {this.props.commentsCount}
+                        </div>
+                    }
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.props.deleteAnnouncement(this.props.id)}>
                         <i className={"pi pi-times"}/>
