@@ -12,11 +12,11 @@
     flex-direction: row;
     justify-content: space-between;
 
-    margin: 0.5vmax 0 0 0;
+    margin: 1vh 0 1vh 2vw;
 }
 
 .comment-creation-form-textarea {
-    height: 5vh;
+    width: 90vw;
     font-family: sans-serif;
     font-weight: bold;
 }

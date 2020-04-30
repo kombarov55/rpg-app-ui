@@ -6,6 +6,7 @@ import ConvertUnicode from "../../../util/ConvertUnicode";
 import {post} from "../../../util/Http";
 import {createCommentUrl, rootUrl} from "../../../util/Parameters";
 import Globals from "../../../util/Globals";
+import {InputTextarea} from "primereact/inputtextarea";
 
 function mapStateToProps(state) {
     return {
@@ -36,29 +37,19 @@ function ConnectedCommentsCreationForm(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={"comment-creation-form"}>
-                <textarea
-                    rows={1}
-                    className={"comment-creation-form-textarea"}
-                    placeholder={"Текст комментария.."}
-                    name={"commentText"}
-                    value={props.commentForm.text}
-                    ref={register({required: true})}
-                    onChange={(e) => props.updateCommentForm({text: e.target.value})}
-                />
-                <input
-                    className={"comment-creation-form-submit"}
-                    type={"submit"}
-                    value={ConvertUnicode("\u27A4")}
-                />
-            </div>
-            {errors.commentText &&
-                <div className={"comment-creation-form-text-error"}>
-                    Введите текст комментария
-                </div>
-            }
-        </form>
+        <div className={"comment-creation-form"}>
+            <InputTextarea
+                rows={1}
+                className={"comment-creation-form-textarea"}
+                autoResize={true}
+                value={props.commentForm.text}
+                onChange={e => props.updateCommentForm({text: e.target.value})}
+            />
+            <i className={"pi pi-arrow-right"}
+               style={{"fontSize": "3vh", "margin": "1vh 2.5vw"}}
+               onClick={() => onSubmit()}
+            />
+        </div>
     )
 }
 
