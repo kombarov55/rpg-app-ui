@@ -13,10 +13,11 @@ function mapDispatchToProps(dispatch, props) {
 }
 
 function Comment(props) {
-    function onDeleteClicked() {
+    async function onDeleteClicked() {
+        props.deleteCommentFromStore()
+        props.decCommentsCount()
+
         httpDelete(deleteCommentUrl(props.announcementId, props.id))
-            .then(() => props.deleteCommentFromStore())
-            .then(() => props.decCommentsCount())
     }
 
     return (

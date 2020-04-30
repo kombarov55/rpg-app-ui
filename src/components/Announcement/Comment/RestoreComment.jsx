@@ -13,10 +13,11 @@ function mapDispatchToProps(dispatch, props) {
 
 function RestoreComment(props) {
 
-    function onLinkClicked() {
+    async function onLinkClicked() {
+        props.restoreInStore()
+        props.incCommentsCount()
+
         get(restoreCommentUrl(props.announcementId, props.id))
-            .then(() => props.restoreInStore())
-            .then(() => props.incCommentsCount())
     }
 
     return (
