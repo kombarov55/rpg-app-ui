@@ -1,6 +1,6 @@
 import React from "react"
 import {
-    addComment, addFavoriteAnnouncement,
+    addComment, toggleFavoriteAnnouncement,
     clearComments,
     deleteAnnouncement
 } from "../../data-layer/ActionCreators";
@@ -8,13 +8,13 @@ import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 import CommentSection from "./Comment/CommentSection";
 import {get, patch} from "../../util/Http";
-import {commentUrl, userAccountUrl} from "../../util/Parameters";
+import {commentUrl, toggleFavAnnouncementUrl} from "../../util/Parameters";
 import FormatDate from "../../util/FormatDate";
 import Globals from "../../util/Globals";
 
 function mapStateToProps(state, props) {
     return {
-        userAccount: state.userAccount
+        favAnnouncements: state.userAccount.userAccountPreferences.favAnnouncementIds
     }
 }
 
@@ -26,7 +26,7 @@ function mapDispatchToProps(dispatch, props) {
         },
         clearComments: () => dispatch(clearComments(props.id)),
         addComment: (comment) => dispatch(addComment(comment)),
-        addFavorite: () => dispatch(addFavoriteAnnouncement(props.id))
+        toggleFavorite: () => dispatch(toggleFavoriteAnnouncement(props.id))
     }
 }
 
@@ -62,8 +62,8 @@ class ConnectedAnnouncementItem extends React.Component {
     }
 
     onFavoriteClicked() {
-        this.props.addFavorite()
-        patch(userAccountUrl(Globals.userId), JSON.stringify({announcementId: this.props.id}))
+        this.props.toggleFavorite()
+        patch(toggleFavAnnouncementUrl(Globals.userId), JSON.stringify({announcementId: this.props.id}))
     }
 
     state = {
@@ -95,7 +95,12 @@ class ConnectedAnnouncementItem extends React.Component {
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.onFavoriteClicked()}>
                         {/*В избранное*/}
-                        <i className={"pi pi-star"}/>
+                        {
+                            this.props.favAnnouncements.some(it => it === this.props.id) ?
+                                <i className={"pi pi-star"}/> :
+                                <i className={"pi pi-star-o"}/>
+                        }
+
                     </div>
                     <div className={"announcement-view-list-item-footer-item"}>
                         {/*Откликнуться*/}

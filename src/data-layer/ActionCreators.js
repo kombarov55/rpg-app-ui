@@ -1,7 +1,7 @@
 import {GameTypes} from "./enums/GameType";
 import {Sex} from "./enums/Sex";
 import {
-    ADD_ANNOUNCEMENT, ADD_COMMENT, ADD_FAVORITE_ANNOUNCEMENT, ADD_USER_ACCOUNT,
+    ADD_ANNOUNCEMENT, ADD_COMMENT, TOGGLE_FAVORITE_ANNOUNCEMENT, ADD_USER_ACCOUNT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
@@ -181,9 +181,9 @@ export function addUserAccount(userAccount) {
     }
 }
 
-export function addFavoriteAnnouncement(announcementId) {
+export function toggleFavoriteAnnouncement(announcementId) {
     return {
-        type: ADD_FAVORITE_ANNOUNCEMENT,
+        type: TOGGLE_FAVORITE_ANNOUNCEMENT,
         payload: {
             announcementId: announcementId
         }

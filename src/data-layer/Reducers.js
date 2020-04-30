@@ -1,5 +1,5 @@
 import {
-    ADD_ANNOUNCEMENT, ADD_COMMENT, ADD_FAVORITE_ANNOUNCEMENT, ADD_USER_ACCOUNT,
+    ADD_ANNOUNCEMENT, ADD_COMMENT, TOGGLE_FAVORITE_ANNOUNCEMENT, ADD_USER_ACCOUNT,
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
@@ -121,8 +121,8 @@ export function rootReducer(state = initialState, action) {
         case RESTORE_COMMENT:
             return handleRestoreComment(state, action)
 
-        case ADD_FAVORITE_ANNOUNCEMENT:
-            return handleAddFavoriteAnnouncement(state, action)
+        case TOGGLE_FAVORITE_ANNOUNCEMENT:
+            return handleToggleFavoriteAnnouncement(state, action)
 
         default:
             return state;
@@ -219,7 +219,7 @@ function handleDecAnnouncementField(state, action) {
     })
 }
 
-function handleAddFavoriteAnnouncement(state, action) {
+function handleToggleFavoriteAnnouncement(state, action) {
     const {announcementId} = action.payload
 
     const prevFavs = state.userAccount.userAccountPreferences.favAnnouncementIds
@@ -227,7 +227,7 @@ function handleAddFavoriteAnnouncement(state, action) {
     if (!prevFavs.some(it => it === announcementId)) {
         updatedFavs = prevFavs.concat(announcementId)
     } else {
-        updatedFavs = prevFavs
+        updatedFavs = prevFavs.filter(it => it !== announcementId)
     }
 
     return Object.assign({}, state, {

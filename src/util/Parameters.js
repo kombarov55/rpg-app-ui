@@ -3,6 +3,7 @@ export const rootUrl = "https://localhost:8080"
 export const loginUrl = rootUrl + "/login"
 
 export const userAccountUrl = (userId) => rootUrl + "/user/" + userId
+export const toggleFavAnnouncementUrl = (userId) => userAccountUrl(userId) + "/toggleFavAnnouncement"
 
 export const announcementUrl = rootUrl + "/announcement"
 export const restoreAnnouncementUrl = announcementId => announcementUrl + "/" + announcementId + "/restore"
