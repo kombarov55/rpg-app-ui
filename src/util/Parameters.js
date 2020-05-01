@@ -14,4 +14,5 @@ export const commentUrl = (announcementId) => announcementUrl + "/" + announceme
 export const deleteCommentUrl = (announcementId, commentId) => announcementUrl + "/" + announcementId + "/comment/" + commentId
 export const restoreCommentUrl = (announcementId, commentId) => announcementUrl + "/" + announcementId + "/comment/" + commentId + "/restore"
 
-export const conversationUrl = userId => rootUrl + "/conversation/" + userId
+export const conversationUrl = rootUrl + "/conversation"
+export const getAllConversationsUrl = userId => rootUrl + "/conversation/" + userId

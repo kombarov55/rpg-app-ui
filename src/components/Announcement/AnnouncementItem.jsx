@@ -2,15 +2,16 @@ import React from "react"
 import {
     addComment, toggleFavoriteAnnouncement,
     clearComments,
-    deleteAnnouncement
+    deleteAnnouncement, changeView, addConversation
 } from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 import CommentSection from "./Comment/CommentSection";
-import {get, patch} from "../../util/Http";
-import {commentUrl, toggleFavAnnouncementUrl} from "../../util/Parameters";
+import {get, patch, post} from "../../util/Http";
+import {commentUrl, conversationUrl, toggleFavAnnouncementUrl} from "../../util/Parameters";
 import FormatDate from "../../util/FormatDate";
 import Globals from "../../util/Globals";
+import {conversationsView} from "../../Views";
 
 function mapStateToProps(state, props) {
     return {
@@ -26,7 +27,9 @@ function mapDispatchToProps(dispatch, props) {
         },
         clearComments: () => dispatch(clearComments(props.id)),
         addComment: (comment) => dispatch(addComment(comment)),
-        toggleFavorite: () => dispatch(toggleFavoriteAnnouncement(props.id))
+        toggleFavorite: () => dispatch(toggleFavoriteAnnouncement(props.id)),
+        changeViewToDialogs: () => dispatch(changeView(conversationsView)),
+        addConversation: conversation => dispatch(addConversation(conversation))
     }
 }
 
@@ -64,6 +67,14 @@ class ConnectedAnnouncementItem extends React.Component {
     onFavoriteClicked() {
         this.props.toggleFavorite()
         patch(toggleFavAnnouncementUrl(Globals.userId), JSON.stringify({announcementId: this.props.id}))
+    }
+
+    onMailAuthorClicked() {
+        post(conversationUrl, JSON.stringify({
+            userId: Globals.userId,
+            companionUserId: this.props.authorId
+        })).then(x => this.props.addConversation(x))
+            .then(() => this.props.changeViewToDialogs())
     }
 
     state = {
@@ -106,8 +117,9 @@ class ConnectedAnnouncementItem extends React.Component {
                         {/*Откликнуться*/}
                         <i className={"pi pi-user-plus"}/>
                     </div>
-                    {this.props.anonymous &&
-                    <div className={"announcement-view-list-item-footer-item"}>
+                    {!this.props.anonymous &&
+                    <div className={"announcement-view-list-item-footer-item"}
+                         onClick={() => this.onMailAuthorClicked()}>
                         {/*Связаться с автором*/}
                         <i className={"pi pi-envelope"}/>
                     </div>

@@ -26,6 +26,7 @@ class ConnectedAnnouncementView extends React.Component {
                                 /> :
                                 <AnnouncementItem
                                     key={announcement.id}
+                                    authorId={announcement.authorId}
                                     authorFullName={announcement.authorFullName}
                                     imgSrc={announcement.imgSrc}
                                     creationDate={announcement.creationDate}

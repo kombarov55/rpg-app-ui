@@ -9,7 +9,7 @@ import {
 import {addConversation, changeView, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {get} from "../util/Http";
-import {conversationUrl} from "../util/Parameters";
+import {getAllConversationsUrl} from "../util/Parameters";
 import Globals from "../util/Globals";
 
 function mapStateToProps(state) {
@@ -39,7 +39,7 @@ class ConnectedMenu extends React.Component {
     }
 
     loadConversations() {
-        get(conversationUrl(Globals.userId))
+        get(getAllConversationsUrl(Globals.userId))
             .then(xs => xs.forEach(x => this.props.addConversation(x)))
     }
 
