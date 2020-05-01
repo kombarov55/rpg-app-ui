@@ -7,7 +7,7 @@ function getDateStr(date) {
     const currentDay = dayOfYear(new Date())
 
     if (dateDay === currentDay) {
-        return "Сегодня"
+        return ""
     }
 
     if (currentDay - dateDay === 1) {
