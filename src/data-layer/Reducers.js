@@ -1,9 +1,25 @@
 import {
-    ADD_ANNOUNCEMENT, ADD_COMMENT, TOGGLE_FAVORITE_ANNOUNCEMENT, ADD_USER_ACCOUNT,
-    CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
-    DELETE_ANNOUNCEMENT, DELETE_COMMENT,
-    EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
-    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM, ADD_CONVERSATIONS, SET_ACTIVE_CONVERSATION, SET_MSGS
+    ADD_ANNOUNCEMENT,
+    ADD_COMMENT,
+    TOGGLE_FAVORITE_ANNOUNCEMENT,
+    ADD_USER_ACCOUNT,
+    CHANGE_VIEW,
+    CLEAR_ANNOUNCEMENT_FORM,
+    CLEAR_COMMENTS,
+    DEC_ANNOUNCEMENT_FIELD,
+    DELETE_ANNOUNCEMENT,
+    DELETE_COMMENT,
+    EDIT_ANNOUNCEMENT_FORM,
+    INC_ANNOUNCEMENT_FIELD,
+    RESTORE_ANNOUNCEMENT,
+    RESTORE_COMMENT,
+    TOGGLE_SIDEBAR,
+    UPDATE_ANNOUNCEMENT,
+    UPDATE_COMMENT_FORM,
+    ADD_CONVERSATIONS,
+    SET_ACTIVE_CONVERSATION,
+    SET_MSGS,
+    UPDATE_MESSAGE_FORM
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -132,6 +148,11 @@ export function rootReducer(state = initialState, action) {
         case SET_MSGS:
             return Object.assign({}, state, {
                 msgs: action.payload.msgs
+            })
+
+        case UPDATE_MESSAGE_FORM:
+            return Object.assign({}, state, {
+                messageForm: Object.assign({}, state.messageForm, action.payload.fieldNameToValue)
             })
 
         default:

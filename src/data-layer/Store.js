@@ -20,6 +20,9 @@ export const initialState = {
     },
     commentForm: {
         text: ""
+    },
+    messageForm: {
+        text: ""
     }
 }
 
