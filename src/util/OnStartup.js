@@ -31,24 +31,6 @@ function saveAuthToken() {
 }
 
 export function onStartup() {
-    const ws = new WebSocket("ws://localhost:8081/echo")
-
-    ws.onopen = function() {
-        console.log('Info: Connection Established.');
-    };
-
-    ws.onmessage = function(event) {
-        console.log(event.data);
-    };
-
-    ws.onclose = function(event) {
-        console.log('Info: Closing Connection.');
-    };
-
-    ws.onerror = function(event) {
-        console.log('Info: error');
-    };
-
     saveAuthToken().then(() => {
         get(userAccountUrl(Globals.userId))
             .then(rs => store.dispatch(addUserAccount(rs)))

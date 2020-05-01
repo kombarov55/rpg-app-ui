@@ -13,6 +13,7 @@ export const initialState = {
     conversations: [],
 
     activeConversation: null,
+    msgs: [],
     announcementForm: {
         anonymous: false,
         commentsEnabled: true

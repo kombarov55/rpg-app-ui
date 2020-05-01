@@ -16,3 +16,4 @@ export const restoreCommentUrl = (announcementId, commentId) => announcementUrl 
 
 export const conversationUrl = rootUrl + "/conversation"
 export const getAllConversationsUrl = userId => rootUrl + "/conversation/" + userId
+export const getMsgsUrl = (conversationId, page, pageSize) => conversationUrl + "/" + conversationId + "/message?page=" + page + "&pageSize=" + pageSize

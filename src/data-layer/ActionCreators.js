@@ -5,7 +5,7 @@ import {
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
-    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM, ADD_CONVERSATIONS, SET_ACTIVE_CONVERSATION
+    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM, ADD_CONVERSATIONS, SET_ACTIVE_CONVERSATION, SET_MSGS
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -204,6 +204,15 @@ export function setActiveConversation(conversation) {
         type: SET_ACTIVE_CONVERSATION,
         payload: {
             conversation: conversation
+        }
+    }
+}
+
+export function setMsgs(msgs) {
+    return {
+        type: SET_MSGS,
+        payload: {
+            msgs: msgs
         }
     }
 }
