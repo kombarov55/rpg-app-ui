@@ -24,14 +24,16 @@ class ConnectedMainFrame extends React.Component {
     render() {
         return (
             <div className={"main-vertical"}>
-                <Sidebar style={{width: "80vw", background: "#592E83"}} visible={this.props.sidebarVisible} onHide={() => this.props.toggleSidebar()}>
+                <Sidebar style={{width: "80vw", background: "#592E83"}} visible={this.props.sidebarVisible}
+                         onHide={() => this.props.toggleSidebar()}>
                     <AppMenu/>
                 </Sidebar>
 
                 {
                     this.props.currentView.header == null ?
                         <div className={"main-frame-header"}>
-                            <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.props.toggleSidebar()}/>
+                            <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}}
+                               onClick={() => this.props.toggleSidebar()}/>
                             <div className={"head-name"}>
                                 {this.props.currentView.label}
                             </div>
@@ -44,10 +46,24 @@ class ConnectedMainFrame extends React.Component {
                         {this.props.currentView.component}
                     </div>
                 </div>
-                <div className={"main-frame-footer"}>
-                    <div className={"footer-copyright"}>Копирайты</div>
-                    <div className={"footer-copyright"}>Реклама текстовой строкой</div>
-                </div>
+                {
+                    this.props.currentView.footer == null ?
+                        <div className={"main-frame-footer"}>
+                            <div className={"footer-copyright"}>Копирайты</div>
+                            <div className={"footer-copyright"}>Реклама текстовой строкой</div>
+                        </div> :
+                        this.props.currentView.footer
+                }
+                {/*<div className={"main-frame-footer"}>*/}
+                {/*    {*/}
+                {/*        this.props.currentView.footer == null ?*/}
+                {/*            <>*/}
+                {/*                <div className={"footer-copyright"}>Копирайты</div>*/}
+                {/*                <div className={"footer-copyright"}>Реклама текстовой строкой</div>*/}
+                {/*            </> :*/}
+                {/*            this.props.currentView.footer*/}
+                {/*    }*/}
+                {/*</div>*/}
             </div>
         );
     }
