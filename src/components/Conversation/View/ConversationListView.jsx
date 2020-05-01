@@ -3,6 +3,9 @@ import ConversationItem from "../ConversationItem";
 import {connect} from "react-redux";
 import {addConversations, changeView, setActiveConversation} from "../../../data-layer/ActionCreators";
 import {conversationView} from "../../../Views";
+import {get} from "../../../util/Http";
+import {getAllConversationsUrl} from "../../../util/Parameters";
+import Globals from "../../../util/Globals";
 
 function mapStateToProps(state, props) {
     return {
@@ -23,6 +26,8 @@ function mapDispatchToProps(dispatch, props) {
 function ConversationListView(props) {
 
     useEffect(() => {
+        get(getAllConversationsUrl(Globals.userId))
+            .then(xs => props.addConversations(xs))
     }, [])
 
 
