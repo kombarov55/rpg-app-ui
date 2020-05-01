@@ -25,7 +25,6 @@ function ConversationView(props) {
                     imgSrc={"https://sun1-96.userapi.com/EOdc3_3GhgLW6wdlHH0J-stOWVDOp63uo-8O_Q/wDiUDw2OXBc.jpg?ava=1"}
                     text={"Прекрасно, твои как?"}
                 />
-
             </div>
         </div>
     )

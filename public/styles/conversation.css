@@ -51,3 +51,16 @@
     font-family: sans-serif;
     font-weight: bold;
 }
+
+.conversation-view-msg-list {
+    display: flex;
+    flex-direction: column-reverse;
+    flex: 1 1 auto;
+
+    height: 85vh;
+    width: 100%;
+
+    /*padding: 2vh 0;*/
+
+    overflow-y: auto;
+}
