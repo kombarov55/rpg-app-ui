@@ -1,7 +1,7 @@
 import React from "react";
 import ConversationItem from "../ConversationItem";
 import {connect} from "react-redux";
-import {changeView} from "../../../data-layer/ActionCreators";
+import {changeView, setActiveConversation} from "../../../data-layer/ActionCreators";
 import {conversationView} from "../../../Views";
 
 function mapStateToProps(state, props) {
@@ -12,7 +12,10 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        changeViewToConversation: companionUserId => dispatch(changeView(conversationView))
+        changeViewToConversation: conversation => {
+            dispatch(setActiveConversation(conversation))
+            dispatch(changeView(conversationView))
+        }
     }
 }
 
@@ -27,7 +30,7 @@ function ConversationListView(props) {
                         companionFullName={conversation.companionFullName}
                         msgTimestamp={conversation.lastMsgDate}
                         text={conversation.lastMsgText}
-                        onClick={() => props.changeViewToConversation("TODO")}
+                        onClick={() => props.changeViewToConversation(conversation)}
                     />
                 ))
             }
