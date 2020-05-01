@@ -28,13 +28,17 @@ class ConnectedMainFrame extends React.Component {
                     <AppMenu/>
                 </Sidebar>
 
-                <div className={"main-frame-header"}>
-                    <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.props.toggleSidebar()}/>
-                    <div className={"head-name"}>
-                        {this.props.currentView.label}
-                    </div>
-                    <div className={"head-logo"}>Лого</div>
-                </div>
+                {
+                    this.props.currentView.header == null ?
+                        <div className={"main-frame-header"}>
+                            <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}} onClick={() => this.props.toggleSidebar()}/>
+                            <div className={"head-name"}>
+                                {this.props.currentView.label}
+                            </div>
+                            <div className={"head-logo"}>Лого</div>
+                        </div> :
+                        this.props.currentView.header
+                }
                 <div className={"main-frame-body"}>
                     <div className={"main-frame-view"}>
                         {this.props.currentView.component}
