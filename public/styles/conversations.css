@@ -9,8 +9,6 @@
 
     border-radius: 5px;
     background: #382357;
-
-
 }
 
 .conversations-view-companion-img {
@@ -38,4 +36,27 @@
 
 .conversations-view-no-msg-label {
     color: #868686;
+}
+
+.conversation-view-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background: #592E83;
+    height: 60px;
+}
+
+.conversation-view-companion-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 666px;
+}
+
+.conversation-view-companion-fullname {
+    align-self: start;
+
+    font-size: 2.5vh;
+
+    margin: 0.5vh 0 0.5vh 3vw;
 }

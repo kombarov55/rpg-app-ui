@@ -11,15 +11,20 @@ function mapDispatchToProps(dispatch, props) {
 
 function ConversationView(props) {
     return (
-        <div className={"dialog-view"}>
-            HEllo world
-            <div className={"dialog-view-header"}>
-                <i className={"pi pi-arrow-left"}/>
+        <div className={"conversation-view"}>
+            <div className={"conversation-view-header"}>
+                <i className={"pi pi-arrow-left"}
+                   style={{"fontSize": "3vh", "margin": "0 5vw 0 3vw"}}
+                />
+                <img className={"conversation-view-companion-img"}
+                     src={"https://sun9-39.userapi.com/c206624/v206624729/a57dc/HS1ds38r7rA.jpg?ava=1"}
+                />
+                <div className={"conversation-view-companion-fullname"}>Николай Комбаров</div>
             </div>
-            <div className={"dialog-view-msg-list"}>
+            <div className={"conversation-view-msg-list"}>
 
             </div>
-            <div className={"dialog-view-input"}>
+            <div className={"conversation-view-input"}>
 
             </div>
         </div>
