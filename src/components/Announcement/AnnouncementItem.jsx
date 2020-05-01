@@ -2,7 +2,7 @@ import React from "react"
 import {
     addComment, toggleFavoriteAnnouncement,
     clearComments,
-    deleteAnnouncement, changeView, addConversation, setActiveConversation
+    deleteAnnouncement, changeView, setActiveConversation
 } from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
@@ -29,7 +29,6 @@ function mapDispatchToProps(dispatch, props) {
         addComment: (comment) => dispatch(addComment(comment)),
         toggleFavorite: () => dispatch(toggleFavoriteAnnouncement(props.id)),
         changeViewToDialogs: () => dispatch(changeView(conversationView)),
-        addConversation: conversation => dispatch(addConversation(conversation)),
         setActiveConversation: conversation => dispatch(setActiveConversation(conversation))
     }
 }
@@ -74,10 +73,7 @@ class ConnectedAnnouncementItem extends React.Component {
         post(conversationUrl, JSON.stringify({
             userId: Globals.userId,
             companionUserId: this.props.authorId
-        })).then(x => {
-            this.props.addConversation(x)
-            this.props.setActiveConversation(x)
-        })
+        })).then(x => this.props.setActiveConversation(x))
             .then(() => this.props.changeViewToDialogs())
     }
 
@@ -128,13 +124,13 @@ class ConnectedAnnouncementItem extends React.Component {
                         <i className={"pi pi-envelope"}/>
                     </div>
                     }
-                    { this.props.commentsEnabled &&
-                        <div className={"announcement-view-list-item-footer-item"}
-                             onClick={() => this.onCommentsClicked()}>
-                            {/*Комментарии (0)*/}
-                            <i className={"pi pi-comments"}/>
-                            {this.props.commentsCount}
-                        </div>
+                    {this.props.commentsEnabled &&
+                    <div className={"announcement-view-list-item-footer-item"}
+                         onClick={() => this.onCommentsClicked()}>
+                        {/*Комментарии (0)*/}
+                        <i className={"pi pi-comments"}/>
+                        {this.props.commentsCount}
+                    </div>
                     }
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.props.deleteAnnouncement(this.props.id)}>

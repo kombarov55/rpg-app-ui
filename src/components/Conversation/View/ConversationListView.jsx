@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ConversationItem from "../ConversationItem";
 import {connect} from "react-redux";
-import {changeView, setActiveConversation} from "../../../data-layer/ActionCreators";
+import {addConversations, changeView, setActiveConversation} from "../../../data-layer/ActionCreators";
 import {conversationView} from "../../../Views";
 
 function mapStateToProps(state, props) {
@@ -15,11 +15,18 @@ function mapDispatchToProps(dispatch, props) {
         changeViewToConversation: conversation => {
             dispatch(setActiveConversation(conversation))
             dispatch(changeView(conversationView))
-        }
+        },
+        addConversations: conversations => dispatch(addConversations(conversations))
     }
 }
 
 function ConversationListView(props) {
+
+    useEffect(() => {
+    }, [])
+
+
+
     return (
         <div className={"conversations-view"}>
             {

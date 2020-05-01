@@ -6,7 +6,7 @@ import {
     favoriteAnnouncementView,
     myAnnouncementView
 } from "../Views";
-import {addConversation, changeView, toggleSidebar} from "../data-layer/ActionCreators";
+import {addConversations, changeView, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {get} from "../util/Http";
 import {getAllConversationsUrl} from "../util/Parameters";
@@ -22,7 +22,7 @@ function mapDispatchToProps(dispatch) {
     return {
         changeView: (nextView) => dispatch(changeView(nextView)),
         toggleSidebar: () => dispatch(toggleSidebar()),
-        addConversation: conversation => dispatch(addConversation(conversation))
+        addConversations: conversations => dispatch(addConversations(conversations))
     }
 }
 
@@ -40,7 +40,7 @@ class ConnectedMenu extends React.Component {
 
     loadConversations() {
         get(getAllConversationsUrl(Globals.userId))
-            .then(xs => xs.forEach(x => this.props.addConversation(x)))
+            .then(xs => this.props.addConversations(xs))
     }
 
     render() {

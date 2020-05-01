@@ -5,7 +5,8 @@ import {conversationListView} from "../../../Views";
 
 function mapStateToProps(state, props) {
     return {
-
+        companionImgSrc: state.activeConversation.companionImgSrc,
+        companionFullName: state.activeConversation.companionFullName
     }
 }
 
@@ -23,10 +24,10 @@ export default connect(mapStateToProps, mapDispatchToProps) (function(props) {
                onClick={() => props.onBackClicked()}
             />
             <img className={"conversation-view-companion-img"}
-                 src={"https://sun9-39.userapi.com/c206624/v206624729/a57dc/HS1ds38r7rA.jpg?ava=1"}
+                 src={props.companionImgSrc}
             />
             <div className={"conversation-view-companion-vertical"}>
-                <div className={"conversation-view-companion-fullname"}>Николай Комбаров</div>
+                <div className={"conversation-view-companion-fullname"}>{props.companionFullName}</div>
                 <div className={"conversation-view-companion-status"}>Эльф, ур. 1</div>
             </div>
 

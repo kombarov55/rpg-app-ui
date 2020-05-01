@@ -4,7 +4,7 @@ import {announcementView, conversationView} from "../Views";
 
 export const initialState = {
     sidebarVisible: false,
-    currentView: conversationView,
+    currentView: announcementView,
     userAccount: {
 
     },
