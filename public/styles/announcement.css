@@ -85,13 +85,12 @@
 .announcement-view-list-item-author-header-fullname {
     height: 5vmin;
     line-height: 4vmin;
-    margin: 0.5vmax 0;
+    margin: 0.5vmax 0 0 0;
 
     font-size: 2.5vmax;
 }
 
 .announcement-view-list-item-author-header-time {
-    margin: 0.5vmax 0;
     font-size: 1.5vmax;
     color: rgba(255, 255, 255, 0.51);
 }

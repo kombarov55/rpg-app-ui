@@ -2,7 +2,7 @@ import React from "react";
 import {
     announcementCreationView,
     announcementView,
-    conversationsView,
+    conversationListView,
     favoriteAnnouncementView,
     myAnnouncementView
 } from "../Views";
@@ -35,7 +35,7 @@ class ConnectedMenu extends React.Component {
 
     onConversationsClicked() {
         this.loadConversations()
-        this.onItemClicked(conversationsView)
+        this.onItemClicked(conversationListView)
     }
 
     loadConversations() {

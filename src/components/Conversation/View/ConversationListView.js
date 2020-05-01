@@ -14,7 +14,7 @@ function mapDispatchToProps(dispatch, props) {
     }
 }
 
-function ConversationsView(props) {
+function ConversationListView(props) {
     return (
         <div className={"conversations-view"}>
             {
@@ -32,4 +32,4 @@ function ConversationsView(props) {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConversationsView)
+export default connect(mapStateToProps, mapDispatchToProps)(ConversationListView)

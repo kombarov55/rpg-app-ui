@@ -11,7 +11,7 @@ import {get, patch, post} from "../../util/Http";
 import {commentUrl, conversationUrl, toggleFavAnnouncementUrl} from "../../util/Parameters";
 import FormatDate from "../../util/FormatDate";
 import Globals from "../../util/Globals";
-import {conversationsView} from "../../Views";
+import {conversationListView} from "../../Views";
 
 function mapStateToProps(state, props) {
     return {
@@ -28,7 +28,7 @@ function mapDispatchToProps(dispatch, props) {
         clearComments: () => dispatch(clearComments(props.id)),
         addComment: (comment) => dispatch(addComment(comment)),
         toggleFavorite: () => dispatch(toggleFavoriteAnnouncement(props.id)),
-        changeViewToDialogs: () => dispatch(changeView(conversationsView)),
+        changeViewToDialogs: () => dispatch(changeView(conversationListView)),
         addConversation: conversation => dispatch(addConversation(conversation))
     }
 }
