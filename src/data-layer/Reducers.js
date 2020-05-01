@@ -3,7 +3,7 @@ import {
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
-    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM, ADD_CONVERSATION
+    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM, ADD_CONVERSATION, SET_ACTIVE_CONVERSATION
 } from "./ActionTypes";
 import {initialState} from "./Store";
 
@@ -121,6 +121,11 @@ export function rootReducer(state = initialState, action) {
         case ADD_CONVERSATION:
             return Object.assign({}, state, {
                 conversations: state.conversations.concat(action.payload.conversation)
+            })
+
+        case SET_ACTIVE_CONVERSATION:
+            return Object.assign({}, state, {
+                activeConversation: action.payload.conversation
             })
 
         default:

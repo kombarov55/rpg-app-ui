@@ -11,6 +11,8 @@ export const initialState = {
     announcements: [],
     comments: [],
     conversations: [],
+
+    activeConversation: null,
     announcementForm: {
         anonymous: false,
         commentsEnabled: true

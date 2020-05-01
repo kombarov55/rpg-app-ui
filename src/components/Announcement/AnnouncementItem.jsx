@@ -2,7 +2,7 @@ import React from "react"
 import {
     addComment, toggleFavoriteAnnouncement,
     clearComments,
-    deleteAnnouncement, changeView, addConversation
+    deleteAnnouncement, changeView, addConversation, setActiveConversation
 } from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
@@ -11,7 +11,7 @@ import {get, patch, post} from "../../util/Http";
 import {commentUrl, conversationUrl, toggleFavAnnouncementUrl} from "../../util/Parameters";
 import FormatDate from "../../util/FormatDate";
 import Globals from "../../util/Globals";
-import {conversationListView} from "../../Views";
+import {conversationListView, conversationView} from "../../Views";
 
 function mapStateToProps(state, props) {
     return {
@@ -28,8 +28,9 @@ function mapDispatchToProps(dispatch, props) {
         clearComments: () => dispatch(clearComments(props.id)),
         addComment: (comment) => dispatch(addComment(comment)),
         toggleFavorite: () => dispatch(toggleFavoriteAnnouncement(props.id)),
-        changeViewToDialogs: () => dispatch(changeView(conversationListView)),
-        addConversation: conversation => dispatch(addConversation(conversation))
+        changeViewToDialogs: () => dispatch(changeView(conversationView)),
+        addConversation: conversation => dispatch(addConversation(conversation)),
+        setActiveConversation: conversation => dispatch(setActiveConversation(conversation))
     }
 }
 
@@ -73,7 +74,10 @@ class ConnectedAnnouncementItem extends React.Component {
         post(conversationUrl, JSON.stringify({
             userId: Globals.userId,
             companionUserId: this.props.authorId
-        })).then(x => this.props.addConversation(x))
+        })).then(x => {
+            this.props.addConversation(x)
+            this.props.setActiveConversation(x)
+        })
             .then(() => this.props.changeViewToDialogs())
     }
 
