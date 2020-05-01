@@ -1,10 +1,10 @@
 import {createStore} from "redux";
 import {rootReducer} from "./Reducers";
-import {announcementView} from "../Views";
+import {announcementView, conversationView} from "../Views";
 
 export const initialState = {
     sidebarVisible: false,
-    currentView: announcementView,
+    currentView: conversationView,
     userAccount: {
 
     },
