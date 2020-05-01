@@ -6,8 +6,11 @@ import {
     favoriteAnnouncementView,
     myAnnouncementView
 } from "../Views";
-import {changeView, toggleSidebar} from "../data-layer/ActionCreators";
+import {addConversation, changeView, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
+import {get} from "../util/Http";
+import {conversationUrl} from "../util/Parameters";
+import Globals from "../util/Globals";
 
 function mapStateToProps(state) {
     return {
@@ -18,7 +21,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         changeView: (nextView) => dispatch(changeView(nextView)),
-        toggleSidebar: () => dispatch(toggleSidebar())
+        toggleSidebar: () => dispatch(toggleSidebar()),
+        addConversation: conversation => dispatch(addConversation(conversation))
     }
 }
 
@@ -27,6 +31,16 @@ class ConnectedMenu extends React.Component {
     onItemClicked(nextView) {
         this.props.changeView(nextView)
         this.props.toggleSidebar()
+    }
+
+    onConversationsClicked() {
+        this.loadConversations()
+        this.onItemClicked(conversationsView)
+    }
+
+    loadConversations() {
+        get(conversationUrl(Globals.userId))
+            .then(xs => xs.forEach(x => this.props.addConversation(x)))
     }
 
     render() {
@@ -49,7 +63,7 @@ class ConnectedMenu extends React.Component {
                     Избранное
                 </div>
                 <div className={"main-frame-nav-item"}
-                     onClick={() => this.onItemClicked(conversationsView)}>
+                     onClick={() => this.onConversationsClicked()}>
                     <i className={"pi pi-envelope"} style={{"fontSize": "6vmin"}}/>
                     Сообщения
                 </div>

@@ -3,7 +3,7 @@ import {
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
-    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
+    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM, ADD_CONVERSATION
 } from "./ActionTypes";
 import {initialState} from "./Store";
 
@@ -90,12 +90,6 @@ export function rootReducer(state = initialState, action) {
         case RESTORE_ANNOUNCEMENT:
             return handleRestoreAnnouncement(state, action)
 
-            // const id = action.payload.id
-            //
-            // return Object.assign({}, state, {
-            //     announcements: state.announcements.filter(it => it.id !== id)
-            // })
-
         case UPDATE_COMMENT_FORM:
             const updatedCommentFields = action.payload;
 
@@ -123,6 +117,11 @@ export function rootReducer(state = initialState, action) {
 
         case TOGGLE_FAVORITE_ANNOUNCEMENT:
             return handleToggleFavoriteAnnouncement(state, action)
+
+        case ADD_CONVERSATION:
+            return Object.assign({}, state, {
+                conversations: state.conversations.concat(action.payload.conversation)
+            })
 
         default:
             return state;

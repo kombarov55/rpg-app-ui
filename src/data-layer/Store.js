@@ -3,13 +3,14 @@ import {rootReducer} from "./Reducers";
 import {announcementView} from "../Views";
 
 export const initialState = {
+    sidebarVisible: false,
+    currentView: announcementView,
     userAccount: {
 
     },
-    sidebarVisible: false,
-    currentView: announcementView,
     announcements: [],
     comments: [],
+    conversations: [],
     announcementForm: {
         anonymous: false,
         commentsEnabled: true

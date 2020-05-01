@@ -5,7 +5,7 @@ import {
     CHANGE_VIEW, CLEAR_ANNOUNCEMENT_FORM, CLEAR_COMMENTS, DEC_ANNOUNCEMENT_FIELD,
     DELETE_ANNOUNCEMENT, DELETE_COMMENT,
     EDIT_ANNOUNCEMENT_FORM, INC_ANNOUNCEMENT_FIELD, RESTORE_ANNOUNCEMENT, RESTORE_COMMENT,
-    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM
+    TOGGLE_SIDEBAR, UPDATE_ANNOUNCEMENT, UPDATE_COMMENT_FORM, ADD_CONVERSATION
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -186,6 +186,15 @@ export function toggleFavoriteAnnouncement(announcementId) {
         type: TOGGLE_FAVORITE_ANNOUNCEMENT,
         payload: {
             announcementId: announcementId
+        }
+    }
+}
+
+export function addConversation(conversation) {
+    return {
+        type: ADD_CONVERSATION,
+        payload: {
+            conversation: conversation
         }
     }
 }
