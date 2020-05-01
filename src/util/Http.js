@@ -5,7 +5,6 @@ export async function get(url) {
     xhr.open("GET", url, false)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
     xhr.send()
-    console.log(xhr.response)
     return JSON.parse(xhr.response)
 }
 

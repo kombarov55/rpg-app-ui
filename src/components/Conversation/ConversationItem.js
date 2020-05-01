@@ -3,7 +3,9 @@ import FormatDate from "../../util/FormatDate";
 
 function ConversationItem(props) {
     return (
-        <div className={"conversations-view-item"}>
+        <div className={"conversations-view-item"}
+             onClick={() => props.onClick()}>
+
             <img className={"conversations-view-companion-img"}
                  src={props.companionImgSrc}/>
             <div className={"conversations-view-content"}>

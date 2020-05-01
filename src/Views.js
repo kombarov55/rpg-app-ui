@@ -5,6 +5,7 @@ import AnnouncementView from "./components/Announcement/View/AnnouncementView";
 import MyAnnouncementView from "./components/Announcement/View/MyAnnouncementView";
 import FavoriteAnnouncementView from "./components/Announcement/View/FavoriteAnnouncementView";
 import ConversationListView from "./components/Conversation/View/ConversationListView";
+import ConversationView from "./components/Conversation/View/ConversationView";
 
 export const announcementView = {component: <AnnouncementView/>, label: "Доска объявлений"}
 export const myAnnouncementView = {component: <MyAnnouncementView/>, label: "Мои объявления"}
@@ -12,3 +13,4 @@ export const favoriteAnnouncementView = {component: <FavoriteAnnouncementView/>,
 export const announcementCreationView = {component: <AnnoucementCreation/>, label: "Создание объявления"}
 
 export const conversationListView = {component: <ConversationListView/>, label: "Диалоги"}
+export const conversationView = {component: <ConversationView/>, label: "Диалог"}
