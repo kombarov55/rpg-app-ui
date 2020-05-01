@@ -1,0 +1,24 @@
+.conversations-view-item {
+    border-radius: 5px;
+    background: #382357;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.conversations-view-companion-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 666px;
+}
+
+.conversations-view-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.conversations-view-content-head {
+    display: flex;
+    flex-direction: row;
+}
+
