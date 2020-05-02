@@ -19,7 +19,7 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM
+    UPDATE_MESSAGE_FORM, ADD_MESSAGES
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -153,6 +153,11 @@ export function rootReducer(state = initialState, action) {
         case UPDATE_MESSAGE_FORM:
             return Object.assign({}, state, {
                 messageForm: Object.assign({}, state.messageForm, action.payload.fieldNameToValue)
+            })
+
+        case ADD_MESSAGES:
+            return Object.assign({}, state, {
+                msgs: state.msgs.concat(...action.payload.msgs)
             })
 
         default:

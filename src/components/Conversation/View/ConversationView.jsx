@@ -2,27 +2,35 @@ import React from "react";
 import {connect} from "react-redux";
 import ConversationMessage from "../ConversationMessage";
 import {get} from "../../../util/Http";
-import {getMsgsUrl} from "../../../util/Parameters";
-import {setMsgs} from "../../../data-layer/ActionCreators";
+import {getMsgsUrl, msgLongpollUrl} from "../../../util/Parameters";
+import {addMsgs, setMsgs} from "../../../data-layer/ActionCreators";
 import Globals from "../../../util/Globals";
+import Longpoll from "../../../util/Longpoll";
 
 function mapStateToProps(state, props) {
     return {
-        activeConversation: state.activeConversation,
+        conversationId: state.activeConversation.id,
         msgs: state.msgs
     }
 }
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        setMsgsToStore: msgs => dispatch(setMsgs(msgs))
+        setMsgsToStore: msgs => dispatch(setMsgs(msgs)),
+        addMsgs: msgs => dispatch(addMsgs(msgs))
     }
 }
 
 function ConversationView(props) {
     React.useEffect(() => {
-        get(getMsgsUrl(props.activeConversation.id, 0, 25))
+        get(getMsgsUrl(props.conversationId, 0, 25))
             .then(rs => props.setMsgsToStore(rs))
+
+        Longpoll(msgLongpollUrl(props.conversationId), (text) => {
+            const msgs = JSON.parse(text)
+            props.addMsgs(msgs)
+        }).start()
+
     }, [])
 
     return (

@@ -21,7 +21,7 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM
+    UPDATE_MESSAGE_FORM, ADD_MESSAGES
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -238,6 +238,14 @@ export function updateMsgForm(fieldNameToValue) {
         type: UPDATE_MESSAGE_FORM,
         payload: {
             fieldNameToValue: fieldNameToValue
+        }
+    }
+}
+export function addMsgs(msgs) {
+    return {
+        type: ADD_MESSAGES,
+        payload: {
+            msgs: msgs
         }
     }
 }

@@ -18,3 +18,4 @@ export const conversationUrl = rootUrl + "/conversation"
 export const getAllConversationsUrl = userId => rootUrl + "/conversation/" + userId
 export const messageUrl = conversationId => conversationUrl + "/" + conversationId + "/message"
 export const getMsgsUrl = (conversationId, page, pageSize) => messageUrl(conversationId) + "?page=" + page + "&pageSize=" + pageSize
+export const msgLongpollUrl = (conversationId) => messageUrl(conversationId) + "/longpoll"
