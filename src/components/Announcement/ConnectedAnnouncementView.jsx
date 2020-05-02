@@ -9,11 +9,15 @@ class ConnectedAnnouncementView extends React.Component {
                 <div className={"announcement-view-header"}>
                     {/*<span className={"announcement-view-header-all-items-label"}>Все объявления</span>*/}
                     <span className={"announcement-view-header-filters-label"}>
-                        <i className={"pi pi-filter"}/>
+                        <i className={"pi pi-filter"}
+                           style={{"fontSize": "4vh"}}
+                        />
                     </span>
                     <span className={"announcement-view-header-filters-label"}
                           onClick={() => this.props.changeViewToCreation()}>
-                        <i className={"pi pi-plus-circle"}/>
+                        <i className={"pi pi-plus-circle"}
+                           style={{"fontSize": "4vh"}}
+                        />
                     </span>
                 </div>
                 <div className={"announcement-view-list"}>
