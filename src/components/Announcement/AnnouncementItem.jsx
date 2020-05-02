@@ -66,9 +66,10 @@ class ConnectedAnnouncementItem extends React.Component {
 
     onCommentsClicked() {
         this.props.clearComments()
-        get(commentUrl(this.props.id))
-            .then(rs => rs.forEach(it => this.props.addComment(it)))
-            .then(() => this.setState({commentSectionVisible: !this.state.commentSectionVisible}))
+        get(commentUrl(this.props.id), rs => {
+            rs.forEach(it => this.props.addComment(it))
+            this.setState({commentSectionVisible: !this.state.commentSectionVisible})
+        })
     }
 
     onFavoriteClicked() {
@@ -80,8 +81,10 @@ class ConnectedAnnouncementItem extends React.Component {
         post(conversationUrl, {
             userId: Globals.userId,
             companionUserId: this.props.authorId
-        }).then(x => this.props.setActiveConversation(x))
-            .then(() => this.props.changeViewToDialogs())
+        }, x => {
+            this.props.setActiveConversation(x)
+            this.props.changeViewToDialogs()
+        })
     }
 
     onRespondClicked() {

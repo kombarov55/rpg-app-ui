@@ -25,7 +25,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             post(messageUrl(props.conversationId), {
                 authorId: Globals.userId,
                 text: props.messageForm.text
-            }).then(rs => props.updateMsgForm(""))
+            }, rs => props.updateMsgForm(""))
         }
     }
 

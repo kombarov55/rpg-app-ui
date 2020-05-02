@@ -32,15 +32,13 @@ function ConversationView(props) {
     }
 
     React.useEffect(() => {
-        get(getMsgsUrl(props.conversationId, 0, 25))
-            .then(rs => props.setMsgsToStore(rs))
-
-            .then(() => {
-                Longpoll(() => msgLongpollUrl(props.conversationId, getLastMsgDate(), Globals.userId), (text) => {
-                    const msgs = JSON.parse(text)
-                    props.addMsgs(msgs)
-                }).start()
-            })
+        get(getMsgsUrl(props.conversationId, 0, 25), rs => {
+            props.setMsgsToStore(rs)
+            Longpoll(() => msgLongpollUrl(props.conversationId, getLastMsgDate(), Globals.userId), (text) => {
+                const msgs = JSON.parse(text)
+                props.addMsgs(msgs)
+            }).start()
+        })
     }, [])
 
     return (

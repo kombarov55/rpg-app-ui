@@ -13,8 +13,8 @@ function mapDispatchToProps(dispatch, props) {
 function RestoreAnnouncement(props) {
 
     function onLinkClicked() {
+        props.restoreInStore()
         get(restoreAnnouncementUrl(props.id))
-            .then(() => props.restoreInStore())
     }
 
     return (

@@ -30,10 +30,11 @@ function ConnectedCommentsCreationForm(props) {
             authorId: Globals.userId,
             announcementId: props.announcementId,
             text: props.commentForm.text
+        }, rs => {
+            props.addComment(rs)
+            props.updateCommentForm({text: ""})
+            props.incCommentsCount(props.announcementId)
         })
-            .then(rs => props.addComment(rs))
-            .then(() => props.updateCommentForm({text: ""}))
-            .then(() => props.incCommentsCount(props.announcementId))
     }
 
     return (

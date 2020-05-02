@@ -1,39 +1,55 @@
 import Globals from "./Globals";
 
-export async function get(url) {
+export function get(url, onSuccess) {
     const xhr = new XMLHttpRequest()
-    xhr.open("GET", url, false)
+    xhr.open("GET", url, true)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
     xhr.send()
-    return JSON.parse(xhr.response)
+    if (onSuccess != null) {
+        xhr.onload = function () {
+            onSuccess(JSON.parse(xhr.responseText))
+        }
+    }
 }
 
-export async function post(url, body) {
+export function post(url, body, onSuccess) {
     const xhr = new XMLHttpRequest()
-    xhr.open("POST", url, false)
+    xhr.open("POST", url, true)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.send(JSON.stringify(body))
 
-    const response = xhr.response;
-    return JSON.parse(response)
+    if (onSuccess != null) {
+        xhr.onload = function () {
+            onSuccess(JSON.parse(xhr.responseText))
+        }
+    }
 }
 
-export async function httpDelete(url) {
+export function httpDelete(url, onSuccess) {
     const xhr = new XMLHttpRequest()
-    xhr.open("DELETE", url, false)
+    xhr.open("DELETE", url, true)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
     xhr.send()
-    return xhr.response
+
+    if (onSuccess != null) {
+        xhr.onload = function () {
+            onSuccess(JSON.parse(xhr.responseText))
+        }
+    }
 }
 
-export async function patch(url, body) {
+
+export function patch(url, body, onSuccess) {
     const xhr = new XMLHttpRequest()
-    xhr.open("PATCH", url, false)
+    xhr.open("PATCH", url, true)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.send(body)
 
-    const response = xhr.response;
-    return JSON.parse(response)
+    if (onSuccess != null) {
+        xhr.onload = function () {
+            onSuccess(JSON.parse(xhr.responseText))
+        }
+    }
 }

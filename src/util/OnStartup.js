@@ -6,10 +6,7 @@ import {get} from "./Http";
 import Globals from "./Globals";
 
 async function loadAnnouncements() {
-    get(announcementUrl)
-        .then(xs =>
-            xs.forEach(x =>
-                store.dispatch(addAnnouncement(x))))
+    get(announcementUrl, xs => xs.forEach(x => store.dispatch(addAnnouncement(x))))
 }
 
 function saveAuthToken() {
@@ -32,9 +29,11 @@ function saveAuthToken() {
 
 export function onStartup() {
     saveAuthToken().then(() => {
-        get(userAccountUrl(Globals.userId))
-            .then(rs => store.dispatch(addUserAccount(rs)))
-        loadAnnouncements()
+        get(userAccountUrl(Globals.userId), rs => {
+            store.dispatch(addUserAccount(rs))
+            loadAnnouncements()
+        })
+
     })
 
 

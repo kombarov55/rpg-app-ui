@@ -26,8 +26,7 @@ function mapDispatchToProps(dispatch, props) {
 function ConversationListView(props) {
 
     useEffect(() => {
-        get(getAllConversationsUrl(Globals.userId))
-            .then(xs => props.addConversations(xs))
+        get(getAllConversationsUrl(Globals.userId), xs => props.addConversations(xs))
     }, [])
 
 
