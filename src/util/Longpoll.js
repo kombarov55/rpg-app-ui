@@ -1,5 +1,5 @@
 export default function (
-    url,
+    buildUrl,
     onMsgReceived,
     onError = () => alert("error while longpolling")
 ) {
@@ -7,16 +7,17 @@ export default function (
     function start() {
         console.log("longpoll start")
         const xhr = new XMLHttpRequest()
-        xhr.open("GET", url, true)
+        xhr.open("GET", buildUrl(), true)
         xhr.send()
         xhr.onload = function() {
             if ((xhr.status + "").startsWith("2")) {
-                onMsgReceived(xhr.responseText)
                 console.log("longpoll received: ")
                 console.log(xhr.responseText)
+                onMsgReceived(xhr.responseText)
                 start()
             }  else {
                 onError()
+                start()
             }
         }
     }

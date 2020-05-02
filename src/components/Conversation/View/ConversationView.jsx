@@ -22,14 +22,27 @@ function mapDispatchToProps(dispatch, props) {
 }
 
 function ConversationView(props) {
+    function getLastMsgDate() {
+        const lastMsg = props.msgs[0]
+        if (lastMsg == null) {
+            return new Date().getTime()
+        } else {
+            return lastMsg.creationDate
+        }
+    }
+
     React.useEffect(() => {
         get(getMsgsUrl(props.conversationId, 0, 25))
             .then(rs => props.setMsgsToStore(rs))
 
-        Longpoll(msgLongpollUrl(props.conversationId), (text) => {
-            const msgs = JSON.parse(text)
-            props.addMsgs(msgs)
-        }).start()
+            .then(() => {
+                Longpoll(() => msgLongpollUrl(props.conversationId, getLastMsgDate(), Globals.userId), (text) => {
+                    const msgs = JSON.parse(text)
+                    props.addMsgs(msgs)
+                }).start()
+            })
+
+
 
     }, [])
 
