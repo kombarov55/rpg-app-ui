@@ -13,7 +13,7 @@ function mapDispatchToProps(dispatch, props) {
 }
 
 function Comment(props) {
-    async function onDeleteClicked() {
+    function onDeleteClicked() {
         props.deleteCommentFromStore()
         props.decCommentsCount()
 
