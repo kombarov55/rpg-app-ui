@@ -5,7 +5,7 @@ import {get} from "../../../util/Http";
 import {getMsgsUrl, msgLongpollUrl} from "../../../util/Parameters";
 import {addMsgs, setMsgs} from "../../../data-layer/ActionCreators";
 import Globals from "../../../util/Globals";
-import Longpoll from "../../../util/Longpoll";
+import MessagesLongpoll from "../../../util/MessagesLongpoll";
 
 function mapStateToProps(state, props) {
     return {
@@ -22,7 +22,8 @@ function mapDispatchToProps(dispatch, props) {
 }
 
 function ConversationView(props) {
-    function getLastMsgDate() {
+    function getLastMsgDate(initialMsgs) {
+        console.log(initialMsgs)
         const lastMsg = props.msgs[0]
         if (lastMsg == null) {
             return new Date().getTime()
@@ -34,8 +35,8 @@ function ConversationView(props) {
     React.useEffect(() => {
         get(getMsgsUrl(props.conversationId, 0, 25), rs => {
             props.setMsgsToStore(rs)
-            Longpoll(() => msgLongpollUrl(props.conversationId, getLastMsgDate(), Globals.userId), (text) => {
-                const msgs = JSON.parse(text)
+            const lastMsgCreationDate = rs[0].creationDate
+            MessagesLongpoll(props.conversationId, lastMsgCreationDate, (msgs) => {
                 props.addMsgs(msgs)
             }).start()
         })
