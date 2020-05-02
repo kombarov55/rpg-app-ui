@@ -4,6 +4,7 @@ import {announcementView, conversationView} from "../Views";
 
 export const initialState = {
     sidebarVisible: false,
+    growl: null,
     currentView: announcementView,
     userAccount: {
 

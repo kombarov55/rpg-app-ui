@@ -20,7 +20,8 @@ const uploadUid = generateUuid()
 
 function mapStateToProps(state) {
     return {
-        announcementForm: state.announcementForm
+        announcementForm: state.announcementForm,
+        growl: state.growl
     }
 }
 
@@ -58,11 +59,15 @@ function ConnectedAnnoucementCreation(props) {
             props.announcementForm.description,
             props.announcementForm.anonymous,
             props.announcementForm.commentsEnabled,
-            uploadUid
+            uploadUid,
+
+            json => {
+                props.addAnouncement(json)
+                props.changeView()
+                props.clearAnnouncementForm()
+                props.growl.show({severity: "info", summary: "Объявление опубликовано"})
+            }
         )
-            .then(json => props.addAnouncement(json))
-            .then(() => props.changeView())
-            .then(() => props.clearAnnouncementForm())
     }
 
     return (

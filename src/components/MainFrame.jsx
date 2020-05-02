@@ -1,9 +1,10 @@
 import React from "react"
 
-import {changeView, toggleSidebar} from "../data-layer/ActionCreators";
+import {changeView, setGrowl, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import AppMenu from "./AppMenu";
 import {Sidebar} from "primereact/sidebar";
+import {Growl} from "primereact/components/growl/Growl";
 
 function mapStateToProps(state) {
     return {
@@ -15,7 +16,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         changeView: (nextView) => dispatch(changeView(nextView)),
-        toggleSidebar: () => dispatch(toggleSidebar())
+        toggleSidebar: () => dispatch(toggleSidebar()),
+        setGrowl: growl => dispatch(setGrowl(growl))
     }
 }
 
@@ -31,7 +33,7 @@ class ConnectedMainFrame extends React.Component {
                 >
                     <AppMenu/>
                 </Sidebar>
-
+                <Growl ref={el => this.props.setGrowl(el)}/>
                 {
                     this.props.currentView.header == null ?
                         <div className={"main-frame-header"}>

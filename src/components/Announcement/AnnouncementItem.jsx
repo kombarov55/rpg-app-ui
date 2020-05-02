@@ -21,7 +21,8 @@ import {conversationListView, conversationView} from "../../Views";
 function mapStateToProps(state, props) {
     return {
         favAnnouncements: state.userAccount.userAccountPreferences.favAnnouncementIds,
-        respondedAnnouncements: state.userAccount.userAccountPreferences.respondedAnnouncementIds
+        respondedAnnouncements: state.userAccount.userAccountPreferences.respondedAnnouncementIds,
+        growl: state.growl
     }
 }
 
@@ -74,6 +75,12 @@ class ConnectedAnnouncementItem extends React.Component {
 
     onFavoriteClicked() {
         this.props.toggleFavorite()
+        this.props.growl.show({
+            severity: "info",
+            summary: !this.props.favAnnouncements.some(it => it === this.props.id) ?
+                "Объявление добавлено в избранное" :
+                "Объявление удалено из избранных"
+        })
         patch(toggleFavAnnouncementUrl(Globals.userId), JSON.stringify({announcementId: this.props.id}))
     }
 
@@ -89,6 +96,12 @@ class ConnectedAnnouncementItem extends React.Component {
 
     onRespondClicked() {
         this.props.toggleRespond()
+        this.props.growl.show({
+            severity: "info",
+            summary: !this.props.respondedAnnouncements.some(it => it === this.props.id) ?
+                "Вы откликнулись на объявление" :
+                "Отклик с объявления убран"
+        })
         patch(toggleRespondAnnouncementUrl(Globals.userId), JSON.stringify({announcementId: this.props.id}))
     }
 

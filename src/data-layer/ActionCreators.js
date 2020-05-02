@@ -21,7 +21,7 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT
+    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT, SET_GROWL, SHOW_GROWL
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -37,6 +37,15 @@ export function changeView(nextView = announcementView) {
 export function toggleSidebar() {
     return {
         type: TOGGLE_SIDEBAR
+    }
+}
+
+export function setGrowl(growl) {
+    return {
+        type: SET_GROWL,
+        payload: {
+            growl: growl
+        }
     }
 }
 

@@ -19,7 +19,7 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT
+    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT, SET_GROWL, SHOW_GROWL
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -40,6 +40,11 @@ export function rootReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 sidebarVisible: !state.sidebarVisible
             })
+
+        case SET_GROWL:
+            return Object.assign({}, state, {
+                growl: action.payload.growl
+        })
 
         case ADD_ANNOUNCEMENT:
             return Object.assign({}, state, {

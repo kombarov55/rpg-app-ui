@@ -11,7 +11,9 @@ export async function createAnnouncement(
     description,
     anonymous,
     commentsEnabled,
-    uploadUid
+    uploadUid,
+
+    onSuccess
 ) {
     const body = {
         authorId: Globals.userId,
@@ -27,7 +29,7 @@ export async function createAnnouncement(
         uploadUid: uploadUid
     }
 
-    return post(announcementUrl, body)
+    return post(announcementUrl, body, onSuccess)
 }
 
 export async function deleteAnnouncementFromServer(id) {
