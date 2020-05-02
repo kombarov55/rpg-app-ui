@@ -37,7 +37,7 @@ class ConnectedMainFrame extends React.Component {
                             <div className={"head-name"}>
                                 {this.props.currentView.label}
                             </div>
-                            <div className={"head-logo"}>Лого</div>
+                            {/*<div className={"head-logo"}>Лого</div>*/}
                         </div> :
                         this.props.currentView.header
                 }

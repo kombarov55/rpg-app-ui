@@ -14,7 +14,6 @@ body {
 .main-frame-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
 
     border: 1px solid black;
@@ -24,9 +23,10 @@ body {
 }
 
 .head-name {
-    font-size: 2.5vmax;
-
     padding: 1vmax 1vmax;
+
+    font-weight: bolder;
+    font-size: 3vh;
 }
 
 .head-logo {
