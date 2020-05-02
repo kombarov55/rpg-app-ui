@@ -3,7 +3,7 @@ import {
     announcementView,
     conversationListView,
     favoriteAnnouncementView,
-    myAnnouncementView
+    myAnnouncementView, networkView
 } from "../Views";
 import {changeView, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
@@ -83,7 +83,9 @@ class ConnectedMenu extends React.Component {
                         Квесты
                     </div>
                 </div>
-                <div className={"main-frame-nav-item"}>
+                <div className={"main-frame-nav-item"}
+                     onClick={() => this.onItemClicked(networkView)}
+                >
                     <i className={"pi pi-apple"} style={{"fontSize": "6vmin"}}/>
                     <div className={"main-frame-nav-item-text"}>
                         Панель администратора
