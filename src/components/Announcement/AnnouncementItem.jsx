@@ -77,10 +77,10 @@ class ConnectedAnnouncementItem extends React.Component {
     }
 
     onMailAuthorClicked() {
-        post(conversationUrl, JSON.stringify({
+        post(conversationUrl, {
             userId: Globals.userId,
             companionUserId: this.props.authorId
-        })).then(x => this.props.setActiveConversation(x))
+        }).then(x => this.props.setActiveConversation(x))
             .then(() => this.props.changeViewToDialogs())
     }
 
@@ -128,7 +128,7 @@ class ConnectedAnnouncementItem extends React.Component {
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.onRespondClicked()}>
                         {/*Откликнуться*/}
-                        { this.props.respondedAnnouncements.some(it => it === this.props.id) ?
+                        {this.props.respondedAnnouncements.some(it => it === this.props.id) ?
                             <i className={"pi pi-plus"}/> :
                             <i className={"pi pi-plus-circle"}/>
 

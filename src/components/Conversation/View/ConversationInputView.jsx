@@ -22,10 +22,10 @@ function mapDispatchToProps(dispatch, props) {
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onSubmit() {
         if (props.messageForm.text !== "") {
-            post(messageUrl(props.conversationId), JSON.stringify({
+            post(messageUrl(props.conversationId), {
                 authorId: Globals.userId,
                 text: props.messageForm.text
-            })).then(rs => props.updateMsgForm(""))
+            }).then(rs => props.updateMsgForm(""))
         }
     }
 

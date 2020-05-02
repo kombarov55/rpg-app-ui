@@ -26,9 +26,8 @@ export async function createAnnouncement(
         commentsEnabled: commentsEnabled,
         uploadUid: uploadUid
     }
-    const json = JSON.stringify(body);
 
-    return post(announcementUrl, json)
+    return post(announcementUrl, body)
 }
 
 export async function deleteAnnouncementFromServer(id) {

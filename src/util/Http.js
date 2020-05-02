@@ -13,7 +13,7 @@ export async function post(url, body) {
     xhr.open("POST", url, false)
     xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
     xhr.setRequestHeader("Content-Type", "application/json")
-    xhr.send(body)
+    xhr.send(JSON.stringify(body))
 
     const response = xhr.response;
     return JSON.parse(response)

@@ -26,11 +26,11 @@ function ConnectedCommentsCreationForm(props) {
     const {handleSubmit, register, errors} = useForm()
 
     function onSubmit() {
-        post(createCommentUrl, JSON.stringify({
+        post(createCommentUrl, {
             authorId: Globals.userId,
             announcementId: props.announcementId,
             text: props.commentForm.text
-        }))
+        })
             .then(rs => props.addComment(rs))
             .then(() => props.updateCommentForm({text: ""}))
             .then(() => props.incCommentsCount(props.announcementId))
