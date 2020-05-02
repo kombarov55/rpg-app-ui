@@ -19,7 +19,7 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM, ADD_MESSAGES
+    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -134,6 +134,9 @@ export function rootReducer(state = initialState, action) {
 
         case TOGGLE_FAVORITE_ANNOUNCEMENT:
             return handleToggleFavoriteAnnouncement(state, action)
+
+        case TOGGLE_RESPOND_ANNOUNCEMENT:
+            return handleToggleRespondAnnouncement(state, action)
 
         case ADD_CONVERSATIONS:
             return Object.assign({}, state, {
@@ -270,6 +273,26 @@ function handleToggleFavoriteAnnouncement(state, action) {
         userAccount: Object.assign({}, state.userAccount, {
             userAccountPreferences: Object.assign({}, state.userAccount.userAccountPreferences, {
                 favAnnouncementIds: updatedFavs
+            })
+        })
+    })
+}
+
+function handleToggleRespondAnnouncement(state, action) {
+    const {announcementId} = action.payload
+
+    const prevResponded = state.userAccount.userAccountPreferences.respondedAnnouncementIds
+    let updatedResponded
+    if (!prevResponded.some(it => it === announcementId)) {
+        updatedResponded = prevResponded.concat(announcementId)
+    } else {
+        updatedResponded = prevResponded.filter(it => it !== announcementId)
+    }
+
+    return Object.assign({}, state, {
+        userAccount: Object.assign({}, state.userAccount, {
+            userAccountPreferences: Object.assign({}, state.userAccount.userAccountPreferences, {
+                respondedAnnouncementIds: updatedResponded
             })
         })
     })

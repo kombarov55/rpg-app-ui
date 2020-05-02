@@ -21,7 +21,7 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM, ADD_MESSAGES
+    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -200,6 +200,15 @@ export function addUserAccount(userAccount) {
 export function toggleFavoriteAnnouncement(announcementId) {
     return {
         type: TOGGLE_FAVORITE_ANNOUNCEMENT,
+        payload: {
+            announcementId: announcementId
+        }
+    }
+}
+
+export function toggleRespondAnnouncement(announcementId) {
+    return {
+        type: TOGGLE_RESPOND_ANNOUNCEMENT,
         payload: {
             announcementId: announcementId
         }

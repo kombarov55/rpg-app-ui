@@ -2,20 +2,26 @@ import React from "react"
 import {
     addComment, toggleFavoriteAnnouncement,
     clearComments,
-    deleteAnnouncement, changeView, setActiveConversation
+    deleteAnnouncement, changeView, setActiveConversation, toggleRespondAnnouncement
 } from "../../data-layer/ActionCreators";
 import {connect} from "react-redux";
 import {deleteAnnouncementFromServer} from "../../util/HttpRequests";
 import CommentSection from "./Comment/CommentSection";
 import {get, patch, post} from "../../util/Http";
-import {commentUrl, conversationUrl, toggleFavAnnouncementUrl} from "../../util/Parameters";
+import {
+    commentUrl,
+    conversationUrl,
+    toggleFavAnnouncementUrl,
+    toggleRespondAnnouncementUrl
+} from "../../util/Parameters";
 import FormatDate from "../../util/FormatDate";
 import Globals from "../../util/Globals";
 import {conversationListView, conversationView} from "../../Views";
 
 function mapStateToProps(state, props) {
     return {
-        favAnnouncements: state.userAccount.userAccountPreferences.favAnnouncementIds
+        favAnnouncements: state.userAccount.userAccountPreferences.favAnnouncementIds,
+        respondedAnnouncements: state.userAccount.userAccountPreferences.respondedAnnouncementIds
     }
 }
 
@@ -28,6 +34,7 @@ function mapDispatchToProps(dispatch, props) {
         clearComments: () => dispatch(clearComments(props.id)),
         addComment: (comment) => dispatch(addComment(comment)),
         toggleFavorite: () => dispatch(toggleFavoriteAnnouncement(props.id)),
+        toggleRespond: () => dispatch(toggleRespondAnnouncement(props.id)),
         changeViewToDialogs: () => dispatch(changeView(conversationView)),
         setActiveConversation: conversation => dispatch(setActiveConversation(conversation))
     }
@@ -77,6 +84,11 @@ class ConnectedAnnouncementItem extends React.Component {
             .then(() => this.props.changeViewToDialogs())
     }
 
+    onRespondClicked() {
+        this.props.toggleRespond()
+        patch(toggleRespondAnnouncementUrl(Globals.userId), JSON.stringify({announcementId: this.props.id}))
+    }
+
     state = {
         commentSectionVisible: false
     }
@@ -113,9 +125,14 @@ class ConnectedAnnouncementItem extends React.Component {
                         }
 
                     </div>
-                    <div className={"announcement-view-list-item-footer-item"}>
+                    <div className={"announcement-view-list-item-footer-item"}
+                         onClick={() => this.onRespondClicked()}>
                         {/*Откликнуться*/}
-                        <i className={"pi pi-user-plus"}/>
+                        { this.props.respondedAnnouncements.some(it => it === this.props.id) ?
+                            <i className={"pi pi-plus"}/> :
+                            <i className={"pi pi-plus-circle"}/>
+
+                        }
                     </div>
                     {!this.props.anonymous && this.props.authorId != Globals.userId &&
                     <div className={"announcement-view-list-item-footer-item"}

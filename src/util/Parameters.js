@@ -4,6 +4,7 @@ export const loginUrl = rootUrl + "/login"
 
 export const userAccountUrl = (userId) => rootUrl + "/user/" + userId
 export const toggleFavAnnouncementUrl = (userId) => userAccountUrl(userId) + "/toggleFavAnnouncement"
+export const toggleRespondAnnouncementUrl = (userId) => userAccountUrl(userId) + "/toggleRespAnnouncement"
 
 export const announcementUrl = rootUrl + "/announcement"
 export const restoreAnnouncementUrl = announcementId => announcementUrl + "/" + announcementId + "/restore"
