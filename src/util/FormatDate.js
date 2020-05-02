@@ -57,7 +57,7 @@ function getDateStr(date) {
 найти разницу в днях. далее по разнице выдавать нужный лейбл.
  */
 function getTimeStr(date) {
-    return date.getHours() + ":" + date.getMinutes()
+    return date.getHours() + ":" + ((date.getMinutes() < 10) ?  "0" + date.getMinutes() : date.getMinutes())
 }
 
 function isLeapYear(date) {
