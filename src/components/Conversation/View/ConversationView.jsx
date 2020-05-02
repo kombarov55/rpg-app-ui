@@ -41,9 +41,6 @@ function ConversationView(props) {
                     props.addMsgs(msgs)
                 }).start()
             })
-
-
-
     }, [])
 
     return (
