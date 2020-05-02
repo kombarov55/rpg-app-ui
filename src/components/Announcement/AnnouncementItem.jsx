@@ -117,7 +117,7 @@ class ConnectedAnnouncementItem extends React.Component {
                         {/*Откликнуться*/}
                         <i className={"pi pi-user-plus"}/>
                     </div>
-                    {!this.props.anonymous &&
+                    {!this.props.anonymous && this.props.authorId != Globals.userId &&
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.onMailAuthorClicked()}>
                         {/*Связаться с автором*/}
