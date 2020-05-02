@@ -35,42 +35,59 @@ class ConnectedMenu extends React.Component {
     render() {
         return (
             <div className={"main-frame-nav"}>
-                <div className={"head-logo"}>Логотип</div>
+                {/*<div className={"head-logo"}>Логотип</div>*/}
                 <div className={"main-frame-nav-item"}
                      onClick={() => this.onItemClicked(announcementView)}>
                     <i className={"pi pi-list"} style={{"fontSize": "6vmin"}}/>
-                    Доска объявлений
+                    <div className={"main-frame-nav-item-text"}>
+                        Доска объявлений
+                    </div>
+
                 </div>
                 <div className={"main-frame-nav-item"}
                      onClick={() => this.onItemClicked(myAnnouncementView)}>
                     <i className={"pi pi-user"} style={{"fontSize": "6vmin"}}/>
-                    Мои объявления
+                    <div className={"main-frame-nav-item-text"}>
+                        Мои объявления
+                    </div>
                 </div>
                 <div className={"main-frame-nav-item"}
                      onClick={() => this.onItemClicked(favoriteAnnouncementView)}>
                     <i className={"pi pi-heart"} style={{"fontSize": "6vmin"}}/>
-                    Избранное
+                    <div className={"main-frame-nav-item-text"}>
+                        Избранное
+                    </div>
                 </div>
                 <div className={"main-frame-nav-item"}
                      onClick={() => this.onConversationsClicked()}>
                     <i className={"pi pi-envelope"} style={{"fontSize": "6vmin"}}/>
-                    Сообщения
+                    <div className={"main-frame-nav-item-text"}>
+                        Сообщения
+                    </div>
                 </div>
                 <div className={"main-frame-nav-item"}>
                     <i className={"pi pi-users"} style={{"fontSize": "6vmin"}}/>
-                    Мои игры
+                    <div className={"main-frame-nav-item-text"}>
+                        Мои игры
+                    </div>
                 </div>
                 <div className={"main-frame-nav-item"}>
                     <i className={"pi pi-id-card"} style={{"fontSize": "6vmin"}}/>
-                    Кабинет
+                    <div className={"main-frame-nav-item-text"}>
+                        Кабинет
+                    </div>
                 </div>
                 <div className={"main-frame-nav-item"}>
                     <i className={"pi pi-ticket"} style={{"fontSize": "6vmin"}}/>
-                    Квесты
+                    <div className={"main-frame-nav-item-text"}>
+                        Квесты
+                    </div>
                 </div>
                 <div className={"main-frame-nav-item"}>
                     <i className={"pi pi-apple"} style={{"fontSize": "6vmin"}}/>
-                    Панель администратора
+                    <div className={"main-frame-nav-item-text"}>
+                        Панель администратора
+                    </div>
                 </div>
             </div>
         )

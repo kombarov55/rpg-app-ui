@@ -24,8 +24,11 @@ class ConnectedMainFrame extends React.Component {
     render() {
         return (
             <div className={"main-vertical"}>
-                <Sidebar style={{width: "80vw", background: "#592E83"}} visible={this.props.sidebarVisible}
-                         onHide={() => this.props.toggleSidebar()}>
+                <Sidebar style={{width: "80vw", background: "#382357"}}
+                         visible={this.props.sidebarVisible}
+                         onHide={() => this.props.toggleSidebar()}
+                         showCloseIcon={false}
+                >
                     <AppMenu/>
                 </Sidebar>
 

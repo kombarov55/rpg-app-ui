@@ -46,6 +46,8 @@ body {
     flex-direction: column;
     width: 100%;
 
+    margin: 10vh 0;
+
     color: white;
 }
 
@@ -54,9 +56,16 @@ body {
     flex-direction: row;
 
     margin: 0.5vh 0;
-    padding: 1vmin 3vmin;
+    padding: 2vh 3vw;
 
-    vertical-align: center;
+    font-size: 3vh;
+
+    border-radius: 5px;
+    background: #180e23;
+}
+
+.main-frame-nav-item-text {
+    line-height: 3vh;
 }
 
 .main-frame-view {
