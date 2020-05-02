@@ -35,8 +35,10 @@ class ConnectedMainFrame extends React.Component {
                 {
                     this.props.currentView.header == null ?
                         <div className={"main-frame-header"}>
-                            <i className={"pi pi-bars"} style={{"fontSize": "5vmax"}}
-                               onClick={() => this.props.toggleSidebar()}/>
+                            <i className={"pi pi-bars"}
+                               style={{"fontSize": "5vmax", "margin": "0vw 6vw 0 0"}}
+                               onClick={() => this.props.toggleSidebar()}
+                            />
                             <div className={"head-name"}>
                                 {this.props.currentView.label}
                             </div>
