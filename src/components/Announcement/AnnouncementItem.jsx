@@ -136,13 +136,12 @@ class ConnectedAnnouncementItem extends React.Component {
                          onClick={() => this.onRespondClicked()}>
                         {/*Откликнуться*/}
                         {this.props.respondedAnnouncements.some(it => it === this.props.id) ?
-                            <i className={"pi pi-plus"}
-                               style={{"fontSize": "4vh"}}
-                            /> :
                             <i className={"pi pi-plus-circle"}
                                style={{"fontSize": "4vh"}}
+                            /> :
+                            <i className={"pi pi-plus"}
+                               style={{"fontSize": "4vh"}}
                             />
-
                         }
                     </div>
                     {!this.props.anonymous && this.props.authorId != Globals.userId &&
