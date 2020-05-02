@@ -21,10 +21,12 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onSubmit() {
-        post(messageUrl(props.conversationId), JSON.stringify({
-            authorId: Globals.userId,
-            text: props.messageForm.text
-        })).then(rs => props.updateMsgForm(""))
+        if (props.messageForm.text !== "") {
+            post(messageUrl(props.conversationId), JSON.stringify({
+                authorId: Globals.userId,
+                text: props.messageForm.text
+            })).then(rs => props.updateMsgForm(""))
+        }
     }
 
     return (

@@ -157,7 +157,7 @@ export function rootReducer(state = initialState, action) {
 
         case ADD_MESSAGES:
             return Object.assign({}, state, {
-                msgs: state.msgs.concat(...action.payload.msgs)
+                msgs: action.payload.msgs.concat(...state.msgs)
             })
 
         default:
