@@ -123,8 +123,12 @@ class ConnectedAnnouncementItem extends React.Component {
                         {/*В избранное*/}
                         {
                             this.props.favAnnouncements.some(it => it === this.props.id) ?
-                                <i className={"pi pi-star"}/> :
-                                <i className={"pi pi-star-o"}/>
+                                <i className={"pi pi-star"}
+                                   style={{"fontSize": "4vh"}}
+                                /> :
+                                <i className={"pi pi-star-o"}
+                                   style={{"fontSize": "4vh"}}
+                                />
                         }
 
                     </div>
@@ -132,8 +136,12 @@ class ConnectedAnnouncementItem extends React.Component {
                          onClick={() => this.onRespondClicked()}>
                         {/*Откликнуться*/}
                         {this.props.respondedAnnouncements.some(it => it === this.props.id) ?
-                            <i className={"pi pi-plus"}/> :
-                            <i className={"pi pi-plus-circle"}/>
+                            <i className={"pi pi-plus"}
+                               style={{"fontSize": "4vh"}}
+                            /> :
+                            <i className={"pi pi-plus-circle"}
+                               style={{"fontSize": "4vh"}}
+                            />
 
                         }
                     </div>
@@ -141,20 +149,26 @@ class ConnectedAnnouncementItem extends React.Component {
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.onMailAuthorClicked()}>
                         {/*Связаться с автором*/}
-                        <i className={"pi pi-envelope"}/>
+                        <i className={"pi pi-envelope"}
+                           style={{"fontSize": "4vh"}}
+                        />
                     </div>
                     }
                     {this.props.commentsEnabled &&
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.onCommentsClicked()}>
                         {/*Комментарии (0)*/}
-                        <i className={"pi pi-comments"}/>
+                        <i className={"pi pi-comments"}
+                           style={{"fontSize": "4vh"}}
+                        />
                         {this.props.commentsCount}
                     </div>
                     }
                     <div className={"announcement-view-list-item-footer-item"}
                          onClick={() => this.props.deleteAnnouncement(this.props.id)}>
-                        <i className={"pi pi-times"}/>
+                        <i className={"pi pi-times"}
+                           style={{"fontSize": "4vh"}}
+                        />
                     </div>
                 </div>
                 {this.state.commentSectionVisible && <CommentSection announcementId={this.props.id}/>}
