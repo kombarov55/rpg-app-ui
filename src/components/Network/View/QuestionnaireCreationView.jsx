@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import QuestionnaireItemForm from "../QuestionnaireItemForm";
 import QuestionnaireItem from "../QuestionnaireItem";
 import SkillItem from "../SkillItem";
+import SkillpointsDistributionForm from "../SkillpointsDistributionForm";
 
 function mapStateToProps(state, props) {
     return {}
@@ -17,32 +18,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     return (
         <div className={"questionnaire-creation-view"}>
-            <div className={"questionnaire-creation-skillpoints-distribution-horizontal"}>
-                <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
-                    <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                        Общие
-                    </div>
-                    <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
-                </div>
-                <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
-                    <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                        Боевые
-                    </div>
-                    <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
-                </div>
-                <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
-                    <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                        Магические
-                    </div>
-                    <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
-                </div>
-                <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
-                    <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                        Прочие
-                    </div>
-                    <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
-                </div>
-            </div>
+            <SkillpointsDistributionForm/>
             {/*<SkillItem*/}
             {/*    name={"Сила"}*/}
             {/*    type={"Общий"}*/}
