@@ -1,5 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
+import {changeView} from "../../../data-layer/ActionCreators";
+import {questionnaireCreationView} from "../../../Views";
 
 function mapStateToProps(state, props) {
     return {
@@ -9,7 +11,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch, props) {
     return {
-    
+        changeView: (view) => dispatch(changeView(view))
     }
 }
 
@@ -71,7 +73,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 2.3 Не делайте из себя идеального солдата или бога. Другими словами - не сьюшничайте. За сьюшь будем жестоко наказывать. (этот пункт обязателен)
                 2.4 Не превращайте локацию в срач. Разберитесь в лс, или же напишите об этом КП-ролевику. (Этот пункт обязателен)
             </div>
-            <div className={"mobile-button rules-agree-button"}>
+            <div className={"mobile-button rules-agree-button"}
+                 onClick={() => props.changeView(questionnaireCreationView)}>
                 Прочитал и согласен
             </div>
         </div>
