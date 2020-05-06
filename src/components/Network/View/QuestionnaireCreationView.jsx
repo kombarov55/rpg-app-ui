@@ -9,7 +9,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch, props) {
     return {
-    
+
     }
 }
 
@@ -17,7 +17,12 @@ function mapDispatchToProps(dispatch, props) {
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     return (
         <div className={"questionnaire-view"}>
-            
+            <div className={"questionnaire-add-item-button"}>
+                <i className={"pi pi-plus-circle"}
+                   style={{"fontSize": "5vmax"}}
+                />
+                <div className={"questionnaire-add-item-label"}>Добавить пункт</div>
+            </div>
         </div>
     )
 })
