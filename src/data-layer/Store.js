@@ -1,11 +1,11 @@
 import {createStore} from "redux";
 import {rootReducer} from "./Reducers";
-import {announcementView} from "../Views";
+import {announcementView, gameView} from "../Views";
 
 export const initialState = {
     sidebarVisible: false,
     growl: null,
-    currentView: announcementView,
+    currentView: gameView,
     userAccount: {
 
     },

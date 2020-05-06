@@ -2,15 +2,11 @@ import React from "react";
 import {connect} from "react-redux";
 
 function mapStateToProps(state, props) {
-    return {
-    
-    }
+    return {}
 }
 
 function mapDispatchToProps(dispatch, props) {
-    return {
-    
-    }
+    return {}
 }
 
 
@@ -19,17 +15,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
         <div className={"game-view"}>
             <div className={"game-info"}>
                 <img className={"game-info-img"}
-                     src={"https://sun9-16.userapi.com/c850436/v850436625/10f403/Q7mCrq-H_AY.jpg"}
+                     src={"https://sun9-64.userapi.com/c858416/v858416297/1c6f50/HpIP0jOcov4.jpg"}
                 />
-                <div className={"game-name"}>❖ DREAMS ❖</div>
+                <div className={"game-name"}>Звёздные Войны ❖ Ролевая Игра ❖ Star Wars</div>
                 <div className={"game-description"}>
-                    Здравствуй, дорогой друг.
-                    Я немного объясню, что мы такое.
-                    Нам не важно, где ты работал раньше или работаешь сейчас. Здесь тебя примут вне зависимости от места
-                    жительства, семейного положения, ориентации, веры или расы. Здесь мы стараемся дать то, в поисках
-                    чего так часто люди блуждают в сети.
-                    Это — твой дом.
                 </div>
+                <div className={"game-join-button"}>Присоединиться к игре</div>
+                <div className={"game-join-button"}>Создать шаблон анкеты</div>
             </div>
         </div>
     )

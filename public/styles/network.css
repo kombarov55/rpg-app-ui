@@ -91,6 +91,14 @@
     overflow-y: hidden;
 }
 
+.game-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+}
+
 .game-info {
     display: flex;
     flex-direction: column;
@@ -111,6 +119,7 @@
     align-self: center;
 
     margin: 2vmax 1vmin;
+    width: 90%;
 
     font-size: 3vmax;
 }
@@ -118,4 +127,16 @@
 .game-description {
     padding: 1vmax 5vmin;
     text-align: start;
+}
+
+.game-join-button {
+    align-self: center;
+
+    padding: 1vmax 0;
+    margin: 1vmax 0;
+    width: 80%;
+
+    text-align: center;
+
+    background: #592e83;
 }
