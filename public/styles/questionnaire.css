@@ -131,3 +131,40 @@
     background: rgba(55, 55, 55, 0.79);
     border-radius: 5px;
 }
+
+.questionaire-skill-item {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+}
+
+.questionaire-skill-item-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.questionnaire-skill-img {
+    width: 50px;
+    height: 50px;
+
+    margin-right: 3vmin;
+}
+
+.questionnaire-skill-item-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.questionnaire-skill-name {
+    font-size: 3vmax;
+}
+
+.questionnaire-skill-type {
+    font-size: 1.8vmax;
+}
+
+.questionnaire-skill-description {
+    padding: 1vmax 0vmin;
+}
