@@ -1,28 +1,25 @@
 import React from "react";
 import {connect} from "react-redux";
+import {SelectButton} from "primereact/selectbutton";
+import AddQuestionnaireItemButton from "../AddQuestionnaireItemButton";
+import {InputTextarea} from "primereact/inputtextarea";
+import {InputText} from "primereact/inputtext";
+import QuestionnaireItemForm from "../QuestionnaireItemForm";
 
 function mapStateToProps(state, props) {
-    return {
-    
-    }
+    return {}
 }
 
 function mapDispatchToProps(dispatch, props) {
-    return {
-
-    }
+    return {}
 }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
+
     return (
-        <div className={"questionnaire-view"}>
-            <div className={"questionnaire-add-item-button"}>
-                <i className={"pi pi-plus-circle"}
-                   style={{"fontSize": "5vmax"}}
-                />
-                <div className={"questionnaire-add-item-label"}>Добавить пункт</div>
-            </div>
+        <div className={"questionnaire-creation-view"}>
+            <QuestionnaireItemForm/>
         </div>
     )
 })

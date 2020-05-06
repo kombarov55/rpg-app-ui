@@ -19,9 +19,10 @@
     margin: 3vh 0;
 }
 
-.questionnaire-view {
+.questionnaire-creation-view {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .questionnaire-add-item-button {
@@ -45,4 +46,42 @@
     margin: 0 0 0 1vmin;
 
     font-size: 2vmax;
+}
+
+.questionnaire-creation-item-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 80%;
+}
+
+.questionnaire-creation-item-form > * {
+    margin: 1vmax 0;
+}
+
+.questionnaire-item-name-input, .questionnaire-item-list-input {
+    width: 80%;
+}
+
+.questionnaire-item-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionnaire-item-list-item {
+    padding: 1vmax 2vmin;
+    margin: 0.25vmax 0;
+
+    width: 80%;
+
+    background: #382357;
+    border-radius: 5px;
+}
+
+.questionnaire-input-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
