@@ -93,3 +93,41 @@
 .save-questionnaire-button {
     width: 100%;
 }
+
+.questionnaire-item {
+    width: 80%;
+}
+
+.questionnaire-item-head-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.questionnaire-item-name {
+    padding: 1vmax 0;
+
+    font-size: 3vmax;
+}
+
+.questionnaire-item-type {
+    padding: 0.5vmax 1.5vmin;
+    width: auto;
+
+    font-size: 1.5vmax;
+
+    background: rgba(134, 134, 134, 0.63);
+    border-radius: 5px;
+}
+
+.questionnaire-item-list-item-display {
+    padding: 1vmax 2vmin;
+    margin: 0.25vmax 0;
+
+
+    background: rgba(55, 55, 55, 0.79);
+    border-radius: 5px;
+}

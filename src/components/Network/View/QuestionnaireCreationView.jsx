@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import AddQuestionnaireItemButton from "../AddQuestionnaireItemButton";
 import QuestionnaireItemForm from "../QuestionnaireItemForm";
+import QuestionnaireItem from "../QuestionnaireItem";
 
 function mapStateToProps(state, props) {
     return {}
@@ -16,7 +16,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     return (
         <div className={"questionnaire-creation-view"}>
-            <QuestionnaireItemForm/>
+            <QuestionnaireItem name={"Страна"}
+                               type={"Значение из списка"}
+                               listValues={["Москва", "Тула", "Воронеж", "Ростов"]}
+            />
         </div>
     )
 })
