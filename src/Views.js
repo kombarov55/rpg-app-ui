@@ -10,6 +10,7 @@ import ConversationHeadView from "./components/Conversation/View/ConversationHea
 import ConversationInputView from "./components/Conversation/View/ConversationInputView";
 import NetworkSelectionView from "./components/Network/View/NetworkSelectionView";
 import NetworkView from "./components/Network/View/NetworkView";
+import SubnetworkView from "./components/Network/View/SubnetworkView";
 
 export const announcementView = {component: <AnnouncementView/>, label: "Доска объявлений"}
 export const myAnnouncementView = {component: <MyAnnouncementView/>, label: "Мои объявления"}
@@ -26,3 +27,4 @@ export const conversationView = {
 
 export const networkSelectionView = {component: <NetworkSelectionView/>, label: "Сети"}
 export const networkView = {component: <NetworkView/>, label: "Сеть"}
+export const subnetworkView = {component: <SubnetworkView/>, label: "Подсеть"}
