@@ -90,3 +90,32 @@
     overflow-x: scroll;
     overflow-y: hidden;
 }
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-info-img {
+    align-self: center;
+
+    margin: 1vmax 1vmin 3vmax 1vmin;
+
+    height: 35vmax;
+    width: 60vmin;
+
+
+}
+
+.game-name {
+    align-self: center;
+
+    margin: 2vmax 1vmin;
+
+    font-size: 3vmax;
+}
+
+.game-description {
+    padding: 1vmax 5vmin;
+    text-align: start;
+}

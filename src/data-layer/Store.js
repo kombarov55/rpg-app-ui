@@ -1,11 +1,11 @@
 import {createStore} from "redux";
 import {rootReducer} from "./Reducers";
-import {announcementView, conversationView, networkSelectionView} from "../Views";
+import {announcementView} from "../Views";
 
 export const initialState = {
     sidebarVisible: false,
     growl: null,
-    currentView: networkSelectionView,
+    currentView: announcementView,
     userAccount: {
 
     },
