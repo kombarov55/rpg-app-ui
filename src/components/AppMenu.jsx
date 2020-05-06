@@ -3,7 +3,7 @@ import {
     announcementView,
     conversationListView,
     favoriteAnnouncementView,
-    myAnnouncementView, networkView
+    myAnnouncementView, networkSelectionView
 } from "../Views";
 import {changeView, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
@@ -84,7 +84,7 @@ class ConnectedMenu extends React.Component {
                     </div>
                 </div>
                 <div className={"main-frame-nav-item"}
-                     onClick={() => this.onItemClicked(networkView)}
+                     onClick={() => this.onItemClicked(networkSelectionView)}
                 >
                     <i className={"pi pi-apple"} style={{"fontSize": "6vmin"}}/>
                     <div className={"main-frame-nav-item-text"}>
