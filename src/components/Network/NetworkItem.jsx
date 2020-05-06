@@ -15,7 +15,7 @@ function mapDispatchToProps(state, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function(props) {
     return (
-        <div className={"network-item"} onClick={() => alert("click")}>
+        <div className={"network-item"} onClick={() => props.onClick()}>
             <img className={"network-item-img"}
                  src={props.imgSrc}
             />
