@@ -4,6 +4,7 @@ import QuestionnaireItemForm from "../QuestionnaireItemForm";
 import QuestionnaireItem from "../QuestionnaireItem";
 import SkillItem from "../SkillItem";
 import SkillpointsDistributionForm from "../SkillpointsDistributionForm";
+import SkillItemForm from "../SkillItemForm";
 
 function mapStateToProps(state, props) {
     return {}
@@ -18,7 +19,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     return (
         <div className={"questionnaire-creation-view"}>
-            <SkillpointsDistributionForm/>
+        <SkillItemForm/>
             {/*<SkillItem*/}
             {/*    name={"Сила"}*/}
             {/*    type={"Общий"}*/}
