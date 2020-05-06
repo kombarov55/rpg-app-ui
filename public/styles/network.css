@@ -78,3 +78,15 @@
     overflow-x: scroll;
     overflow-y: hidden;
 }
+
+.games-label {
+    font-size: 3vmax;
+}
+
+.games-view-horizontal {
+    display: flex;
+    flex-direction: row;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
