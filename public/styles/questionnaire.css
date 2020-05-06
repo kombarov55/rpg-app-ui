@@ -166,5 +166,26 @@
 }
 
 .questionnaire-skill-description {
-    padding: 1vmax 0vmin;
+    padding: 1vmax 0;
+}
+
+.questionnaire-creation-skillpoints-distribution-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.questionnaire-creation-skillpoints-distribution-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 3vmin;
+}
+
+.questionnaire-creation-skillpoints-distribution-name {
+    font-size: 2vmax;
+}
+
+.questionnaire-creation-skillpoints-distribution-value {
+    width: 100%;
 }
