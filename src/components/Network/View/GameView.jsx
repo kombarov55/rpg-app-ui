@@ -1,12 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
+import {changeView} from "../../../data-layer/ActionCreators";
+import {questionnaireCreationView} from "../../../Views";
 
 function mapStateToProps(state, props) {
     return {}
 }
 
 function mapDispatchToProps(dispatch, props) {
-    return {}
+    return {
+        changeView: (view) => dispatch(changeView(view))
+    }
 }
 
 
@@ -21,7 +25,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 <div className={"game-description"}>
                 </div>
                 <div className={"game-join-button"}>Присоединиться к игре</div>
-                <div className={"game-join-button"}>Создать шаблон анкеты</div>
+                <div className={"game-join-button"}
+                     onClick={() => props.changeView(questionnaireCreationView)}>
+                    Создать шаблон анкеты</div>
             </div>
         </div>
     )
