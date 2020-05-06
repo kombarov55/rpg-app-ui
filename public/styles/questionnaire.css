@@ -1,4 +1,25 @@
+.questionnaire-rules-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.rules-label {
+    align-self: center;
+
+    margin: 1vmax 3vmin;
+
+    font-size: 3vmax;
+}
+
+.questionnaire-rules {
+    font-size: 2vmax;
+}
+
 .questionnaire-view {
     display: flex;
     flex-direction: column;
+}
+
+.rules-agree-button {
+    margin: 3vh 0;
 }

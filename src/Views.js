@@ -13,6 +13,7 @@ import NetworkView from "./components/Network/View/NetworkView";
 import SubnetworkView from "./components/Network/View/SubnetworkView";
 import GameView from "./components/Network/View/GameView";
 import QuestionnaireCreationView from "./components/Network/View/QuestionnaireCreationView";
+import QuestionnaireRulesView from "./components/Network/View/QuestionnaireRulesView";
 
 export const announcementView = {component: <AnnouncementView/>, label: "Доска объявлений"}
 export const myAnnouncementView = {component: <MyAnnouncementView/>, label: "Мои объявления"}
@@ -32,4 +33,5 @@ export const networkView = {component: <NetworkView/>, label: "Сеть"}
 export const subnetworkView = {component: <SubnetworkView/>, label: "Подсеть"}
 export const gameView = {component: <GameView/>, label: "Игра"}
 
+export const questionnaireRulesView = {component: <QuestionnaireRulesView/>, label: "Правила игры"}
 export const questionnaireCreationView = {component: <QuestionnaireCreationView/>, label: "Создание анкеты"}

@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {changeView} from "../../../data-layer/ActionCreators";
-import {questionnaireCreationView} from "../../../Views";
+import {questionnaireCreationView, questionnaireRulesView} from "../../../Views";
 
 function mapStateToProps(state, props) {
     return {}
@@ -24,9 +24,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 <div className={"game-name"}>Звёздные Войны ❖ Ролевая Игра ❖ Star Wars</div>
                 <div className={"game-description"}>
                 </div>
-                <div className={"game-join-button"}>Присоединиться к игре</div>
-                <div className={"game-join-button"}
-                     onClick={() => props.changeView(questionnaireCreationView)}>
+                <div className={"mobile-button"}>Присоединиться к игре</div>
+                <div className={"mobile-button"}
+                     onClick={() => props.changeView(questionnaireRulesView)}>
                     Создать шаблон анкеты</div>
             </div>
         </div>
