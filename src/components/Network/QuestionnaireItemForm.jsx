@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {SelectButton} from "primereact/selectbutton";
 import QuestionnaireInputList from "./QuestionnaireInputList";
+import Btn from "../Common/Btn";
 
 function mapStateToProps(state, props) {
     return {
@@ -35,6 +36,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 />
             </div>
             <QuestionnaireInputList/>
+            <div className={"mobile-button save-questionnaire-button"}>
+                Сохранить
+            </div>
         </div>
     )
 })

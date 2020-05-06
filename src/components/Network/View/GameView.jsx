@@ -27,7 +27,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 <div className={"mobile-button"}>Присоединиться к игре</div>
                 <div className={"mobile-button"}
                      onClick={() => props.changeView(questionnaireRulesView)}>
-                    Создать шаблон анкеты</div>
+                    Создать шаблон анкеты
+                </div>
             </div>
         </div>
     )

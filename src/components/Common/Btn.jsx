@@ -1,22 +1,24 @@
 import React from "react";
 import {connect} from "react-redux";
-import AddQuestionnaireItemButton from "../AddQuestionnaireItemButton";
-import QuestionnaireItemForm from "../QuestionnaireItemForm";
 
 function mapStateToProps(state, props) {
-    return {}
+    return {
+    
+    }
 }
 
 function mapDispatchToProps(dispatch, props) {
-    return {}
+    return {
+    
+    }
 }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
-
     return (
-        <div className={"questionnaire-creation-view"}>
-            <QuestionnaireItemForm/>
+        <div className={"mobile-button"}
+             onClick={() => props.onClick() == null ? alert("pass onClick() to props") : props.onClick()}>
+            {props.text}
         </div>
     )
 })

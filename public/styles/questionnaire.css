@@ -60,7 +60,11 @@
     margin: 1vmax 0;
 }
 
-.questionnaire-item-name-input, .questionnaire-item-list-input {
+.questionnaire-item-name-input {
+    width: 100%;
+}
+
+.questionnaire-item-list-input {
     width: 80%;
 }
 
@@ -84,4 +88,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.save-questionnaire-button {
+    width: 100%;
 }
