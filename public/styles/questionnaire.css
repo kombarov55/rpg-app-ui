@@ -54,18 +54,22 @@
     justify-content: center;
 
     width: 80%;
+    padding: 0.5vmax 2vmin;
+
+    background: rgba(134, 134, 134, 0.63);
+    border-radius: 5px;
 }
 
 .questionnaire-creation-item-form > * {
-    margin: 1vmax 0;
+    margin: 1vmax 2vmin;
 }
 
 .questionnaire-item-name-input {
-    width: 100%;
+    width: 85%;
 }
 
 .questionnaire-item-list-input {
-    width: 80%;
+    width: 90%;
 }
 
 .questionnaire-item-list {
@@ -77,7 +81,7 @@
     padding: 1vmax 2vmin;
     margin: 0.25vmax 0;
 
-    width: 80%;
+    width: 90%;
 
     background: #382357;
     border-radius: 5px;
@@ -91,7 +95,22 @@
 }
 
 .save-questionnaire-button {
-    width: 100%;
+    margin-top: 5vmax;
+    width: 80%;
+}
+
+.questionnaire-creation-item-form-disclaimer {
+    display: flex;
+    flex-direction: row;
+
+    padding: 1vmax 3vmin;
+
+    background: #382357;
+    border-radius: 5px;
+}
+
+.questionnaire-creation-item-form-disclaimer-text {
+    font-size: 2vmax;
 }
 
 .questionnaire-item {
@@ -110,7 +129,7 @@
 .questionnaire-item-name {
     padding: 1vmax 0;
 
-    font-size: 3vmax;
+    font-size: 2vmax;
 }
 
 .questionnaire-item-type {
@@ -124,8 +143,10 @@
 }
 
 .questionnaire-item-list-item-display {
-    padding: 1vmax 2vmin;
+    padding: 0.5vmax 2vmin;
     margin: 0.25vmax 0;
+
+    font-size: 2vmax;
 
 
     background: rgba(55, 55, 55, 0.79);
