@@ -25,11 +25,19 @@ export const initialState = {
         anonymous: false,
         commentsEnabled: true
     },
+
+    networks: [],
+
     commentForm: {
         text: ""
     },
     messageForm: {
         text: ""
+    },
+
+    networkForm: {
+        title: "",
+        description: ""
     }
 }
 

@@ -21,7 +21,13 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT, SET_GROWL, SHOW_GROWL
+    UPDATE_MESSAGE_FORM,
+    ADD_MESSAGES,
+    TOGGLE_RESPOND_ANNOUNCEMENT,
+    SET_GROWL,
+    SHOW_GROWL,
+    UPDATE_NETWORK_FORM,
+    SET_NETWORKS
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -264,6 +270,24 @@ export function addMsgs(msgs) {
         type: ADD_MESSAGES,
         payload: {
             msgs: msgs
+        }
+    }
+}
+
+export function updateNetworkForm(fieldNameToValue) {
+    return {
+        type: UPDATE_NETWORK_FORM,
+        payload: {
+            fieldNameToValue: fieldNameToValue
+        }
+    }
+}
+
+export function setNetworks(networks) {
+    return {
+        type: SET_NETWORKS,
+        payload: {
+            networks: networks
         }
     }
 }

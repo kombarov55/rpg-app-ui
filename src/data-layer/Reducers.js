@@ -19,7 +19,13 @@ import {
     ADD_CONVERSATIONS,
     SET_ACTIVE_CONVERSATION,
     SET_MSGS,
-    UPDATE_MESSAGE_FORM, ADD_MESSAGES, TOGGLE_RESPOND_ANNOUNCEMENT, SET_GROWL, SHOW_GROWL
+    UPDATE_MESSAGE_FORM,
+    ADD_MESSAGES,
+    TOGGLE_RESPOND_ANNOUNCEMENT,
+    SET_GROWL,
+    SHOW_GROWL,
+    UPDATE_NETWORK_FORM,
+    SET_NETWORKS
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -166,6 +172,16 @@ export function rootReducer(state = initialState, action) {
         case ADD_MESSAGES:
             return Object.assign({}, state, {
                 msgs: action.payload.msgs.concat(...state.msgs)
+            })
+
+        case UPDATE_NETWORK_FORM:
+            return Object.assign({}, state, {
+                networkForm: Object.assign({}, state.networkForm, action.payload.fieldNameToValue)
+            })
+
+        case SET_NETWORKS:
+            return Object.assign({}, state, {
+                networks: action.payload.networks
             })
 
         default:
