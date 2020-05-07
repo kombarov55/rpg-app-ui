@@ -4,6 +4,7 @@ import NetworkItem from "../NetworkItem";
 import GameItem from "../GameItem";
 import {gameView, subnetworkView} from "../../../Views";
 import {changeView} from "../../../data-layer/ActionCreators";
+import AddSubnetworkItem from "../AddSubnetworkItem";
 
 function mapStateToProps(state, props) {
     return {
@@ -65,6 +66,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     imgSrc={"https://sun9-70.userapi.com/c855032/v855032568/1a8a73/TN5VCGj9Vlc.jpg"}
                     title={"❖ COMICSDREAMS ❖"}
                 />
+                <AddSubnetworkItem/>
+
             </div>
 
             <div className={"games-label"}>

@@ -163,3 +163,19 @@
 
     background: #592e83;
 }
+
+.add-subnetwork-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 1.5vh 3vw;
+    height: 25vmax;
+}
+
+.add-subnetwork-item-title {
+    padding: 1vh 0;
+
+    font-size: 2vmax;
+    text-align: center;
+}
