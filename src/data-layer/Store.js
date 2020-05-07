@@ -21,8 +21,10 @@ export const initialState = {
 
     activeConversation: null,
     activeNetwork: null,
+    activeSubnetwork: null,
     msgs: [],
     networks: [],
+    subnetworks: [],
 
     announcementForm: {
         anonymous: false,

@@ -27,7 +27,7 @@ import {
     SET_GROWL,
     SHOW_GROWL,
     UPDATE_NETWORK_FORM,
-    SET_NETWORKS, SET_ACTIVE_NETWORK, UPDATE_SUBNETWORK_FORM
+    SET_NETWORKS, SET_ACTIVE_NETWORK, UPDATE_SUBNETWORK_FORM, SET_SUBNETWORKS, SET_ACTIVE_SUBNETWORK
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -306,6 +306,24 @@ export function updateSubnetworkForm(fieldNameToValue) {
         type: UPDATE_SUBNETWORK_FORM,
         payload: {
             fieldNameToValue: fieldNameToValue
+        }
+    }
+}
+
+export function setSubnetworks(subnetworks) {
+    return {
+        type: SET_SUBNETWORKS,
+        payload: {
+            subnetworks: subnetworks
+        }
+    }
+}
+
+export function setActiveSubnetwork(subnetwork) {
+    return {
+        type: SET_ACTIVE_SUBNETWORK,
+        payload: {
+            activeSubnetwork: subnetwork
         }
     }
 }

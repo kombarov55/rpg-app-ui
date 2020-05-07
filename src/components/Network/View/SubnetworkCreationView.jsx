@@ -25,7 +25,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     function save() {
         post(subnetworkUrl(props.networkId), props.subnetworkForm, rs => {
-            console.log(rs)
             props.updateSubnetworkForm({title: "", description: ""})
             props.changeView(networkView)
         })

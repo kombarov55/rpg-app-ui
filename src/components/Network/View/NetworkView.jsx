@@ -1,26 +1,42 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import NetworkItem from "../NetworkItem";
 import GameItem from "../GameItem";
 import {gameView, subnetworkCreationView, subnetworkView} from "../../../Views";
-import {changeView} from "../../../data-layer/ActionCreators";
+import {changeView, setActiveSubnetwork, setSubnetworks} from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
+import {get} from "../../../util/Http";
+import {subnetworkUrl} from "../../../util/Parameters";
 
 function mapStateToProps(state, props) {
     return {
-        activeNetwork: state.activeNetwork
+        activeNetwork: state.activeNetwork,
+        subnetworks: state.subnetworks
     }
 }
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        changeView: view => dispatch(changeView(view))
+        changeView: view => dispatch(changeView(view)),
+        setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks)),
+        setActiveSubnetwork: subnetwork => dispatch(setActiveSubnetwork(subnetwork))
     }
 }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
+    useEffect(() => {
+        get(subnetworkUrl(props.activeNetwork.id), rs => {
+            props.setSubnetworks(rs)
+        })
+    }, [])
+
+    function onSubnetworkClicked(subnetwork) {
+        props.setActiveSubnetwork(subnetwork)
+        props.changeView(subnetworkView)
+    }
+
     return (
         <div className={"network-selection-view"}>
             <div className={"network-info"}>
@@ -51,21 +67,32 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             </div>
 
             <div className={"subnetwork-view-horizontal"}>
-                <NetworkItem
-                    onClick={() => props.changeView(subnetworkView)}
-                    imgSrc={"https://sun9-43.userapi.com/c855132/v855132195/1b06e2/3otc23chxQw.jpg"}
-                    title={"❖ ASIADREAMS ❖"}
-                />
-                <NetworkItem
-                    onClick={() => props.changeView(subnetworkView)}
-                    imgSrc={"https://sun9-3.userapi.com/c854416/v854416948/e6508/Muu44SAOHJY.jpg"}
-                    title={"❖ BOOKSDREAMS ❖"}
-                />
-                <NetworkItem
-                    onClick={() => props.changeView(subnetworkView)}
-                    imgSrc={"https://sun9-70.userapi.com/c855032/v855032568/1a8a73/TN5VCGj9Vlc.jpg"}
-                    title={"❖ COMICSDREAMS ❖"}
-                />
+                {
+                    props.subnetworks.map(subnetwork => (
+                        <NetworkItem
+                            key={subnetwork.id}
+                            title={subnetwork.title}
+                            imgSrc={subnetwork.imgSrc}
+                            onClick={() => onSubnetworkClicked(subnetwork)}
+                        />
+                    ))
+                }
+
+                {/*<NetworkItem*/}
+                {/*    onClick={() => props.changeView(subnetworkView)}*/}
+                {/*    imgSrc={"https://sun9-43.userapi.com/c855132/v855132195/1b06e2/3otc23chxQw.jpg"}*/}
+                {/*    title={"❖ ASIADREAMS ❖"}*/}
+                {/*/>*/}
+                {/*<NetworkItem*/}
+                {/*    onClick={() => props.changeView(subnetworkView)}*/}
+                {/*    imgSrc={"https://sun9-3.userapi.com/c854416/v854416948/e6508/Muu44SAOHJY.jpg"}*/}
+                {/*    title={"❖ BOOKSDREAMS ❖"}*/}
+                {/*/>*/}
+                {/*<NetworkItem*/}
+                {/*    onClick={() => props.changeView(subnetworkView)}*/}
+                {/*    imgSrc={"https://sun9-70.userapi.com/c855032/v855032568/1a8a73/TN5VCGj9Vlc.jpg"}*/}
+                {/*    title={"❖ COMICSDREAMS ❖"}*/}
+                {/*/>*/}
                 <AddSubnetworkItem onClick={() => props.changeView(subnetworkCreationView)}/>
 
             </div>
