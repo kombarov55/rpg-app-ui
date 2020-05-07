@@ -27,7 +27,7 @@ import {
     SET_GROWL,
     SHOW_GROWL,
     UPDATE_NETWORK_FORM,
-    SET_NETWORKS, SET_ACTIVE_NETWORK
+    SET_NETWORKS, SET_ACTIVE_NETWORK, UPDATE_SUBNETWORK_FORM
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -297,6 +297,15 @@ export function setActiveNetwork(network) {
         type: SET_ACTIVE_NETWORK,
         payload: {
             activeNetwork: network
+        }
+    }
+}
+
+export function updateSubnetworkForm(fieldNameToValue) {
+    return {
+        type: UPDATE_SUBNETWORK_FORM,
+        payload: {
+            fieldNameToValue: fieldNameToValue
         }
     }
 }

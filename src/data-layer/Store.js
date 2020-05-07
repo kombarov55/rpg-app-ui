@@ -39,6 +39,10 @@ export const initialState = {
     networkForm: {
         title: "",
         description: ""
+    },
+    subnetworkForm: {
+        title: "",
+        description: ""
     }
 }
 

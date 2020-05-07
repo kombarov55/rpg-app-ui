@@ -25,7 +25,7 @@ import {
     SET_GROWL,
     SHOW_GROWL,
     UPDATE_NETWORK_FORM,
-    SET_NETWORKS, SET_ACTIVE_NETWORK
+    SET_NETWORKS, SET_ACTIVE_NETWORK, UPDATE_SUBNETWORK_FORM
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -187,6 +187,11 @@ export function rootReducer(state = initialState, action) {
         case SET_ACTIVE_NETWORK:
             return Object.assign({}, state, {
                 activeNetwork: action.payload.activeNetwork
+            })
+
+        case UPDATE_SUBNETWORK_FORM:
+            return Object.assign({}, state, {
+                subnetworkForm: Object.assign({}, state.subnetworkForm, action.payload.fieldNameToValue)
             })
 
         default:

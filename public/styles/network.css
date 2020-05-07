@@ -181,3 +181,26 @@
     padding: 1.5vh 3vw;
     height: 25vmax;
 }
+
+.subnetwork-creation-view {
+    align-self: center;
+    align-items: stretch;
+
+    width: 80%;
+}
+
+.subnetwork-creation-view-label {
+    font-size: 2.2vmax;
+    padding: 2vmax 0;
+}
+
+.subnetwork-creation-save-button {
+    align-self: center;
+
+    padding: 1vmax 0;
+    margin: 5vmax 0;
+
+    text-align: center;
+
+    background: #592e83;
+}
