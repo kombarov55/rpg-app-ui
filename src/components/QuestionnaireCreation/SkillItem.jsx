@@ -27,7 +27,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     <div className={"questionnaire-skill-type"}>{props.type}</div>
                 </div>
             </div>
-            <div className={"questionnaire-skill-description"}>{props.description}</div>
+            {/*<div className={"questionnaire-skill-description"}>{props.description}</div>*/}
         </div>
     )
 })

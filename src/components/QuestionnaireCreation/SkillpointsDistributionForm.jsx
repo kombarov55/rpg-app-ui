@@ -16,28 +16,28 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     return (
-        <div className={"questionnaire-creation-skillpoints-distribution-horizontal"}>
-            <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
+        <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
+            <div className={"questionnaire-creation-skillpoints-distribution-entry"}>
                 <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                    Общие
+                    Общие:
                 </div>
                 <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
             </div>
-            <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
+            <div className={"questionnaire-creation-skillpoints-distribution-entry"}>
                 <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                    Боевые
+                    Боевые:
                 </div>
                 <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
             </div>
-            <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
+            <div className={"questionnaire-creation-skillpoints-distribution-entry"}>
                 <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                    Магические
+                    Магические:
                 </div>
                 <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
             </div>
-            <div className={"questionnaire-creation-skillpoints-distribution-vertical"}>
+            <div className={"questionnaire-creation-skillpoints-distribution-entry"}>
                 <div className={"questionnaire-creation-skillpoints-distribution-name"}>
-                    Прочие
+                    Прочие:
                 </div>
                 <input className={"questionnaire-creation-skillpoints-distribution-value"}/>
             </div>
