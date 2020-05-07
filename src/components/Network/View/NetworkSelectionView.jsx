@@ -24,10 +24,6 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
-    useEffect(() => {
-
-    })
-
     function onItemClick(id) {
         const selectedNetwork = props.networks.find(it => it.id === id);
         props.setActiveNetwork(selectedNetwork)
