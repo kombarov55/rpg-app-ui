@@ -16,7 +16,8 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     return (
-        <div className={"questionaire-skill-item"}>
+        <div className={"questionaire-skill-item"}
+             onClick={() => alert("implement show description on click")}>
             <div className={"questionaire-skill-item-horizontal"}>
                 <img className={"questionnaire-skill-img"}
                      src={props.imgSrc}
@@ -26,11 +27,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     <div className={"questionnaire-skill-type"}>{props.type}</div>
                 </div>
             </div>
-
-
             <div className={"questionnaire-skill-description"}>{props.description}</div>
-
-
         </div>
     )
 })
