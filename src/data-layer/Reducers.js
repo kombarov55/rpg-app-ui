@@ -25,7 +25,13 @@ import {
     SET_GROWL,
     SHOW_GROWL,
     UPDATE_NETWORK_FORM,
-    SET_NETWORKS, SET_ACTIVE_NETWORK, UPDATE_SUBNETWORK_FORM, SET_SUBNETWORKS, SET_ACTIVE_SUBNETWORK
+    SET_NETWORKS,
+    SET_ACTIVE_NETWORK,
+    UPDATE_SUBNETWORK_FORM,
+    SET_SUBNETWORKS,
+    SET_ACTIVE_SUBNETWORK,
+    UPDATE_GAME_FORM,
+    SET_GAMES, SET_ACTIVE_GAME
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -202,6 +208,21 @@ export function rootReducer(state = initialState, action) {
         case SET_ACTIVE_SUBNETWORK:
             return Object.assign({}, state, {
                 activeSubnetwork: action.payload.activeSubnetwork
+            })
+
+        case UPDATE_GAME_FORM:
+            return Object.assign({}, state, {
+                gameForm: Object.assign({}, state.gameForm, action.payload.fieldNameToValue)
+            })
+
+        case SET_GAMES:
+            return Object.assign({}, state, {
+                games: action.payload.games
+            })
+
+        case SET_ACTIVE_GAME:
+            return Object.assign({}, state, {
+                activeGame: action.payload.activeGame
             })
 
         default:

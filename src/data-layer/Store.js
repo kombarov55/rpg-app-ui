@@ -45,6 +45,10 @@ export const initialState = {
     subnetworkForm: {
         title: "",
         description: ""
+    },
+    gameForm: {
+        title: "",
+        description: ""
     }
 }
 

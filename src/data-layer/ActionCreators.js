@@ -27,7 +27,13 @@ import {
     SET_GROWL,
     SHOW_GROWL,
     UPDATE_NETWORK_FORM,
-    SET_NETWORKS, SET_ACTIVE_NETWORK, UPDATE_SUBNETWORK_FORM, SET_SUBNETWORKS, SET_ACTIVE_SUBNETWORK
+    SET_NETWORKS,
+    SET_ACTIVE_NETWORK,
+    UPDATE_SUBNETWORK_FORM,
+    SET_SUBNETWORKS,
+    SET_ACTIVE_SUBNETWORK,
+    UPDATE_GAME_FORM,
+    SET_GAMES, SET_ACTIVE_GAME
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -324,6 +330,33 @@ export function setActiveSubnetwork(subnetwork) {
         type: SET_ACTIVE_SUBNETWORK,
         payload: {
             activeSubnetwork: subnetwork
+        }
+    }
+}
+
+export function updateGameForm(fieldNameToValue) {
+    return {
+        type: UPDATE_GAME_FORM,
+        payload: {
+            fieldNameToValue: fieldNameToValue
+        }
+    }
+}
+
+export function setGames(games) {
+    return {
+        type: SET_GAMES,
+        payload: {
+            games: games
+        }
+    }
+}
+
+export function setActiveGame(game) {
+    return {
+        type: SET_ACTIVE_GAME,
+        payload: {
+            activeGame: game
         }
     }
 }
