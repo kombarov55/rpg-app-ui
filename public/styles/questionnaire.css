@@ -217,3 +217,51 @@
 .questionnaire-creation-skill-item-form-img-selection-item-selected {
     border: 1px solid gold;
 }
+
+.questionnaire-creation-skill-item-form-lvl-increase-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionnaire-creation-skill-item-form-lvl-increase-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.questionnaire-creation-skill-item-form-label {
+    padding-bottom: 0.5vmax;
+}
+
+.questionnaire-creation-skill-item-form-lvl-increase-horizontal > * {
+    margin-right: 5vmin;
+}
+
+.questionnaire-creation-skill-item-form-lvl-increase-value {
+    width: 30vmin;
+}
+
+.questionnaire-creation-skill-item-form-checkbox-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.questionnaire-creation-skill-item-form-checkbox-label {
+    margin-left: 3vmin;
+}
+
+.questionnaire-creation-skill-item-form-lvl-increase-values {
+    padding-left: 3vmin;
+}
+
+.questionnaire-creation-skill-item-form-lvl-increase-item {
+    margin: 1vmax 0;
+}
+
+.questionnaire-creation-skill-item-form-lvl-increase-item-label {
+    margin: 0.5vmax 0;
+}
+
+.questionnaire-creation-skill-item-form-lvl-increase-item-value {
+    width: 40vmin;
+}
