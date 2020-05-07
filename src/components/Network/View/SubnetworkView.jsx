@@ -2,8 +2,9 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import GameItem from "../GameItem";
 import {changeView} from "../../../data-layer/ActionCreators";
-import {gameView} from "../../../Views";
+import {gameCreationView, gameView} from "../../../Views";
 import AddGameItem from "../AddGameItem";
+import Globals from "../../../util/Globals";
 
 function mapStateToProps(state, props) {
     return {
@@ -14,14 +15,19 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        changeViewToGame: () => dispatch(changeView(gameView))
+        changeView: view => dispatch(changeView(view))
     }
 }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onGameClicked(game) {
-        props.changeViewToGame()
+        props.changeView(gameView)
+    }
+
+    function onAddGameClicked() {
+        Globals.creatingGameByNetwork = false
+        props.changeView(gameCreationView)
     }
 
     return (
@@ -47,7 +53,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                             onClick={() => onGameClicked(game)}
                         />)
                 }
-                <AddGameItem/>
+                <AddGameItem
+                    onClick={() => onAddGameClicked()}
+                />
             </div>
         </div>
     )

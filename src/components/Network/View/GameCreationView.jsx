@@ -4,7 +4,7 @@ import {InputTextarea} from "primereact/inputtextarea";
 import {changeView, setGames, updateGameForm} from "../../../data-layer/ActionCreators";
 import {post} from "../../../util/Http";
 import {gameByNetworkId, gameBySubnetworkId} from "../../../util/Parameters";
-import {networkView} from "../../../Views";
+import {networkView, subnetworkView} from "../../../Views";
 import Globals from "../../../util/Globals";
 
 function mapStateToProps(state, props) {
@@ -29,12 +29,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function save() {
         const url = Globals.creatingGameByNetwork ?
             gameByNetworkId(props.activeNetwork.id) :
-            gameBySubnetworkId(props.props.activeNetwork.id, props.activeSubnetwork.id);
+            gameBySubnetworkId(props.activeNetwork.id, props.activeSubnetwork.id);
 
         post(url, props.gameForm, rs => {
             props.setGames(props.games.concat(rs))
             props.updateGameForm({title: "", description: ""})
-            props.changeView(networkView)
+            props.changeView(Globals.creatingGameByNetwork ? networkView : subnetworkView)
         })
     }
 
