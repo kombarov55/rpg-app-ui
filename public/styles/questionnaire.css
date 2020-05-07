@@ -200,7 +200,7 @@
 }
 
 .questionnaire-skill-description {
-    padding: 1vmax 0;
+    padding: 1vmax 3vmin;
 }
 
 .questionnaire-creation-skillpoints-distribution-vertical {
@@ -299,4 +299,32 @@
 
 .questionnaire-creation-skill-item-form-lvl-increase-item-value {
     width: 40vmin;
+}
+
+.questionnaire-skill-detail {
+    padding: 1vmax 0  0 3vmin;
+}
+
+.questionnaire-skill-detail-lvl-increase-detail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    padding: 1vmax 3vmin;
+}
+
+.questionnaire-skill-detail-lvl-increase-detail-label {
+    padding-right: 3vmin;
+}
+
+.questionnaire-skill-detail-lvl-increase-detail-chip {
+    padding: 0.25vmax 1.5vmin;
+    margin: 0.25vmax 0.5vmin;
+
+    background: rgba(21, 12, 31, 0.59);
+    color: white;
+    border-radius: 666px;
+
+    font-size: 1.3vmax;
+    line-height: 2vmax;
 }
