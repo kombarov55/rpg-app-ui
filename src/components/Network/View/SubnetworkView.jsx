@@ -18,10 +18,6 @@ function mapDispatchToProps(dispatch, props) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
-    useEffect(() => {
-        console.log(props.activeSubnetwork.description)
-    }, [])
-
     return (
         <div className={"network-selection-view"}>
             <div className={"network-info"}>

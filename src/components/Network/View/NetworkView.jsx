@@ -13,6 +13,8 @@ import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
 import Globals from "../../../util/Globals";
 import GameItem from "../GameItem";
+import {get} from "../../../util/Http";
+import {gameBySubnetworkId} from "../../../util/Parameters";
 
 function mapStateToProps(state, props) {
     return {
@@ -27,7 +29,8 @@ function mapDispatchToProps(dispatch, props) {
         changeView: view => dispatch(changeView(view)),
         setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks)),
         setActiveSubnetwork: subnetwork => dispatch(setActiveSubnetwork(subnetwork)),
-        setActiveGame: game => dispatch(setActiveGame(game))
+        setActiveGame: game => dispatch(setActiveGame(game)),
+        setGames: games => dispatch(setGames(games))
     }
 }
 
@@ -36,7 +39,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     function onSubnetworkClicked(subnetwork) {
         props.setActiveSubnetwork(subnetwork)
+        get(gameBySubnetworkId(props.activeNetwork.id, subnetwork.id), rs => props.setGames(rs))
         props.changeView(subnetworkView)
+    }
+
+    function onGameClicked(game) {
+        props.setActiveGame(game)
+        props.changeView(gameView)
     }
 
     return (
@@ -48,22 +57,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 <div className={"network-name"}>{props.activeNetwork.title}</div>
                 <div className={"network-description"}>{props.activeNetwork.description}</div>
             </div>
-
-            {/*<div className={"network-info"}>*/}
-            {/*    <img className={"network-info-img"}*/}
-            {/*         src={"https://sun9-16.userapi.com/c850436/v850436625/10f403/Q7mCrq-H_AY.jpg"}*/}
-            {/*    />*/}
-            {/*    <div className={"network-name"}>❖ DREAMS ❖</div>*/}
-            {/*    <div className={"network-description"}>*/}
-            {/*        Здравствуй, дорогой друг.*/}
-            {/*        Я немного объясню, что мы такое.*/}
-            {/*        Нам не важно, где ты работал раньше или работаешь сейчас. Здесь тебя примут вне зависимости от места*/}
-            {/*        жительства, семейного положения, ориентации, веры или расы. Здесь мы стараемся дать то, в поисках*/}
-            {/*        чего так часто люди блуждают в сети.*/}
-            {/*        Это — твой дом.*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-
             <div className={"subnetworks-label"}>
                 Подсети:
             </div>
@@ -79,22 +72,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                         />
                     ))
                 }
-
-                {/*<NetworkItem*/}
-                {/*    onClick={() => props.changeView(subnetworkView)}*/}
-                {/*    imgSrc={"https://sun9-43.userapi.com/c855132/v855132195/1b06e2/3otc23chxQw.jpg"}*/}
-                {/*    title={"❖ ASIADREAMS ❖"}*/}
-                {/*/>*/}
-                {/*<NetworkItem*/}
-                {/*    onClick={() => props.changeView(subnetworkView)}*/}
-                {/*    imgSrc={"https://sun9-3.userapi.com/c854416/v854416948/e6508/Muu44SAOHJY.jpg"}*/}
-                {/*    title={"❖ BOOKSDREAMS ❖"}*/}
-                {/*/>*/}
-                {/*<NetworkItem*/}
-                {/*    onClick={() => props.changeView(subnetworkView)}*/}
-                {/*    imgSrc={"https://sun9-70.userapi.com/c855032/v855032568/1a8a73/TN5VCGj9Vlc.jpg"}*/}
-                {/*    title={"❖ COMICSDREAMS ❖"}*/}
-                {/*/>*/}
                 <AddSubnetworkItem onClick={() => props.changeView(subnetworkCreationView)}/>
 
             </div>
@@ -107,10 +84,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     props.games.map(game => (
                         <GameItem
                             key={game.id}
-                            onClick={() => {
-                                props.setActiveGame(game)
-                                props.changeView(gameView)
-                            }}
+                            onClick={() => onGameClicked(game)}
                             imgSrc={game.imgSrc}
                             title={game.title}
                         />
