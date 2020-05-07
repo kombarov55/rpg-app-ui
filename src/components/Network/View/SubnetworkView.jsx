@@ -1,21 +1,28 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import GameItem from "../GameItem";
-import {changeView} from "../../../data-layer/ActionCreators";
-import {gameCreationView, gameView} from "../../../Views";
+import {changeView, setSubnetworks} from "../../../data-layer/ActionCreators";
+import {gameCreationView, gameView, networkView} from "../../../Views";
 import AddGameItem from "../AddGameItem";
 import Globals from "../../../util/Globals";
+import Btn from "../../Common/Btn";
+import {httpDelete} from "../../../util/Http";
+import {deleteSubnetworkUrl} from "../../../util/Parameters";
 
 function mapStateToProps(state, props) {
     return {
+        activeNetwork: state.activeNetwork,
         activeSubnetwork: state.activeSubnetwork,
-        games: state.games
+        games: state.games,
+        subnetworks: state.subnetworks,
+        growl: state.growl
     }
 }
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        changeView: view => dispatch(changeView(view))
+        changeView: view => dispatch(changeView(view)),
+        setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks))
     }
 }
 
@@ -28,6 +35,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onAddGameClicked() {
         Globals.creatingGameByNetwork = false
         props.changeView(gameCreationView)
+    }
+
+    function onDeleteClicked() {
+        if (window.confirm("Удалить подсеть?")) {
+            httpDelete(deleteSubnetworkUrl(props.activeNetwork.id, props.activeSubnetwork.id), () => {
+                props.growl.show({severity: "info", summary: "Подсеть архивирована."})
+                props.setSubnetworks(props.subnetworks.filter(it => it.id !== props.activeSubnetwork.id))
+                props.changeView(networkView)
+            })
+        }
     }
 
     return (
@@ -57,6 +74,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     onClick={() => onAddGameClicked()}
                 />
             </div>
+            <Btn onClick={() => onDeleteClicked()}
+                 text={"Удалить"}/>
         </div>
     )
 })

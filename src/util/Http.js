@@ -34,7 +34,7 @@ export function httpDelete(url, onSuccess) {
 
     if (onSuccess != null) {
         xhr.onload = function () {
-            onSuccess(JSON.parse(xhr.responseText))
+            onSuccess()
         }
     }
 }

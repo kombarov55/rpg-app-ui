@@ -1,26 +1,29 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import NetworkItem from "../NetworkItem";
-import {gameCreationView, gameView, subnetworkCreationView, subnetworkView} from "../../../Views";
+import {gameCreationView, gameView, networkSelectionView, subnetworkCreationView, subnetworkView} from "../../../Views";
 import {
     changeView,
     setActiveGame,
     setActiveSubnetwork,
-    setGames,
+    setGames, setNetworks,
     setSubnetworks
 } from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
 import Globals from "../../../util/Globals";
 import GameItem from "../GameItem";
-import {get} from "../../../util/Http";
-import {gameBySubnetworkId} from "../../../util/Parameters";
+import {get, httpDelete} from "../../../util/Http";
+import {deleteNetworkUrl, gameBySubnetworkId} from "../../../util/Parameters";
+import Btn from "../../Common/Btn";
 
 function mapStateToProps(state, props) {
     return {
         activeNetwork: state.activeNetwork,
         subnetworks: state.subnetworks,
-        games: state.games
+        games: state.games,
+        growl: state.growl,
+        networks: state.networks
     }
 }
 
@@ -30,7 +33,8 @@ function mapDispatchToProps(dispatch, props) {
         setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks)),
         setActiveSubnetwork: subnetwork => dispatch(setActiveSubnetwork(subnetwork)),
         setActiveGame: game => dispatch(setActiveGame(game)),
-        setGames: games => dispatch(setGames(games))
+        setGames: games => dispatch(setGames(games)),
+        setNetworks: networks => dispatch(setNetworks(networks))
     }
 }
 
@@ -46,6 +50,19 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onGameClicked(game) {
         props.setActiveGame(game)
         props.changeView(gameView)
+    }
+
+    function onDeleteClicked() {
+        const toDelete = window.confirm("Удалить сеть?")
+        if (toDelete) {
+            httpDelete(deleteNetworkUrl(props.activeNetwork.id), () => {
+                props.growl.show({severity: "info", summary: "Сеть архивирована."})
+                props.setNetworks(props.networks.filter(it => it.id !== props.activeNetwork.id))
+                props.changeView(networkSelectionView)
+            })
+        } else {
+
+        }
     }
 
     return (
@@ -90,32 +107,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                         />
                     ))
                 }
-                {/*<GameItem*/}
-                {/*    onClick={() => props.changeView(gameView)}*/}
-                {/*    imgSrc={"https://sun9-64.userapi.com/c858416/v858416297/1c6f50/HpIP0jOcov4.jpg"}*/}
-                {/*    title={"Звёздные Войны ❖ Ролевая Игра ❖ Star Wars"}*/}
-                {/*/>*/}
-                {/*<GameItem onClick={() => props.changeView(gameView)}*/}
-                {/*          imgSrc={"https://sun9-50.userapi.com/c206728/v206728029/e6b05/y0oZUh43Mp4.jpg"}*/}
-                {/*          title={"Гарри Поттер ❖ Ролевая игра ❖ Harry Potter"}*/}
-                {/*/>*/}
-                {/*<GameItem onClick={() => props.changeView(gameView)}*/}
-                {/*          imgSrc={"https://sun9-47.userapi.com/c206628/v206628029/e92bc/tiooZwDgav0.jpg"}*/}
-                {/*          title={"Шерлок ❖ Ролевая Игра ❖ Sherlock"}*/}
-                {/*/>*/}
-                {/*<GameItem onClick={() => props.changeView(gameView)}*/}
-                {/*          imgSrc={"https://sun9-47.userapi.com/c206628/v206628029/e92bc/tiooZwDgav0.jpg"}*/}
-                {/*          title={"Шерлок ❖ Ролевая Игра ❖ Sherlock"}*/}
-                {/*/>*/}
-                {/*<GameItem onClick={() => props.changeView(gameView)}*/}
-                {/*          imgSrc={"https://sun9-27.userapi.com/c857420/v857420029/1d203f/tKLlbcriafc.jpg"}*/}
-                {/*          title={"Ривердейл ❖ Ролевая Игра ❖ Сабрина"}*/}
-                {/*/>*/}
                 <AddGameItem onClick={() => {
                     Globals.creatingGameByNetwork = true
                     props.changeView(gameCreationView)
                 }}/>
             </div>
+            <Btn onClick={() => onDeleteClicked()}
+                text={"Удалить сеть"}/>
         </div>
     )
 })

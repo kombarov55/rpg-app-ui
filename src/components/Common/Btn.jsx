@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch, props) {
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     return (
         <div className={"mobile-button"}
-             onClick={() => props.onClick() == null ? alert("pass onClick() to props") : props.onClick()}>
+             onClick={() => props.onClick()}>
             {props.text}
         </div>
     )

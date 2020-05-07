@@ -22,6 +22,12 @@ export const getMsgsUrl = (conversationId, page, pageSize) => messageUrl(convers
 export const msgLongpollUrl = (conversationId, lastMsgTimestamp, userId) => messageUrl(conversationId) + "/longpoll?lastMsgTimestamp=" + lastMsgTimestamp + "&myUserId=" + userId
 
 export const networkUrl = rootUrl + "/network"
+export const deleteNetworkUrl = networkId => networkUrl + "/"  + networkId
+
 export const subnetworkUrl = networkId => networkUrl + "/" + networkId + "/subnetwork"
+export const deleteSubnetworkUrl = (networkId, subnetworkId) => subnetworkUrl(networkId) + "/" + subnetworkId
+
 export const gameByNetworkId = networkId => networkUrl + "/" + networkId + "/game"
 export const gameBySubnetworkId = (networkId, subnetworkId) => subnetworkUrl(networkId) + "/" + subnetworkId + "/game"
+export const deleteGameByNetworkId = (networkId, gameId) => gameByNetworkId(networkId) + "/game/" + gameId
+export const deleteGameBySubnetworkId = (networkId, subnetworkId, gameId) => gameBySubnetworkId(networkId, subnetworkId) + "/game/" + gameId
