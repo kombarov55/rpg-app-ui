@@ -12,7 +12,8 @@ function mapStateToProps(state, props) {
         gameForm: state.gameForm,
         activeNetwork: state.activeNetwork,
         activeSubnetwork: state.activeSubnetwork,
-        games: state.games
+        games: state.games,
+        growl: state.growl
     }
 }
 
@@ -35,6 +36,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             props.setGames(props.games.concat(rs))
             props.updateGameForm({title: "", description: ""})
             props.changeView(Globals.creatingGameByNetwork ? networkView : subnetworkView)
+            props.growl.show({severity: "info", summary: "Игра создана"})
         })
     }
 

@@ -10,7 +10,8 @@ function mapStateToProps(state, props) {
     return {
         subnetworkForm: state.subnetworkForm,
         networkId: state.activeNetwork.id,
-        subnetworks: state.subnetworks
+        subnetworks: state.subnetworks,
+        growl: state.growl
     }
 }
 
@@ -30,6 +31,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             props.setSubnetworks(props.subnetworks.concat(rs))
             props.updateSubnetworkForm({title: "", description: ""})
             props.changeView(networkView)
+            props.growl.show({severity: "info", summary: "Подсеть создана"})
         })
     }
 

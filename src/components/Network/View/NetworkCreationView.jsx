@@ -10,7 +10,8 @@ import {networkSelectionView} from "../../../Views";
 function mapStateToProps(state, props) {
     return {
         networkForm: state.networkForm,
-        networks: state.networks
+        networks: state.networks,
+        growl: state.growl
     }
 }
 
@@ -30,6 +31,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             props.setNetworks(props.networks.concat(rs))
             updateNetworkForm({title: "", description: ""})
             props.changeView(networkSelectionView)
+            props.growl.show({severity: "info", summary: "Сеть создана"})
         })
     }
 
