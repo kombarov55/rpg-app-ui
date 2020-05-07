@@ -18,6 +18,7 @@ import NetworkItem from "./components/Network/NetworkItem";
 import NetworkCreationView from "./components/Network/View/NetworkCreationView";
 import SubnetworkCreationView from "./components/Network/View/SubnetworkCreationView";
 import GameCreationView from "./components/Network/View/GameCreationView";
+import NetworkEditView from "./components/Network/View/NetworkEditView";
 
 export const announcementView = {component: <AnnouncementView/>, label: "Доска объявлений"}
 export const myAnnouncementView = {component: <MyAnnouncementView/>, label: "Мои объявления"}
@@ -33,10 +34,14 @@ export const conversationView = {
 }
 
 export const networkSelectionView = {component: <NetworkSelectionView/>, label: "Сети"}
+
 export const networkCreationView = {component: <NetworkCreationView/>, label: "Создание сети"}
+export const networkEditView = {component: <NetworkEditView/>, label: "Редактирование сети"}
 export const networkView = {component: <NetworkView/>, label: "Сеть"}
+
 export const subnetworkCreationView = {component: <SubnetworkCreationView/>, label: "Создание подсети"}
 export const subnetworkView = {component: <SubnetworkView/>, label: "Подсеть"}
+
 export const gameView = {component: <GameView/>, label: "Игра"}
 export const gameCreationView = {component: <GameCreationView/>, label: "Создание игры"}
 

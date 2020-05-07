@@ -22,6 +22,7 @@ export const getMsgsUrl = (conversationId, page, pageSize) => messageUrl(convers
 export const msgLongpollUrl = (conversationId, lastMsgTimestamp, userId) => messageUrl(conversationId) + "/longpoll?lastMsgTimestamp=" + lastMsgTimestamp + "&myUserId=" + userId
 
 export const networkUrl = rootUrl + "/network"
+export const editNetworkUrl = networkId => rootUrl + "/network/" + networkId
 export const deleteNetworkUrl = networkId => networkUrl + "/"  + networkId
 
 export const subnetworkUrl = networkId => networkUrl + "/" + networkId + "/subnetwork"

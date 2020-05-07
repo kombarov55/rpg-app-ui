@@ -1,13 +1,20 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import NetworkItem from "../NetworkItem";
-import {gameCreationView, gameView, networkSelectionView, subnetworkCreationView, subnetworkView} from "../../../Views";
+import {
+    gameCreationView,
+    gameView,
+    networkCreationView, networkEditView,
+    networkSelectionView,
+    subnetworkCreationView,
+    subnetworkView
+} from "../../../Views";
 import {
     changeView,
     setActiveGame,
     setActiveSubnetwork,
     setGames, setNetworks,
-    setSubnetworks
+    setSubnetworks, updateNetworkForm
 } from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
@@ -34,7 +41,8 @@ function mapDispatchToProps(dispatch, props) {
         setActiveSubnetwork: subnetwork => dispatch(setActiveSubnetwork(subnetwork)),
         setActiveGame: game => dispatch(setActiveGame(game)),
         setGames: games => dispatch(setGames(games)),
-        setNetworks: networks => dispatch(setNetworks(networks))
+        setNetworks: networks => dispatch(setNetworks(networks)),
+        updateNetworkForm: fieldNameToValue => dispatch(updateNetworkForm(fieldNameToValue))
     }
 }
 
@@ -52,6 +60,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
         props.changeView(gameView)
     }
 
+    function onEditClicked() {
+        props.updateNetworkForm(props.activeNetwork)
+        props.changeView(networkEditView)
+    }
+
     function onDeleteClicked() {
         const toDelete = window.confirm("Удалить сеть?")
         if (toDelete) {
@@ -60,8 +73,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 props.setNetworks(props.networks.filter(it => it.id !== props.activeNetwork.id))
                 props.changeView(networkSelectionView)
             })
-        } else {
-
         }
     }
 
@@ -112,8 +123,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     props.changeView(gameCreationView)
                 }}/>
             </div>
-            <Btn onClick={() => onDeleteClicked()}
-                text={"Удалить сеть"}/>
+            <Btn text={"Редактировать"}
+                 onClick={() => onEditClicked()}
+            />
+            <Btn text={"Удалить"}
+                 onClick={() => onDeleteClicked()}
+            />
         </div>
     )
 })

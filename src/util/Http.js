@@ -53,3 +53,17 @@ export function patch(url, body, onSuccess) {
         }
     }
 }
+
+export function put(url, body, onSuccess) {
+    const xhr = new XMLHttpRequest()
+    xhr.open("PUT", url, true)
+    xhr.setRequestHeader("Authorization", "Bearer " + Globals.authToken)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(JSON.stringify(body))
+
+    if (onSuccess != null) {
+        xhr.onload = function () {
+            onSuccess(JSON.parse(xhr.responseText))
+        }
+    }
+}
