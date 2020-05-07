@@ -5,11 +5,14 @@ import {gameCreationView, gameView, subnetworkCreationView, subnetworkView} from
 import {changeView, setActiveSubnetwork, setGames, setSubnetworks} from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
+import Globals from "../../../util/Globals";
+import GameItem from "../GameItem";
 
 function mapStateToProps(state, props) {
     return {
         activeNetwork: state.activeNetwork,
-        subnetworks: state.subnetworks
+        subnetworks: state.subnetworks,
+        games: state.games
     }
 }
 
@@ -23,10 +26,6 @@ function mapDispatchToProps(dispatch, props) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
-    useEffect(() => {
-
-
-    })
 
     function onSubnetworkClicked(subnetwork) {
         props.setActiveSubnetwork(subnetwork)
@@ -97,6 +96,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 Игры:
             </div>
             <div className={"games-view-horizontal"}>
+                {
+                    props.games.map(game => (
+                        <GameItem
+                            onClick={() => props.changeView(gameView)}
+                            imgSrc={game.imgSrc}
+                            title={game.title}
+                        />
+                    ))
+                }
                 {/*<GameItem*/}
                 {/*    onClick={() => props.changeView(gameView)}*/}
                 {/*    imgSrc={"https://sun9-64.userapi.com/c858416/v858416297/1c6f50/HpIP0jOcov4.jpg"}*/}
@@ -118,7 +126,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 {/*          imgSrc={"https://sun9-27.userapi.com/c857420/v857420029/1d203f/tKLlbcriafc.jpg"}*/}
                 {/*          title={"Ривердейл ❖ Ролевая Игра ❖ Сабрина"}*/}
                 {/*/>*/}
-                <AddGameItem onClick={() => props.changeView(gameCreationView)}/>
+                <AddGameItem onClick={() => {
+                    Globals.creatingGameByNetwork = true
+                    props.changeView(gameCreationView)
+                }}/>
             </div>
         </div>
     )

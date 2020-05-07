@@ -1,4 +1,5 @@
 export default {
     userId: null,
-    authToken: null
+    authToken: null,
+    creatingGameByNetwork: null
 }

@@ -4,7 +4,7 @@ import {changeView, setActiveNetwork, setGames, setNetworks, setSubnetworks} fro
 import Btn from "../../Common/Btn";
 import {networkCreationView, networkView} from "../../../Views";
 import {get} from "../../../util/Http";
-import {getGamesByNetworkId, networkUrl, subnetworkUrl} from "../../../util/Parameters";
+import {gameByNetworkId, subnetworkUrl} from "../../../util/Parameters";
 import NetworkItem from "../NetworkItem";
 
 function mapStateToProps(state, props) {
@@ -36,7 +36,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             props.setSubnetworks(rs)
         })
 
-        get(getGamesByNetworkId(selectedNetwork.id), rs => {
+        get(gameByNetworkId(selectedNetwork.id), rs => {
             props.setGames(rs)
             props.changeView(networkView)
         })

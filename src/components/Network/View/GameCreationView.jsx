@@ -3,12 +3,15 @@ import {connect} from "react-redux";
 import {InputTextarea} from "primereact/inputtextarea";
 import {changeView, updateGameForm} from "../../../data-layer/ActionCreators";
 import {post} from "../../../util/Http";
-import {saveGameUrl} from "../../../util/Parameters";
+import {gameByNetworkId, gameBySubnetworkId} from "../../../util/Parameters";
 import {networkView} from "../../../Views";
+import Globals from "../../../util/Globals";
 
 function mapStateToProps(state, props) {
     return {
-        gameForm: state.gameForm
+        gameForm: state.gameForm,
+        activeNetwork: state.activeNetwork,
+        activeSubnetwork: state.activeSubnetwork
     }
 }
 
@@ -22,7 +25,11 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function save() {
-        post(saveGameUrl, props.gameForm, rs => {
+        const url = Globals.creatingGameByNetwork ?
+            gameByNetworkId(props.activeNetwork.id) :
+            gameBySubnetworkId(props.props.activeNetwork.id, props.activeSubnetwork.id);
+
+        post(url, props.gameForm, rs => {
             props.updateGameForm({title: "", description: ""})
             props.changeView(networkView)
         })
