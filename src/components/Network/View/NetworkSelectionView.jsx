@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {changeView, setActiveNetwork, setNetworks} from "../../../data-layer/ActionCreators";
+import {changeView, setActiveNetwork, setGames, setNetworks, setSubnetworks} from "../../../data-layer/ActionCreators";
 import Btn from "../../Common/Btn";
 import {networkCreationView, networkView} from "../../../Views";
 import {get} from "../../../util/Http";
-import {networkUrl} from "../../../util/Parameters";
+import {getGamesByNetworkId, networkUrl, subnetworkUrl} from "../../../util/Parameters";
 import NetworkItem from "../NetworkItem";
 
 function mapStateToProps(state, props) {
@@ -16,7 +16,8 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch, props) {
     return {
         changeView: (view) => dispatch(changeView(view)),
-        setNetworks: networks => dispatch(setNetworks(networks)),
+        setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks)),
+        setGames: games => dispatch(setGames(games)),
         setActiveNetwork: network => dispatch(setActiveNetwork(network))
     }
 }
@@ -24,15 +25,21 @@ function mapDispatchToProps(dispatch, props) {
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     useEffect(() => {
-        get(networkUrl, rs => {
-            props.setNetworks(rs)
-        })
-    }, [])
+
+    })
 
     function onItemClick(id) {
         const selectedNetwork = props.networks.find(it => it.id === id);
         props.setActiveNetwork(selectedNetwork)
-        props.changeView(networkView)
+
+        get(subnetworkUrl(selectedNetwork.id), rs => {
+            props.setSubnetworks(rs)
+        })
+
+        get(getGamesByNetworkId(selectedNetwork.id), rs => {
+            props.setGames(rs)
+            props.changeView(networkView)
+        })
     }
 
     return (

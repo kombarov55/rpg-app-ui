@@ -24,3 +24,4 @@ export const msgLongpollUrl = (conversationId, lastMsgTimestamp, userId) => mess
 export const networkUrl = rootUrl + "/network"
 export const subnetworkUrl = networkId => networkUrl + "/" + networkId + "/subnetwork"
 export const saveGameUrl = rootUrl + "/game"
+export const getGamesByNetworkId = networkId => networkUrl + "/" + networkId + "/game"

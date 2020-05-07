@@ -3,11 +3,11 @@ import {connect} from "react-redux";
 import NetworkItem from "../NetworkItem";
 import GameItem from "../GameItem";
 import {gameCreationView, gameView, subnetworkCreationView, subnetworkView} from "../../../Views";
-import {changeView, setActiveSubnetwork, setSubnetworks} from "../../../data-layer/ActionCreators";
+import {changeView, setActiveSubnetwork, setGames, setSubnetworks} from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
 import {get} from "../../../util/Http";
-import {subnetworkUrl} from "../../../util/Parameters";
+import {getGamesByNetworkId, subnetworkUrl} from "../../../util/Parameters";
 
 function mapStateToProps(state, props) {
     return {
@@ -27,10 +27,9 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     useEffect(() => {
-        get(subnetworkUrl(props.activeNetwork.id), rs => {
-            props.setSubnetworks(rs)
-        })
-    }, [])
+
+
+    })
 
     function onSubnetworkClicked(subnetwork) {
         props.setActiveSubnetwork(subnetwork)

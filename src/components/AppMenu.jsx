@@ -5,8 +5,10 @@ import {
     favoriteAnnouncementView,
     myAnnouncementView, networkSelectionView
 } from "../Views";
-import {changeView, toggleSidebar} from "../data-layer/ActionCreators";
+import {changeView, setNetworks, toggleSidebar} from "../data-layer/ActionCreators";
 import {connect} from "react-redux";
+import {get} from "../util/Http";
+import {networkUrl} from "../util/Parameters";
 
 function mapStateToProps(state) {
     return {
@@ -17,7 +19,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         changeView: (nextView) => dispatch(changeView(nextView)),
-        toggleSidebar: () => dispatch(toggleSidebar())
+        toggleSidebar: () => dispatch(toggleSidebar()),
+        setNetworks: networks => dispatch(setNetworks(networks))
     }
 }
 
@@ -84,7 +87,10 @@ class ConnectedMenu extends React.Component {
                     </div>
                 </div>
                 <div className={"main-frame-nav-item"}
-                     onClick={() => this.onItemClicked(networkSelectionView)}
+                     onClick={() => {
+                         this.onItemClicked(networkSelectionView)
+                         get(networkUrl, rs => this.props.setNetworks(rs))
+                     }}
                 >
                     <i className={"pi pi-apple"} style={{"fontSize": "6vmin"}}/>
                     <div className={"main-frame-nav-item-text"}>

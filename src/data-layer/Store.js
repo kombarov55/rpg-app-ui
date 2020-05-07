@@ -25,6 +25,7 @@ export const initialState = {
     msgs: [],
     networks: [],
     subnetworks: [],
+    games: [],
 
     announcementForm: {
         anonymous: false,
