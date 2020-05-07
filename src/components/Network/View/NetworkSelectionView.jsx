@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {changeView, setNetworks} from "../../../data-layer/ActionCreators";
+import {changeView, setActiveNetwork, setNetworks} from "../../../data-layer/ActionCreators";
 import Btn from "../../Common/Btn";
-import {networkCreationView} from "../../../Views";
+import {networkCreationView, networkView} from "../../../Views";
 import {get} from "../../../util/Http";
 import {networkUrl} from "../../../util/Parameters";
 import NetworkItem from "../NetworkItem";
@@ -16,7 +16,8 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch, props) {
     return {
         changeView: (view) => dispatch(changeView(view)),
-        setNetworks: networks => dispatch(setNetworks(networks))
+        setNetworks: networks => dispatch(setNetworks(networks)),
+        setActiveNetwork: network => dispatch(setActiveNetwork(network))
     }
 }
 
@@ -28,6 +29,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
         })
     }, [])
 
+    function onItemClick(id) {
+        const selectedNetwork = props.networks.find(it => it.id === id);
+        props.setActiveNetwork(selectedNetwork)
+        props.changeView(networkView)
+    }
+
     return (
         <div className={"network-selection-view"}>
             <div className={"network-selection-view-horizontal"}>
@@ -35,17 +42,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     props.networks.map(network =>
                         <NetworkItem
                             key={network.id}
-                            onClick={() => props.changeViewToNetworkView()}
+                            onClick={() => onItemClick(network.id)}
                             imgSrc={network.imgSrc}
                             title={network.title}
                         />
                     )
                 }
-                {/*<NetworkItem*/}
-                {/*    onClick={() => props.changeViewToNetworkView()}*/}
-                {/*    imgSrc={"https://sun9-16.userapi.com/c850436/v850436625/10f403/Q7mCrq-H_AY.jpg"}*/}
-                {/*    title={"❖ DREAMS ❖"}*/}
-                {/*/>*/}
             </div>
             <Btn text={"Добавить сеть"}
                  onClick={() => props.changeView(networkCreationView)}

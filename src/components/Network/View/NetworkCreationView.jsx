@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {InputTextarea} from "primereact/inputtextarea";
 import Btn from "../../Common/Btn";
-import {changeView, updateNetworkForm} from "../../../data-layer/ActionCreators";
+import {changeView, setActiveNetwork, updateNetworkForm} from "../../../data-layer/ActionCreators";
 import {post} from "../../../util/Http";
 import {networkUrl} from "../../../util/Parameters";
 import {networkSelectionView} from "../../../Views";
@@ -24,8 +24,6 @@ function mapDispatchToProps(dispatch, props) {
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     function save() {
-        console.log(props.networkForm)
-
         post(networkUrl, props.networkForm, rs => {
             updateNetworkForm({title: "", description: ""})
             props.changeView(networkSelectionView)

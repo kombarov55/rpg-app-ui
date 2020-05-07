@@ -6,7 +6,9 @@ import {gameView, subnetworkView} from "../../../Views";
 import {changeView} from "../../../data-layer/ActionCreators";
 
 function mapStateToProps(state, props) {
-    return {}
+    return {
+        activeNetwork: state.activeNetwork
+    }
 }
 
 function mapDispatchToProps(dispatch, props) {
@@ -22,18 +24,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
         <div className={"network-selection-view"}>
             <div className={"network-info"}>
                 <img className={"network-info-img"}
-                     src={"https://sun9-16.userapi.com/c850436/v850436625/10f403/Q7mCrq-H_AY.jpg"}
+                     src={props.activeNetwork.imgSrc}
                 />
-                <div className={"network-name"}>❖ DREAMS ❖</div>
-                <div className={"network-description"}>
-                    Здравствуй, дорогой друг.
-                    Я немного объясню, что мы такое.
-                    Нам не важно, где ты работал раньше или работаешь сейчас. Здесь тебя примут вне зависимости от места
-                    жительства, семейного положения, ориентации, веры или расы. Здесь мы стараемся дать то, в поисках
-                    чего так часто люди блуждают в сети.
-                    Это — твой дом.
-                </div>
+                <div className={"network-name"}>{props.activeNetwork.title}</div>
+                <div className={"network-description"}>{props.activeNetwork.description}</div>
             </div>
+
+            {/*<div className={"network-info"}>*/}
+            {/*    <img className={"network-info-img"}*/}
+            {/*         src={"https://sun9-16.userapi.com/c850436/v850436625/10f403/Q7mCrq-H_AY.jpg"}*/}
+            {/*    />*/}
+            {/*    <div className={"network-name"}>❖ DREAMS ❖</div>*/}
+            {/*    <div className={"network-description"}>*/}
+            {/*        Здравствуй, дорогой друг.*/}
+            {/*        Я немного объясню, что мы такое.*/}
+            {/*        Нам не важно, где ты работал раньше или работаешь сейчас. Здесь тебя примут вне зависимости от места*/}
+            {/*        жительства, семейного положения, ориентации, веры или расы. Здесь мы стараемся дать то, в поисках*/}
+            {/*        чего так часто люди блуждают в сети.*/}
+            {/*        Это — твой дом.*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
             <div className={"subnetworks-label"}>
                 Подсети:

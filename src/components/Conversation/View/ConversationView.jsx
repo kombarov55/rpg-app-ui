@@ -23,7 +23,6 @@ function mapDispatchToProps(dispatch, props) {
 
 function ConversationView(props) {
     function getLastMsgDate(initialMsgs) {
-        console.log(initialMsgs)
         const lastMsg = props.msgs[0]
         if (lastMsg == null) {
             return new Date().getTime()

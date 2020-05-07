@@ -20,13 +20,14 @@ export const initialState = {
     conversations: [],
 
     activeConversation: null,
+    activeNetwork: null,
     msgs: [],
+    networks: [],
+
     announcementForm: {
         anonymous: false,
         commentsEnabled: true
     },
-
-    networks: [],
 
     commentForm: {
         text: ""

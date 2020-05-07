@@ -27,7 +27,7 @@ import {
     SET_GROWL,
     SHOW_GROWL,
     UPDATE_NETWORK_FORM,
-    SET_NETWORKS
+    SET_NETWORKS, SET_ACTIVE_NETWORK
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -288,6 +288,15 @@ export function setNetworks(networks) {
         type: SET_NETWORKS,
         payload: {
             networks: networks
+        }
+    }
+}
+
+export function setActiveNetwork(network) {
+    return {
+        type: SET_ACTIVE_NETWORK,
+        payload: {
+            activeNetwork: network
         }
     }
 }
