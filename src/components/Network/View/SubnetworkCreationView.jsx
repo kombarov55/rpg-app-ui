@@ -1,24 +1,34 @@
 import React from "react";
 import {connect} from "react-redux";
 import {InputTextarea} from "primereact/inputtextarea";
-import {updateSubnetworkForm} from "../../../data-layer/ActionCreators";
+import {changeView, updateSubnetworkForm} from "../../../data-layer/ActionCreators";
+import {post} from "../../../util/Http";
+import {subnetworkUrl} from "../../../util/Parameters";
+import {networkView} from "../../../Views";
 
 function mapStateToProps(state, props) {
     return {
-        subnetworkForm: state.subnetworkForm
+        subnetworkForm: state.subnetworkForm,
+        networkId: state.activeNetwork.id
     }
 }
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        updateSubnetworkForm: fieldNameToValue => dispatch(updateSubnetworkForm(fieldNameToValue))
+        updateSubnetworkForm: fieldNameToValue => dispatch(updateSubnetworkForm(fieldNameToValue)),
+        changeView: view => dispatch(changeView(view))
     }
 }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
+
     function save() {
-        alert("save")
+        post(subnetworkUrl(props.networkId), props.subnetworkForm, rs => {
+            console.log(rs)
+            props.updateSubnetworkForm({title: "", description: ""})
+            props.changeView(networkView)
+        })
     }
 
     return (
