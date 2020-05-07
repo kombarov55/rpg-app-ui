@@ -5,6 +5,7 @@ import GameItem from "../GameItem";
 import {gameView, subnetworkView} from "../../../Views";
 import {changeView} from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
+import AddGameItem from "../AddGameItem";
 
 function mapStateToProps(state, props) {
     return {
@@ -95,6 +96,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                           imgSrc={"https://sun9-27.userapi.com/c857420/v857420029/1d203f/tKLlbcriafc.jpg"}
                           title={"Ривердейл ❖ Ролевая Игра ❖ Сабрина"}
                 />
+                <AddGameItem/>
             </div>
         </div>
     )
