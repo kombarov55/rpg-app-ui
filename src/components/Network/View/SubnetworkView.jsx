@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import GameItem from "../GameItem";
 import {changeView} from "../../../data-layer/ActionCreators";
 import {gameView} from "../../../Views";
 
 function mapStateToProps(state, props) {
-    return {}
+    return {
+        activeSubnetwork: state.activeSubnetwork
+    }
 }
 
 function mapDispatchToProps(dispatch, props) {
@@ -16,21 +18,18 @@ function mapDispatchToProps(dispatch, props) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
+    useEffect(() => {
+        console.log(props.activeSubnetwork.description)
+    }, [])
+
     return (
         <div className={"network-selection-view"}>
             <div className={"network-info"}>
                 <img className={"network-info-img"}
-                     src={"https://sun9-43.userapi.com/c855132/v855132195/1b06e2/3otc23chxQw.jpg"}
+                     src={props.activeSubnetwork.imgSrc}
                 />
-                <div className={"network-name"}>❖ ASIADREAMS ❖</div>
-                <div className={"network-description"}>
-                    Здравствуй, дорогой друг.
-                    Я немного объясню, что мы такое.
-                    Нам не важно, где ты работал раньше или работаешь сейчас. Здесь тебя примут вне зависимости от места
-                    жительства, семейного положения, ориентации, веры или расы. Здесь мы стараемся дать то, в поисках
-                    чего так часто люди блуждают в сети.
-                    Это — твой дом.
-                </div>
+                <div className={"network-name"}>{props.activeSubnetwork.title}</div>
+                <div className={"network-description"}>{props.activeSubnetwork.description}</div>
             </div>
 
             <div className={"games-label"}>
