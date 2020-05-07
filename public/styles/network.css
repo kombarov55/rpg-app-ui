@@ -140,3 +140,26 @@
 
     background: #592e83;
 }
+
+.network-creation-view {
+    align-self: center;
+    align-items: stretch;
+
+    width: 80%;
+}
+
+.network-creation-view-label {
+    font-size: 2.2vmax;
+    padding: 2vmax 0;
+}
+
+.network-creation-save-button {
+    align-self: center;
+
+    padding: 1vmax 0;
+    margin: 5vmax 0;
+
+    text-align: center;
+
+    background: #592e83;
+}

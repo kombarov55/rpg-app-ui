@@ -2,7 +2,7 @@ import {createStore} from "redux";
 import {rootReducer} from "./Reducers";
 import {
     announcementView,
-    gameView,
+    gameView, networkCreationView,
     networkSelectionView,
     questionnaireCreationView,
     questionnaireRulesView
@@ -11,7 +11,7 @@ import {
 export const initialState = {
     sidebarVisible: false,
     growl: null,
-    currentView: networkSelectionView,
+    currentView: networkCreationView,
     userAccount: {
 
     },
