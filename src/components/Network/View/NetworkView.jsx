@@ -2,7 +2,13 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import NetworkItem from "../NetworkItem";
 import {gameCreationView, gameView, subnetworkCreationView, subnetworkView} from "../../../Views";
-import {changeView, setActiveSubnetwork, setGames, setSubnetworks} from "../../../data-layer/ActionCreators";
+import {
+    changeView,
+    setActiveGame,
+    setActiveSubnetwork,
+    setGames,
+    setSubnetworks
+} from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
 import Globals from "../../../util/Globals";
@@ -20,7 +26,8 @@ function mapDispatchToProps(dispatch, props) {
     return {
         changeView: view => dispatch(changeView(view)),
         setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks)),
-        setActiveSubnetwork: subnetwork => dispatch(setActiveSubnetwork(subnetwork))
+        setActiveSubnetwork: subnetwork => dispatch(setActiveSubnetwork(subnetwork)),
+        setActiveGame: game => dispatch(setActiveGame(game))
     }
 }
 
@@ -99,7 +106,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 {
                     props.games.map(game => (
                         <GameItem
-                            onClick={() => props.changeView(gameView)}
+                            key={game.id}
+                            onClick={() => {
+                                props.setActiveGame(game)
+                                props.changeView(gameView)
+                            }}
                             imgSrc={game.imgSrc}
                             title={game.title}
                         />

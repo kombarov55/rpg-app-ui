@@ -22,6 +22,7 @@ export const initialState = {
     activeConversation: null,
     activeNetwork: null,
     activeSubnetwork: null,
+    activeGame: null,
     msgs: [],
     networks: [],
     subnetworks: [],

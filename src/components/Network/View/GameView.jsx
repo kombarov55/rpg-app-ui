@@ -4,7 +4,9 @@ import {changeView} from "../../../data-layer/ActionCreators";
 import {questionnaireCreationView, questionnaireRulesView} from "../../../Views";
 
 function mapStateToProps(state, props) {
-    return {}
+    return {
+        activeGame: state.activeGame
+    }
 }
 
 function mapDispatchToProps(dispatch, props) {
@@ -19,10 +21,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
         <div className={"game-view"}>
             <div className={"game-info"}>
                 <img className={"game-info-img"}
-                     src={"https://sun9-64.userapi.com/c858416/v858416297/1c6f50/HpIP0jOcov4.jpg"}
+                     src={props.activeGame.imgSrc}
                 />
-                <div className={"game-name"}>Звёздные Войны ❖ Ролевая Игра ❖ Star Wars</div>
-                <div className={"game-description"}>
+                <div className={"game-name"}>{props.activeGame.title}</div>
+                <div className={"game-description"}>{props.activeGame.description}
                 </div>
                 <div className={"mobile-button"}>Присоединиться к игре</div>
                 <div className={"mobile-button"}
