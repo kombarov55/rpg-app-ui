@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import GameItem from "../GameItem";
-import {changeView, setSubnetworks} from "../../../data-layer/ActionCreators";
-import {gameCreationView, gameView, networkView} from "../../../Views";
+import {changeView, setSubnetworks, updateSubnetworkForm} from "../../../data-layer/ActionCreators";
+import {gameCreationView, gameView, networkView, subnetworkEditView} from "../../../Views";
 import AddGameItem from "../AddGameItem";
 import Globals from "../../../util/Globals";
 import Btn from "../../Common/Btn";
@@ -22,7 +22,8 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch, props) {
     return {
         changeView: view => dispatch(changeView(view)),
-        setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks))
+        setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks)),
+        updateSubnetworkForm: fieldNameToValue => dispatch(updateSubnetworkForm(fieldNameToValue))
     }
 }
 
@@ -35,6 +36,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onAddGameClicked() {
         Globals.creatingGameByNetwork = false
         props.changeView(gameCreationView)
+    }
+
+    function onEditClicked() {
+        props.updateSubnetworkForm(props.activeSubnetwork)
+        props.changeView(subnetworkEditView)
     }
 
     function onDeleteClicked() {
@@ -74,6 +80,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                     onClick={() => onAddGameClicked()}
                 />
             </div>
+            <Btn text={"Редактировать"}
+                 onClick={() => onEditClicked()}
+            />
             <Btn onClick={() => onDeleteClicked()}
                  text={"Удалить"}/>
         </div>

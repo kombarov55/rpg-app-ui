@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
-    function save() {
+    function onSaveClicked() {
         put(editNetworkUrl(props.activeNetwork.id), props.networkForm, rs => {
             props.setNetworks(props.networks.filter(it => it.id !== rs.id).concat(rs))
             props.setActiveNetwork(rs)
@@ -55,7 +55,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                            onChange={e => props.updateNetworkForm({description: e.target.value})}
             />
             <div className={"network-creation-save-button"}
-                 onClick={() => save()}>
+                 onClick={() => onSaveClicked()}>
                 Сохранить
             </div>
         </div>

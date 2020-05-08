@@ -26,6 +26,7 @@ export const editNetworkUrl = networkId => rootUrl + "/network/" + networkId
 export const deleteNetworkUrl = networkId => networkUrl + "/"  + networkId
 
 export const subnetworkUrl = networkId => networkUrl + "/" + networkId + "/subnetwork"
+export const editSubnetworkUrl = (networkId, subnetworkId) => subnetworkUrl(networkId) + "/" + subnetworkId
 export const deleteSubnetworkUrl = (networkId, subnetworkId) => subnetworkUrl(networkId) + "/" + subnetworkId
 
 export const gameByNetworkId = networkId => networkUrl + "/" + networkId + "/game"
