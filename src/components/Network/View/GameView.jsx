@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {changeView, setGames} from "../../../data-layer/ActionCreators";
-import {networkView, questionnaireCreationView, questionnaireRulesView} from "../../../Views";
+import {changeView, setActiveGame, setGames, updateGameForm} from "../../../data-layer/ActionCreators";
+import {gameEditView, networkView, questionnaireCreationView, questionnaireRulesView} from "../../../Views";
 import {httpDelete} from "../../../util/Http";
 import {deleteGame} from "../../../util/Parameters";
 
@@ -16,12 +16,19 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch, props) {
     return {
         changeView: view => dispatch(changeView(view)),
-        setGames: games => dispatch(setGames(games))
+        setGames: games => dispatch(setGames(games)),
+        updateGameForm: game => dispatch(updateGameForm(game))
     }
 }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
+
+    function onEditClicked() {
+        props.updateGameForm(props.activeGame)
+        props.changeView(gameEditView)
+    }
+
     function onDeleteClicked() {
         if (window.confirm("Удалить игру?")) {
             httpDelete(deleteGame(props.activeGame.id), () => {
@@ -45,6 +52,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 <div className={"mobile-button"}
                      onClick={() => props.changeView(questionnaireRulesView)}>
                     Создать шаблон анкеты
+                </div>
+                <div className={"mobile-button"}
+                     onClick={() => onEditClicked()}>
+                    Обновить
                 </div>
                 <div className={"mobile-button"}
                      onClick={() => onDeleteClicked()}>

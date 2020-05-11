@@ -20,6 +20,7 @@ import SubnetworkCreationView from "./components/Network/View/SubnetworkCreation
 import GameCreationView from "./components/Network/View/GameCreationView";
 import NetworkEditView from "./components/Network/View/NetworkEditView";
 import SubnetworkEditView from "./components/Network/View/SubnetworkEditView";
+import GameEditView from "./components/Network/View/GameEditView";
 
 export const announcementView = {component: <AnnouncementView/>, label: "Доска объявлений"}
 export const myAnnouncementView = {component: <MyAnnouncementView/>, label: "Мои объявления"}
@@ -46,6 +47,7 @@ export const subnetworkEditView = {component: <SubnetworkEditView/>, label: "Р�
 
 export const gameView = {component: <GameView/>, label: "Игра"}
 export const gameCreationView = {component: <GameCreationView/>, label: "Создание игры"}
+export const gameEditView = {component: <GameEditView/>, label: "Редактирование игры"}
 
 export const questionnaireRulesView = {component: <QuestionnaireRulesView/>, label: "Правила игры"}
 export const questionnaireCreationView = {component: <QuestionnaireCreationView/>, label: "Создание анкеты"}

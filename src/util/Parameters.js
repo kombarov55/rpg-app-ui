@@ -1,4 +1,4 @@
-export const rootUrl = "https://localhost:8080"
+export const rootUrl = "http://localhost:8080"
 
 export const loginUrl = rootUrl + "/login"
 
@@ -31,4 +31,6 @@ export const deleteSubnetworkUrl = (networkId, subnetworkId) => subnetworkUrl(ne
 
 export const gameByNetworkId = networkId => networkUrl + "/" + networkId + "/game"
 export const gameBySubnetworkId = (networkId, subnetworkId) => subnetworkUrl(networkId) + "/" + subnetworkId + "/game"
+export const editGameByNetworkId = (networkId, gameId) => gameByNetworkId(networkId) + "/" + gameId
+export const editGamebySubnetworkId = (networkId, subnetworkId, gameId) => gameBySubnetworkId(networkId, subnetworkId) + "/" + gameId
 export const deleteGame = gameId => rootUrl + "/game/" + gameId
