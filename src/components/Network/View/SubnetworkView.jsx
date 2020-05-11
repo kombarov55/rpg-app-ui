@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import GameItem from "../GameItem";
-import {changeView, setSubnetworks, updateSubnetworkForm} from "../../../data-layer/ActionCreators";
+import {changeView, setActiveGame, setSubnetworks, updateSubnetworkForm} from "../../../data-layer/ActionCreators";
 import {gameCreationView, gameView, networkView, subnetworkEditView} from "../../../Views";
 import AddGameItem from "../AddGameItem";
 import Globals from "../../../util/Globals";
@@ -23,13 +23,15 @@ function mapDispatchToProps(dispatch, props) {
     return {
         changeView: view => dispatch(changeView(view)),
         setSubnetworks: subnetworks => dispatch(setSubnetworks(subnetworks)),
-        updateSubnetworkForm: fieldNameToValue => dispatch(updateSubnetworkForm(fieldNameToValue))
+        updateSubnetworkForm: fieldNameToValue => dispatch(updateSubnetworkForm(fieldNameToValue)),
+        setActiveGame: game =>  dispatch(setActiveGame(game))
     }
 }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onGameClicked(game) {
+        props.setActiveGame(game)
         props.changeView(gameView)
     }
 
@@ -56,9 +58,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     return (
         <div className={"network-selection-view"}>
             <div className={"network-info"}>
-                <img className={"network-info-img"}
-                     src={props.activeSubnetwork.imgSrc}
-                />
+                <img className={"network-info-img"} src={props.activeSubnetwork.imgSrc}/>
                 <div className={"network-name"}>{props.activeSubnetwork.title}</div>
                 <div className={"network-description"}>{props.activeSubnetwork.description}</div>
             </div>

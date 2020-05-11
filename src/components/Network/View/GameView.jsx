@@ -55,7 +55,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 </div>
                 <div className={"mobile-button"}
                      onClick={() => onEditClicked()}>
-                    Обновить
+                    Редактировать
                 </div>
                 <div className={"mobile-button"}
                      onClick={() => onDeleteClicked()}>
