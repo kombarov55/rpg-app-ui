@@ -52,7 +52,9 @@ export const initialState = {
         title: "",
         description: "",
         currencyInput: "",
-        skillTypeInput: ""
+        skillTypeInput: "",
+        currencies: [],
+        skillTypes: []
     },
 }
 

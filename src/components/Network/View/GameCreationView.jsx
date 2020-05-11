@@ -29,6 +29,13 @@ function mapDispatchToProps(dispatch, props) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
+    function onCurrencySubmitClicked(value) {
+        props.updateGameForm({
+            currencies: props.gameForm.currencies.filter(it => it != value).concat(value),
+            currencyInput: ""
+        })
+    }
+
     function save() {
         const url = Globals.creatingGameByNetwork ?
             gameByNetworkId(props.activeNetwork.id) :
@@ -63,8 +70,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             <ListInput
                 value={props.gameForm.currencyInput}
                 onChange={e => props.updateGameForm({currencyInput: e.target.value})}
-                onSubmit={value => console.log(value)}
-                values={["Золото", "Серебро", "Опыт"]}
+                onSubmit={value => onCurrencySubmitClicked(value)}
+                values={props.gameForm.currencies}
             />
             <div className={"game-creation-save-button"}
                  onClick={() => save()}>
