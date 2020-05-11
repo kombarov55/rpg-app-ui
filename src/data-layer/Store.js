@@ -54,7 +54,7 @@ export const initialState = {
         currencyInput: "",
         skillTypeInput: "",
         currencies: [],
-        skillTypes: []
+        skillTypes: ["Общие", "Боевые", "Магические", "Прочие"]
     },
 }
 
