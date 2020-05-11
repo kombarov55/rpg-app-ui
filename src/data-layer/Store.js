@@ -1,7 +1,7 @@
 import {createStore} from "redux";
 import {rootReducer} from "./Reducers";
 import {
-    announcementView,
+    announcementView, gameCreationView,
     gameView, networkCreationView,
     networkSelectionView,
     questionnaireCreationView,
@@ -11,7 +11,7 @@ import {
 export const initialState = {
     sidebarVisible: false,
     growl: null,
-    currentView: networkCreationView,
+    currentView: gameCreationView,
     userAccount: {
 
     },
@@ -50,8 +50,10 @@ export const initialState = {
     },
     gameForm: {
         title: "",
-        description: ""
-    }
+        description: "",
+        currencyInput: "",
+        skillTypeInput: ""
+    },
 }
 
 export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

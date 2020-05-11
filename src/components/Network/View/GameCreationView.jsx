@@ -6,6 +6,8 @@ import {post} from "../../../util/Http";
 import {gameByNetworkId, gameBySubnetworkId} from "../../../util/Parameters";
 import {networkView, subnetworkView} from "../../../Views";
 import Globals from "../../../util/Globals";
+import QuestionnaireInputList from "../../QuestionnaireCreation/QuestionnaireInputList";
+import ListInput from "../../Common/ListInput";
 
 function mapStateToProps(state, props) {
     return {
@@ -42,20 +44,27 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
 
     return (
         <div className={"game-creation-view"}>
-            <div className={"game-creation-view-label"}>Название: </div>
+            <div className={"game-creation-view-label"}>Название:</div>
             <input className={"game-creation-view-input"}
                    value={props.gameForm.title}
                    onChange={e => props.updateGameForm({title: e.target.value})}
             />
 
-            <div className={"game-creation-view-label"}>Картинка: </div>
-            <input type={"file"} />
+            <div className={"game-creation-view-label"}>Картинка:</div>
+            <input type={"file"}/>
 
             <div className={"game-creation-view-label"}>Описание:</div>
             <InputTextarea autoResize={true}
                            rows={10}
                            value={props.gameForm.description}
                            onChange={e => props.updateGameForm({description: e.target.value})}
+            />
+            <div className={"game-creation-view-label"}>Валюта:</div>
+            <ListInput
+                value={props.gameForm.currencyInput}
+                onChange={e => props.updateGameForm({currencyInput: e.target.value})}
+                onSubmit={value => console.log(value)}
+                values={["Золото", "Серебро", "Опыт"]}
             />
             <div className={"game-creation-save-button"}
                  onClick={() => save()}>
