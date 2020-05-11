@@ -2,15 +2,11 @@ import React from "react";
 import {connect} from "react-redux";
 
 function mapStateToProps(state, props) {
-    return {
-    
-    }
+    return {}
 }
 
 function mapDispatchToProps(dispatch, props) {
-    return {
-    
-    }
+    return {}
 }
 
 
@@ -29,7 +25,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             </div>
             <div className={"list-input-values"}>
                 {
-                    props.values.map(it => <div key={it} className={"list-input-value"}>{it}</div>)
+                    props.values.map(it =>
+                        <div key={it} className={"list-input-value"}>
+                            <div className={"list-input-value-label"}>{it}</div>
+                            <i className={"pi pi-times"}
+                               style={{"fontSize": "3vmax"}}
+                               onClick={() => props.onDelete(it)}
+                            />
+                        </div>
+                    )
                 }
                 {/*<div className={"list-input-value"}>Москва</div>*/}
                 {/*<div className={"list-input-value"}>Тула</div>*/}

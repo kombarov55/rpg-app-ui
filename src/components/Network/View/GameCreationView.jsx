@@ -30,10 +30,16 @@ function mapDispatchToProps(dispatch, props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onCurrencySubmitClicked(value) {
-        props.updateGameForm({
-            currencies: props.gameForm.currencies.filter(it => it != value).concat(value),
-            currencyInput: ""
-        })
+        if (props.gameForm.currencyInput !== "") {
+            props.updateGameForm({
+                currencies: props.gameForm.currencies.filter(it => it != value).concat(value),
+                currencyInput: ""
+            })
+        }
+    }
+
+    function onCurrencyDeleteClicked(value) {
+        props.updateGameForm({currencies: props.gameForm.currencies.filter(it => it != value)})
     }
 
     function save() {
@@ -71,6 +77,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 value={props.gameForm.currencyInput}
                 onChange={e => props.updateGameForm({currencyInput: e.target.value})}
                 onSubmit={value => onCurrencySubmitClicked(value)}
+                onDelete={value => onCurrencyDeleteClicked(value)}
                 values={props.gameForm.currencies}
             />
             <div className={"game-creation-save-button"}
