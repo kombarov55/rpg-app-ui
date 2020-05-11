@@ -35,9 +35,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                         </div>
                     )
                 }
-                {/*<div className={"list-input-value"}>Москва</div>*/}
-                {/*<div className={"list-input-value"}>Тула</div>*/}
-                {/*<div className={"list-input-value"}>Воронеж</div>*/}
             </div>
         </>
     )
