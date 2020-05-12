@@ -14,7 +14,7 @@ import {
     setActiveGame,
     setActiveSubnetwork,
     setGames, setNetworks,
-    setSubnetworks, updateNetworkForm
+    setSubnetworks, updateGameForm, updateNetworkForm
 } from "../../../data-layer/ActionCreators";
 import AddSubnetworkItem from "../AddSubnetworkItem";
 import AddGameItem from "../AddGameItem";
@@ -23,6 +23,7 @@ import GameItem from "../GameItem";
 import {get, httpDelete} from "../../../util/Http";
 import {deleteNetworkUrl, gameBySubnetworkId} from "../../../util/Parameters";
 import Btn from "../../Common/Btn";
+import DefaultFormValues from "../../../data-layer/DefaultFormValues";
 
 function mapStateToProps(state, props) {
     return {
@@ -42,7 +43,8 @@ function mapDispatchToProps(dispatch, props) {
         setActiveGame: game => dispatch(setActiveGame(game)),
         setGames: games => dispatch(setGames(games)),
         setNetworks: networks => dispatch(setNetworks(networks)),
-        updateNetworkForm: fieldNameToValue => dispatch(updateNetworkForm(fieldNameToValue))
+        updateNetworkForm: fieldNameToValue => dispatch(updateNetworkForm(fieldNameToValue)),
+        updateGameForm: fieldNameToValue => dispatch(updateGameForm(fieldNameToValue))
     }
 }
 
@@ -58,6 +60,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     function onGameClicked(game) {
         props.setActiveGame(game)
         props.changeView(gameView)
+    }
+
+    function onAddGameClicked() {
+        Globals.creatingGameByNetwork = true
+        props.updateGameForm(DefaultFormValues.gameForm)
+        props.changeView(gameCreationView)
     }
 
     function onEditClicked() {
@@ -118,10 +126,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                         />
                     ))
                 }
-                <AddGameItem onClick={() => {
-                    Globals.creatingGameByNetwork = true
-                    props.changeView(gameCreationView)
-                }}/>
+                <AddGameItem onClick={() => onAddGameClicked()}/>
             </div>
             <Btn text={"Редактировать"}
                  onClick={() => onEditClicked()}

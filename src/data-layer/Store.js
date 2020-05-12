@@ -7,6 +7,7 @@ import {
     questionnaireCreationView,
     questionnaireRulesView
 } from "../Views";
+import DefaultFormValues from "./DefaultFormValues";
 
 export const initialState = {
     sidebarVisible: false,
@@ -48,14 +49,7 @@ export const initialState = {
         title: "",
         description: ""
     },
-    gameForm: {
-        title: "",
-        description: "",
-        currencyInput: "",
-        skillTypeInput: "",
-        currencies: [],
-        skillTypes: ["Общие", "Боевые", "Магические", "Прочие"]
-    },
+    gameForm: DefaultFormValues.gameForm,
 }
 
 export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
