@@ -6,6 +6,7 @@ import Btn from "../Common/Btn";
 import {updateQuestionnaireForm, updateQuestionnaireItemForm} from "../../data-layer/ActionCreators";
 import ListInput from "../Common/ListInput";
 import DefaultFormValues from "../../data-layer/DefaultFormValues";
+import QuestionnaireItemType from "../../data-layer/enums/QuestionnaireItemType";
 
 function mapStateToProps(state, props) {
     return {
@@ -59,21 +60,21 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
             <div className={"questionnaire-creation-item-form-label"}>Тип:</div>
             <SelectButton value={props.questionnaireItemForm.type}
                           onChange={e => props.updateQuestionnaireItemForm({type: e.target.value})}
-                options={[
-                {label: "Текстовое", value: "string"},
-                {label: "Числовое", value: "numeric"},
-                {label: "Графическое ", value: "graphic"},
-                {label: "Выбор из списка", value: "list"}
-            ]}/>
+                          options={[
+                              {label: QuestionnaireItemType.STRING.value, value: QuestionnaireItemType.STRING.name},
+                              {label: QuestionnaireItemType.NUMERIC.value, value: QuestionnaireItemType.NUMERIC.name},
+                              {label: QuestionnaireItemType.GRAPHIC.value, value: QuestionnaireItemType.GRAPHIC.name},
+                              {label: QuestionnaireItemType.LIST.value, value: QuestionnaireItemType.LIST.name}
+                          ]}/>
             <div className={"questionnaire-creation-item-form-label"}>Элемент списка:</div>
-            { props.questionnaireItemForm.type === "list" &&
-                <ListInput
-                    value={props.questionnaireItemForm.listInput}
-                    onChange={e => props.updateQuestionnaireItemForm({listInput: e.target.value})}
-                    onSubmit={value => onAddListItemClicked(value)}
-                    onDelete={value => onDeleteListItemClicked(value)}
-                    values={props.questionnaireItemForm.listValues}
-                />
+            {props.questionnaireItemForm.type === "list" &&
+            <ListInput
+                value={props.questionnaireItemForm.listInput}
+                onChange={e => props.updateQuestionnaireItemForm({listInput: e.target.value})}
+                onSubmit={value => onAddListItemClicked(value)}
+                onDelete={value => onDeleteListItemClicked(value)}
+                values={props.questionnaireItemForm.listValues}
+            />
             }
 
 

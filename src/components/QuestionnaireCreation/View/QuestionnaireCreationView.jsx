@@ -7,6 +7,7 @@ import SkillpointsDistributionForm from "../SkillpointsDistributionForm";
 import SkillItem from "../SkillItem";
 import QuestionnaireAddSkillButton from "../QuestionnaireAddSkillButton";
 import {updateQuestionnaireForm} from "../../../data-layer/ActionCreators";
+import QuestionnaireItemType from "../../../data-layer/enums/QuestionnaireItemType";
 
 
 function mapStateToProps(state, props) {
@@ -27,6 +28,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     return (
         <div className={"questionnaire-creation-view"}>
             <div className={"questionnaire-creation-view-label"}>Пункты анкеты</div>
+            {
+                props.questionnaireForm.questionnaireItems.map(it =>
+                    <QuestionnaireItem
+                        key={it.name}
+                        name={it.name}
+                        type={QuestionnaireItemType.getValueByName(it.type)}
+                        listValues={it.listValues}
+                    />
+                )
+            }
+
             {
                 props.questionnaireForm.itemFormVisible && <QuestionnaireItemForm/>
             }

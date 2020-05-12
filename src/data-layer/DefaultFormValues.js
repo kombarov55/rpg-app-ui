@@ -1,3 +1,5 @@
+import QuestionnaireItemType from "./enums/QuestionnaireItemType";
+
 export default {
     gameForm: {
         title: "",
@@ -13,7 +15,7 @@ export default {
     },
     questionnaireItemForm: {
         name: "",
-        type: "",
+        type: QuestionnaireItemType.STRING.name,
         listInput: "",
         listValues: []
     }
