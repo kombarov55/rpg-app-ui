@@ -49,7 +49,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
         props.updateGameForm({skillTypes: props.gameForm.skillTypes.filter(it => it !== value)})
     }
 
-    function save() {
+    function onSaveClicked() {
         const url = props.activeNetwork.networkId ?
             editGameByNetworkId(props.activeNetwork.id) :
             editGamebySubnetworkId(props.activeNetwork.id, props.activeSubnetwork.id);
@@ -96,7 +96,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                 onDelete={value => onDeleteSkillTypeClicked(value)}
             />
             <div className={"game-creation-save-button"}
-                 onClick={() => save()}>
+                 onClick={() => onSaveClicked()}>
                 Сохранить
             </div>
         </div>
