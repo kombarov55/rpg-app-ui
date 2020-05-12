@@ -12,7 +12,7 @@ import DefaultFormValues from "./DefaultFormValues";
 export const initialState = {
     sidebarVisible: false,
     growl: null,
-    currentView: gameEditView,
+    currentView: questionnaireCreationView,
     userAccount: {
 
     },
@@ -50,6 +50,7 @@ export const initialState = {
         description: ""
     },
     gameForm: DefaultFormValues.gameForm,
+    questionnaireForm: DefaultFormValues.questionnaireForm
 }
 
 export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

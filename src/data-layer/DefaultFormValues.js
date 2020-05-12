@@ -6,5 +6,8 @@ export default {
         skillTypeInput: "",
         currencies: [],
         skillTypes: ["Общие", "Боевые", "Магические", "Прочие"]
+    },
+    questionnaireForm: {
+        itemFormVisible: false
     }
 }
