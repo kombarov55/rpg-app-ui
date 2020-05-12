@@ -3,17 +3,20 @@ import {connect} from "react-redux";
 import {SelectButton} from "primereact/selectbutton";
 import QuestionnaireInputList from "./QuestionnaireInputList";
 import Btn from "../Common/Btn";
-import {updateQuestionnaireItemForm} from "../../data-layer/ActionCreators";
+import {updateQuestionnaireForm, updateQuestionnaireItemForm} from "../../data-layer/ActionCreators";
 import ListInput from "../Common/ListInput";
+import DefaultFormValues from "../../data-layer/DefaultFormValues";
 
 function mapStateToProps(state, props) {
     return {
+        questionnaireForm: state.questionnaireForm,
         questionnaireItemForm: state.questionnaireItemForm
     }
 }
 
 function mapDispatchToProps(dispatch, props) {
     return {
+        updateQuestionnaireForm: fieldNameToValue => dispatch(updateQuestionnaireForm(fieldNameToValue)),
         updateQuestionnaireItemForm: fieldNameToValue => dispatch(updateQuestionnaireItemForm(fieldNameToValue))
     }
 }
@@ -37,7 +40,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
     }
 
     function onSaveClicked() {
-        console.log(props.questionnaireItemForm)
+        props.updateQuestionnaireForm({
+            questionnaireItems: props.questionnaireForm.questionnaireItems.concat(props.questionnaireItemForm),
+            itemFormVisible: false
+        })
+        props.updateQuestionnaireItemForm(DefaultFormValues.questionnaireItemForm)
+
     }
 
     return (

@@ -8,7 +8,8 @@ export default {
         skillTypes: ["Общие", "Боевые", "Магические", "Прочие"]
     },
     questionnaireForm: {
-        itemFormVisible: false
+        itemFormVisible: false,
+        questionnaireItems: []
     },
     questionnaireItemForm: {
         name: "",
