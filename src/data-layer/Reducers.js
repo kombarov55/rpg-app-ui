@@ -31,7 +31,7 @@ import {
     SET_SUBNETWORKS,
     SET_ACTIVE_SUBNETWORK,
     UPDATE_GAME_FORM,
-    SET_GAMES, SET_ACTIVE_GAME, UPDATE_QUESTIONAIRE_FORM
+    SET_GAMES, SET_ACTIVE_GAME, UPDATE_QUESTIONNAIRE_FORM, UPDATE_QUESTIONNAIRE_ITEM_FORM
 } from "./ActionTypes";
 import {initialState} from "./Store";
 import MergeLists from "../util/MergeLists";
@@ -225,9 +225,14 @@ export function rootReducer(state = initialState, action) {
                 activeGame: action.payload.activeGame
             })
 
-        case UPDATE_QUESTIONAIRE_FORM:
+        case UPDATE_QUESTIONNAIRE_FORM:
             return Object.assign({}, state, {
                 questionnaireForm: Object.assign({}, state.questionnaireForm, action.payload.fieldNameToValue)
+            })
+
+        case UPDATE_QUESTIONNAIRE_ITEM_FORM:
+            return Object.assign({}, state, {
+                questionnaireItemForm: Object.assign({}, state.questionnaireItemForm, action.payload.fieldNameToValue)
             })
 
         default:

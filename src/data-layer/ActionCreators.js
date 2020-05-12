@@ -33,7 +33,7 @@ import {
     SET_SUBNETWORKS,
     SET_ACTIVE_SUBNETWORK,
     UPDATE_GAME_FORM,
-    SET_GAMES, SET_ACTIVE_GAME, UPDATE_QUESTIONAIRE_FORM
+    SET_GAMES, SET_ACTIVE_GAME, UPDATE_QUESTIONNAIRE_FORM, UPDATE_QUESTIONNAIRE_ITEM_FORM
 } from "./ActionTypes";
 import {announcementView} from "../Views";
 
@@ -363,7 +363,16 @@ export function setActiveGame(game) {
 
 export function updateQuestionnaireForm(fieldNameToValue) {
     return {
-        type: UPDATE_QUESTIONAIRE_FORM,
+        type: UPDATE_QUESTIONNAIRE_FORM,
+        payload: {
+            fieldNameToValue: fieldNameToValue
+        }
+    }
+}
+
+export function updateQuestionnaireItemForm(fieldNameToValue) {
+    return {
+        type: UPDATE_QUESTIONNAIRE_ITEM_FORM,
         payload: {
             fieldNameToValue: fieldNameToValue
         }

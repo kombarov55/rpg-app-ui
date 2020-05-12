@@ -50,7 +50,8 @@ export const initialState = {
         description: ""
     },
     gameForm: DefaultFormValues.gameForm,
-    questionnaireForm: DefaultFormValues.questionnaireForm
+    questionnaireForm: DefaultFormValues.questionnaireForm,
+    questionnaireItemForm: DefaultFormValues.questionnaireItemForm
 }
 
 export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

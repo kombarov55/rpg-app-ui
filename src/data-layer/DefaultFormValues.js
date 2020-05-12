@@ -9,5 +9,11 @@ export default {
     },
     questionnaireForm: {
         itemFormVisible: false
+    },
+    questionnaireItemForm: {
+        name: "",
+        type: "",
+        listInput: "",
+        listValues: []
     }
 }
