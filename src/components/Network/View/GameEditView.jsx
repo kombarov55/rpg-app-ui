@@ -5,7 +5,7 @@ import {changeView, setActiveGame, setGames, updateGameForm} from "../../../data
 import {put} from "../../../util/Http";
 import {editGameByNetworkId, editGamebySubnetworkId} from "../../../util/Parameters";
 import {gameView} from "../../../Views";
-import Globals from "../../../util/Globals";
+import ListInput from "../../Common/ListInput";
 
 function mapStateToProps(state, props) {
     return {
@@ -28,6 +28,27 @@ function mapDispatchToProps(dispatch, props) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
+
+    function onAddCurrencyClicked(value) {
+        if (props.currencyInput !== "") {
+            props.updateGameForm({currencies: props.gameForm.currencies.filter(it => it !== value).concat(value)})
+            props.updateGameForm({currencyInput: ""})
+        }
+    }
+
+    function onDeleteCurrencyClicked(value) {
+        props.updateGameForm({currencies: props.gameForm.currencies.filter(it => it !== value)})
+    }
+
+    function onAddSkillTypeClicked(value) {
+        props.updateGameForm({skillTypes: props.gameForm.skillTypes.filter(it => it !== value).concat(value)})
+        props.updateGameForm({skillTypeInput: ""})
+    }
+
+    function onDeleteSkillTypeClicked(value) {
+        props.updateGameForm({skillTypes: props.gameForm.skillTypes.filter(it => it !== value)})
+    }
+
     function save() {
         const url = props.activeNetwork.networkId ?
             editGameByNetworkId(props.activeNetwork.id) :
@@ -57,6 +78,22 @@ export default connect(mapStateToProps, mapDispatchToProps)(function (props) {
                            rows={10}
                            value={props.gameForm.description}
                            onChange={e => props.updateGameForm({description: e.target.value})}
+            />
+            <div className={"game-creation-view-label"}>Валюта: </div>
+            <ListInput
+                value={props.gameForm.currencyInput}
+                onChange={e => props.updateGameForm({currencyInput: e.target.value})}
+                values={props.gameForm.currencies}
+                onSubmit={value => onAddCurrencyClicked(value)}
+                onDelete={value => onDeleteCurrencyClicked(value)}
+            />
+            <div className={"game-creation-view-label"}>Тип навыка: </div>
+            <ListInput
+                value={props.gameForm.skillTypeInput}
+                onChange={e => props.updateGameForm({skillTypeInput: e.target.value})}
+                values={props.gameForm.skillTypes}
+                onSubmit={value => onAddSkillTypeClicked(value)}
+                onDelete={value => onDeleteSkillTypeClicked(value)}
             />
             <div className={"game-creation-save-button"}
                  onClick={() => save()}>
